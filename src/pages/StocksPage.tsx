@@ -126,7 +126,7 @@ export default function StocksPage() {
           className="overflow-hidden rounded-[48px]"
         >
           <img
-            src="/assets/stocks-banner.png"
+            src="assets/stocks-banner.png"
             alt="Stocks Banner"
             className="w-full h-auto object-cover"
           />
@@ -192,11 +192,11 @@ export default function StocksPage() {
           <div className="flex-[2] bg-white rounded-[40px] p-6 lg:p-10 relative overflow-hidden shadow-[0_32px_80px_-20px_rgba(0,0,0,0.06)] border border-gray-100 group h-full flex flex-col justify-center min-h-0">
             {/* Background Abstract */}
             <div className="absolute bottom-0 left-0">
-              <img src="/assets/stocks-background-abstract.png" alt="" className="w-full h-full object-contain object-bottom-left" />
+              <img src="assets/stocks-background-abstract.png" alt="" className="w-full h-full object-contain object-bottom-left" />
             </div>
             {/* Top Logo Blur */}
             <div className="absolute top-0 right-0 size-60">
-              <img src="/assets/stocks-top-logo-blur.png" alt="" className="w-full h-full object-contain" />
+              <img src="assets/stocks-top-logo-blur.png" alt="" className="w-full h-full object-contain" />
             </div>
 
             <div className="space-y-4 relative z-10">
@@ -387,7 +387,7 @@ export default function StocksPage() {
           <motion.div variants={itemVariants} className="flex-1 relative">
             <div className="relative z-10 scale-110 lg:scale-125">
               <img
-                src="/assets/isomorphic-stocks.png"
+                src="assets/isomorphic-stocks.png"
                 alt="Stocks Hero"
                 className="w-full h-auto drop-shadow-2xl"
               />

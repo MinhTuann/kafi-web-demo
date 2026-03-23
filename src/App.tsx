@@ -4,7 +4,7 @@ import StocksPage from './pages/StocksPage';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/kafi-web-demo">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/stocks" element={<StocksPage />} />

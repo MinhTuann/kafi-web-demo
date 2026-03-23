@@ -48,11 +48,11 @@ export default function HomePage() {
   const adSlides = [
     {
       id: 'lixi',
-      image: '/assets/ads-banner1.png'
+      image: 'assets/ads-banner1.png'
     },
     {
       id: 'partner',
-      image: '/assets/ads-banner2.png'
+      image: 'assets/ads-banner2.png'
     }
   ];
 
@@ -82,7 +82,7 @@ export default function HomePage() {
       {/* Full-screen background video */}
       <video
         className="fixed inset-0 w-full h-full object-cover z-0 pointer-events-none"
-        src="/assets/video.mp4"
+        src="assets/video.mp4"
         autoPlay
         loop
         muted
@@ -522,7 +522,7 @@ export default function HomePage() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
                 <img
-                  src="/assets/bot.png"
+                  src="assets/bot.png"
                   alt="Kai"
                   className="w-[85%] h-[85%] object-contain"
                 />
