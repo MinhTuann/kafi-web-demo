@@ -1,5 +1,6 @@
 import { motion, AnimatePresence, animate } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CountingNumber = ({ value, duration = 1.6 }: { value: number, duration?: number }) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -17,6 +18,7 @@ const CountingNumber = ({ value, duration = 1.6 }: { value: number, duration?: n
 };
 
 export default function HomePage() {
+  const navigate = useNavigate();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -100,7 +102,7 @@ export default function HomePage() {
               <div className="relative group cursor-pointer">
                 <span className="text-[13px] font-semibold text-Grayscale-Black">Khách hàng cá nhân</span>
                 {/* Pointer/Indicator Triangle */}
-                <div className="absolute -bottom-[14px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[6px] border-b-white z-30" />
+                <div className="absolute -bottom-[14px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-b-[12px] border-b-white z-30" />
               </div>
               <span className="text-[13px] font-medium text-Grayscale-D1/60 hover:text-Grayscale-Black transition-colors cursor-pointer">Khách hàng tổ chức</span>
               <span className="text-[13px] font-medium text-Grayscale-D1/60 hover:text-Grayscale-Black transition-colors cursor-pointer">Quản lý gia sản</span>
@@ -133,16 +135,24 @@ export default function HomePage() {
           >
             <div className="px-5 py-3 flex justify-between items-center">
               <div className="flex items-center gap-12">
-                <div className="flex items-center gap-2 pl-3">
-                  <div className="flex flex-col gap-0.5">
-                    <div className="size-4 bg-Green-Primary rounded-sm" />
-                    <div className="size-4 bg-Green-D2 rounded-sm -mt-2 translate-x-1" />
+                  <div 
+                    className="flex items-center gap-2 pl-3 cursor-pointer"
+                    onClick={() => navigate('/')}
+                  >
+                    <div className="flex flex-col gap-0.5">
+                      <div className="size-4 bg-Green-Primary rounded-sm" />
+                      <div className="size-4 bg-Green-D2 rounded-sm -mt-2 translate-x-1" />
+                    </div>
+                    <span className="text-3xl font-extrabold text-Grayscale-Black tracking-tighter">Kafi</span>
                   </div>
-                  <span className="text-3xl font-extrabold text-Grayscale-Black tracking-tighter">Kafi</span>
-                </div>
 
                 <div className="hidden xl:flex items-center gap-8">
-                  <span className="text-[15px] font-semibold text-Grayscale-Black/80 hover:text-Green-D2 transition-colors cursor-pointer">Sản phẩm & dịch vụ</span>
+                  <span 
+                    className="text-[15px] font-semibold text-Grayscale-Black/80 hover:text-Green-D2 transition-colors cursor-pointer"
+                    onClick={() => navigate('/stocks')}
+                  >
+                    Sản phẩm & dịch vụ
+                  </span>
                   <span className="text-[15px] font-semibold text-Grayscale-Black/80 hover:text-Green-D2 transition-colors cursor-pointer">Thị trường & khuyến nghị</span>
                   <span className="text-[15px] font-semibold text-Grayscale-Black/80 hover:text-Green-D2 transition-colors cursor-pointer">Học viện</span>
                   <span className="text-[15px] font-semibold text-Grayscale-Black/80 hover:text-Green-D2 transition-colors cursor-pointer">Hỗ trợ</span>
