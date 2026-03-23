@@ -1,15 +1,15 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import StocksPage from './pages/StocksPage';
 
 function App() {
   return (
-    <BrowserRouter basename="/kafi-web-demo">
+    <HashRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/stocks" element={<StocksPage />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
