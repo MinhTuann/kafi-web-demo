@@ -257,8 +257,9 @@ export default function HomePage() {
                         )}
                       </AnimatePresence>
                     </div>
+                    {/* Search Icon button */}
                     <div className="size-11 bg-[#00c694] hover:bg-[#00a87a] rounded-full flex justify-center items-center cursor-pointer transition-colors shadow flex-shrink-0 z-20">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#101828" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
                     </div>
                   </motion.div>
                 </div>
@@ -411,7 +412,7 @@ export default function HomePage() {
                                 initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.2, delay: 0.8 }}
                               />
                               <motion.polygon
-                                points="120,48 145,36 165,26 185,32 200,18 220,23 240,8 L260,16 L280,6 L300,13 L320,8 L340,16 L360,10 L380,6 L400,3 L420,0 420,75 120,75"
+                                points="120,48 145,36 165,26 185,32 200,18 220,23 240,8 260,16 280,6 300,13 320,8 340,16 360,10 380,6 400,3 420,0 420,75 120,75"
                                 fill={`url(#greenFill-${idx})`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }}
                               />
                             </>
