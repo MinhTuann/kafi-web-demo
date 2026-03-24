@@ -96,31 +96,31 @@ export default function HomePage() {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex justify-between items-center py-2 px-6"
+            className="flex justify-between items-center py-2 px-6 font-['Inter',sans-serif]"
           >
             <div className="flex items-center gap-6 relative">
               <div className="relative group cursor-pointer">
-                <span className="text-[13px] font-semibold text-Grayscale-Black">Khách hàng cá nhân</span>
+                <span className="text-[12px] leading-4 font-semibold text-[#101828]">Khách hàng cá nhân</span>
                 {/* Pointer/Indicator Triangle */}
                 <div className="absolute -bottom-[14px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-b-[12px] border-b-white z-30" />
               </div>
-              <span className="text-[13px] font-medium text-Grayscale-D1/60 hover:text-Grayscale-Black transition-colors cursor-pointer">Khách hàng tổ chức</span>
-              <span className="text-[13px] font-medium text-Grayscale-D1/60 hover:text-Grayscale-Black transition-colors cursor-pointer">Quản lý gia sản</span>
-              <span className="text-[13px] font-medium text-Grayscale-D1/60 hover:text-Grayscale-Black transition-colors cursor-pointer">Ngân hàng đầu tư</span>
+              <span className="text-[12px] leading-4 font-medium text-[#667085] hover:text-[#101828] transition-colors cursor-pointer">Khách hàng tổ chức</span>
+              <span className="text-[12px] leading-4 font-medium text-[#667085] hover:text-[#101828] transition-colors cursor-pointer">Quản lý gia sản</span>
+              <span className="text-[12px] leading-4 font-medium text-[#667085] hover:text-[#101828] transition-colors cursor-pointer">Ngân hàng đầu tư</span>
             </div>
 
             <div className="hidden lg:flex items-center gap-6">
-              <span className="text-[13px] font-medium text-Grayscale-D1/80 hover:text-Grayscale-Black transition-colors cursor-pointer">Về Kafi</span>
-              <span className="text-[13px] font-medium text-Grayscale-D1/80 hover:text-Grayscale-Black transition-colors cursor-pointer">Quan hệ cổ đông</span>
-              <span className="text-[13px] font-medium text-Grayscale-D1/80 hover:text-Grayscale-Black transition-colors cursor-pointer">Cơ hội sự nghiệp</span>
+              <span className="text-[14px] leading-5 font-semibold text-[#101828] hover:opacity-80 transition-opacity cursor-pointer">Về Kafi</span>
+              <span className="text-[14px] leading-5 font-semibold text-[#101828] hover:opacity-80 transition-opacity cursor-pointer">Quan hệ cổ đông</span>
+              <span className="text-[14px] leading-5 font-semibold text-[#101828] hover:opacity-80 transition-opacity cursor-pointer">Cơ hội sự nghiệp</span>
 
               {/* Language Switcher */}
-              <div className="h-7 p-0.5 bg-Grayscale-D1/10 rounded-lg flex items-center border border-Grayscale-Black/10">
+              <div className="h-8 p-1 bg-[#101828]/50 rounded-xl flex items-center">
                 <div className="h-full px-2.5 bg-white rounded-md shadow-sm flex items-center justify-center">
-                  <span className="text-[11px] font-bold text-Grayscale-Black">VI</span>
+                  <span className="text-[14px] leading-5 font-semibold text-[#101828]">VI</span>
                 </div>
                 <div className="h-full px-2.5 flex items-center justify-center">
-                  <span className="text-[11px] font-semibold text-Grayscale-D1/60">EN</span>
+                  <span className="text-[14px] leading-5 font-semibold text-white">EN</span>
                 </div>
               </div>
             </div>
@@ -131,48 +131,52 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white rounded-full shadow-[0_8px_40px_-12px_rgba(0,0,0,0.08)] border border-white/60 mt-1"
+            className="bg-white rounded-[150px] shadow-[0_8px_40px_-12px_rgba(0,0,0,0.08)] border border-white/60"
           >
-            <div className="px-5 py-3 flex justify-between items-center">
-              <div className="flex items-center gap-12">
-                  <div 
-                    className="flex items-center gap-2 pl-3 cursor-pointer"
+            <div className="pl-6 pr-2 py-2 flex justify-between items-center">
+              <div className="flex items-center">
+                  {/* Logo */}
+                  <div
+                    className="pr-12 cursor-pointer flex items-center shrink-0"
                     onClick={() => navigate('/')}
                   >
-                    <div className="flex flex-col gap-0.5">
-                      <div className="size-4 bg-Green-Primary rounded-sm" />
-                      <div className="size-4 bg-Green-D2 rounded-sm -mt-2 translate-x-1" />
-                    </div>
-                    <span className="text-3xl font-extrabold text-Grayscale-Black tracking-tighter">Kafi</span>
+                    <img
+                      src="https://www.figma.com/api/mcp/asset/994cdc5c-84cf-4c4c-b7e7-d3314e0d71ab"
+                      alt="Kafi"
+                      className="h-7 w-[92px] object-contain"
+                    />
                   </div>
 
-                <div className="hidden xl:flex items-center gap-8">
+                <div className="hidden xl:flex items-center gap-5">
                   <span 
-                    className="text-[15px] font-semibold text-Grayscale-Black/80 hover:text-Green-D2 transition-colors cursor-pointer"
+                    className="text-[14px] font-semibold text-[#344054] hover:text-[#00C694] transition-colors cursor-pointer whitespace-nowrap"
                     onClick={() => navigate('/stocks')}
-                  >
+                >
                     Sản phẩm & dịch vụ
                   </span>
-                  <span className="text-[15px] font-semibold text-Grayscale-Black/80 hover:text-Green-D2 transition-colors cursor-pointer">Thị trường & khuyến nghị</span>
-                  <span className="text-[15px] font-semibold text-Grayscale-Black/80 hover:text-Green-D2 transition-colors cursor-pointer">Học viện</span>
-                  <span className="text-[15px] font-semibold text-Grayscale-Black/80 hover:text-Green-D2 transition-colors cursor-pointer">Hỗ trợ</span>
+                  <span className="text-[14px] font-semibold text-[#344054] hover:text-[#00C694] transition-colors cursor-pointer whitespace-nowrap">Thị trường & khuyến nghị</span>
+                  <span className="text-[14px] font-semibold text-[#344054] hover:text-[#00C694] transition-colors cursor-pointer whitespace-nowrap">Học viện</span>
+                  <span className="text-[14px] font-semibold text-[#344054] hover:text-[#00C694] transition-colors cursor-pointer whitespace-nowrap">Hỗ trợ</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 pr-2">
+              <div className="flex items-center gap-3">
                 {/* Search/Scan Icon Button */}
                 <div className="size-12 rounded-full bg-Grayscale-L1 flex items-center justify-center cursor-pointer hover:bg-Grayscale-L3 transition-colors">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-Grayscale-Black/60"><path d="M3 7V5a2 2 0 0 1 2-2h2" /><path d="M17 3h2a2 2 0 0 1 2 2v2" /><path d="M21 17v2a2 2 0 0 1-2 2h-2" /><path d="M7 21H5a2 2 0 0 1-2-2v-2" /><path d="M8 12h8" /></svg>
+                  <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-Grayscale-Black/60"><path d="M15 10V14C15 14.2652 14.8946 14.5196 14.7071 14.7071C14.5196 14.8946 14.2652 15 14 15H10M15 1H17C17.5304 1 18.0391 1.21071 18.4142 1.58579C18.7893 1.96086 19 2.46957 19 3V5M15 6V5M19 15V17C19 17.5304 18.7893 18.0391 18.4142 18.4142C18.0391 18.7893 17.5304 19 17 19H15M1 5V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H5M5 15H5.01M5 19H3C2.46957 19 1.96086 18.7893 1.58579 18.4142C1.21071 18.0391 1 17.5304 1 17V15M6 5H9C9.55228 5 10 5.44772 10 6V9C10 9.55228 9.55228 10 9 10H6C5.44772 10 5 9.55228 5 9V6C5 5.44772 5.44772 5 6 5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
 
                 <div className="h-12 px-8 bg-Grayscale-L3 rounded-full flex items-center justify-center cursor-pointer hover:bg-Grayscale-L4 transition-colors">
                   <span className="text-Grayscale-Black/80 text-[15px] font-semibold">Đăng nhập</span>
                 </div>
 
-                <div className="h-12 pl-8 pr-3 bg-[#00C48C] hover:bg-[#00B07A] rounded-full flex items-center gap-3 transition-all cursor-pointer shadow-lg shadow-[#00C48C]/20 group">
-                  <span className="text-white text-[15px] font-semibold">Mở tài khoản</span>
-                  <div className="size-9 bg-black/10 group-hover:bg-black/20 rounded-full flex items-center justify-center transition-colors">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17" /></svg>
+                {/* Sign Up Button */}
+                <div className="h-11 pl-4 pr-2.5 bg-[#00C694] hover:bg-[#00B07A] rounded-[32px] flex items-center gap-1.5 transition-all cursor-pointer shadow-lg shadow-[#00C694]/20 group">
+                  <span className="text-Grayscale-Black text-[16px] font-medium leading-[20px]">Mở tài khoản</span>
+                  <div className="size-5 bg-[#073038] rounded-full flex items-center justify-center transition-colors">
+                    <svg width="12" height="12" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="rotate-45">
+                      <path d="M0.833333 5.83333L5.83332 0.833333M5.83332 0.833333L10.8333 5.83333M5.83332 0.833333V14.1667" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -203,22 +207,22 @@ export default function HomePage() {
               {/* Content */}
               <div className="relative h-full z-10 flex flex-col justify-between p-8">
                 {/* Top: heading + search */}
-                <div className="flex flex-col items-center gap-4 pt-2">
-                  <span className="text-[#1a5a4a]/80 text-sm font-medium uppercase tracking-[0.2em]">Chào mừng bạn đến với Kafi</span>
-                  <h1 className="text-[#0d1f1a] text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight text-center max-w-xl drop-shadow-sm">
+                <div className="flex flex-col items-center gap-4 pt-4">
+                  <span className="text-[#106070] text-[16px] font-semibold">Chào mừng bạn đến với Kafi</span>
+                  <p className="text-[#101828] text-[36px] font-bold leading-[42px] text-center max-w-[580px]">
                     Hôm nay bạn muốn tìm hiểu hay bắt đầu đầu tư?
-                  </h1>
+                  </p>
                   {/* Text field search */}
                   <motion.div
                     whileHover={{ scale: 1.01, boxShadow: "0 16px 40px -8px rgba(0,0,0,0.10)" }}
-                    className="w-full max-w-lg pl-7 pr-2.5 py-2.5 bg-white/90 backdrop-blur-md rounded-full shadow-[0_8px_24px_rgba(0,0,0,0.10)] flex justify-between items-center transition-all cursor-text mt-2 relative overflow-hidden"
+                    className="w-full max-w-[540px] pl-8 pr-4 py-4 bg-white rounded-[110px] shadow-[0px_12px_32px_0px_#c7d9e5] flex justify-between items-center transition-all cursor-text mt-4 relative overflow-hidden"
                   >
                     <div className="flex-1 relative h-6 flex items-center">
                       <input
                         type="text"
                         value={searchValue}
                         onChange={(e) => setSearchValue(e.target.value)}
-                        className="absolute inset-0 w-full bg-transparent outline-none text-Grayscale-Black text-base font-medium z-10"
+                        className="absolute inset-0 w-full bg-transparent outline-none text-Grayscale-Black text-[16px] font-medium z-10"
                       />
                       <AnimatePresence mode="wait">
                         {!searchValue && (
@@ -231,7 +235,7 @@ export default function HomePage() {
                               visible: { transition: { staggerChildren: 0.03 } },
                               hidden: { transition: { staggerChildren: 0.02, staggerDirection: -1 } }
                             }}
-                            className="text-gray-400 text-base font-medium pointer-events-none flex"
+                            className="text-[#667085] text-[16px] font-medium pointer-events-none flex"
                           >
                             {placeholders[placeholderIndex].split("").map((char, index) => (
                               <motion.span
@@ -253,7 +257,7 @@ export default function HomePage() {
                         )}
                       </AnimatePresence>
                     </div>
-                    <div className="size-11 bg-[#00C48C] hover:bg-[#00a87a] rounded-full flex justify-center items-center cursor-pointer transition-colors shadow flex-shrink-0 z-20">
+                    <div className="size-11 bg-[#00c694] hover:bg-[#00a87a] rounded-full flex justify-center items-center cursor-pointer transition-colors shadow flex-shrink-0 z-20">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
                     </div>
                   </motion.div>
@@ -266,7 +270,7 @@ export default function HomePage() {
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ type: "spring", stiffness: 100, damping: 15 }}
-                    className="text-white text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-center drop-shadow-lg"
+                    className="text-white text-[48px] font-bold leading-[56px] text-center drop-shadow-lg"
                   >
                     Đầu tư thông minh
                   </motion.h2>
@@ -275,7 +279,7 @@ export default function HomePage() {
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ type: "spring", stiffness: 100, damping: 15, delay: 0.2 }}
-                    className="text-white text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-center drop-shadow-lg"
+                    className="text-white text-[48px] font-bold leading-[56px] text-center drop-shadow-lg"
                   >
                     Sinh lời bền vững
                   </motion.h2>
@@ -513,35 +517,32 @@ export default function HomePage() {
               variants={itemVariants}
               whileHover={{ y: -6, scale: 1.01, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              className="flex items-center px-3 py-3 bg-gradient-to-r from-[#4ec99b]/80 via-[#38b88a]/80 to-[#2da676]/80 backdrop-blur-xl rounded-[32px] shadow-xl border border-white/20 gap-3"
+              className="flex items-center p-5 bg-[#08444e]/50 backdrop-blur-xl rounded-[32px] border border-white/20 gap-3"
             >
-              {/* Bot avatar circle */}
+              {/* Bot avatar circle (3D effect) */}
               <motion.div 
-                className="size-[72px] flex-shrink-0 rounded-full bg-[#34c68a] border-[3px] border-white/80 shadow-lg flex items-center justify-center overflow-hidden z-10"
+                className="size-[69px] flex-shrink-0 relative z-10"
                 animate={{ scale: [1, 1.05, 1], y: [0, -2, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
-                <img
-                  src="assets/bot.png"
-                  alt="Kai"
-                  className="w-[85%] h-[85%] object-contain"
-                />
+                {/* Background Circle */}
+                <div className="absolute inset-0 rounded-full bg-[#16e482] border border-solid border-white shadow-lg" />
+                
+                {/* Bot image popping out */}
+                <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+                  <img
+                    src="assets/bot.png"
+                    alt="Kai"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </motion.div>
 
               {/* Speech bubble */}
-              <div className="flex-1 relative">
-                {/* Triangle pointer */}
-                <div
-                  className="absolute left-[-10px] top-1/2 -translate-y-1/2 w-0 h-0"
-                  style={{
-                    borderTop: '9px solid transparent',
-                    borderBottom: '9px solid transparent',
-                    borderRight: '10px solid rgba(255,255,255,0.25)',
-                  }}
-                />
-                <div className="bg-white/25 backdrop-blur-md rounded-[18px] px-5 py-3.5 border border-white/30">
-                  <p className="text-white text-[15px] font-medium leading-relaxed">
-                    Xin chào bạn! Mình là <span className="font-bold">Kai</span>, trợ lý tài chính.
+              <div className="flex-1">
+                <div className="bg-white/5 rounded-[24px] px-5 py-3">
+                  <p className="text-white text-[14px] font-semibold leading-relaxed">
+                    Xin chào bạn! Mình là Kai, trợ lý tài chính.
                   </p>
                 </div>
               </div>
