@@ -259,7 +259,7 @@ export default function StocksPage() {
         <section className="space-y-8">
           {/* Product Tab Navigation */}
           <section className="sticky top-0 z-20 w-full flex justify-center">
-            <div className="bg-[rgba(255,255,255,0.2)] backdrop-blur-md p-[6px] rounded-[33px] inline-flex items-center gap-1 shadow-lg border border-white/20">
+            <div className="bg-[rgba(255,255,255,0.2)] backdrop-blur-md p-[6px] rounded-full inline-flex items-center gap-1 shadow-lg border border-white/20">
               {[
                 {
                   id: 'Đầu tư tăng trưởng',
@@ -391,7 +391,7 @@ export default function StocksPage() {
             </div>
 
             {/* Product Discovery Tab Bar */}
-            <div className="sticky top-6 z-30 bg-white/20 backdrop-blur-md flex gap-[12px] items-center p-[8px] rounded-[60px] shrink-0 border border-white/20 shadow-lg transition-all duration-300">
+            <div className="sticky top-6 z-30 bg-[rgba(255,255,255,0.2)] backdrop-blur-md flex gap-[12px] items-center p-[8px] rounded-full shrink-0 border border-white/20 shadow-lg transition-all duration-300">
               {['Cổ phiếu', 'Phái sinh', 'Chứng quyền', 'Đầu tư mục tiêu GBI'].map((p) => (
                 <button
                   key={p}

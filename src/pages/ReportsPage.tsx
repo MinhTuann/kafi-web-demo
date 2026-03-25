@@ -1,57 +1,126 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Search, Download } from 'lucide-react';
+import { Search, Download, Send } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import reportTexture from '../assets/reports/b9e79771ccb89cc036ab4d49b5e6a2d48890aced.png';
+import subscribePattern from '../assets/reports/8d95901a10d85f892705f9ddfc72fd73c1017c54.png';
+import heroSkyscrapers from '../assets/reports/d08f675aa5405c1092d72262a13ff09628e6a757.png';
+import heroBlurEffect from '../assets/reports/81a0b752cadba01f448eaaa14eab70764807c31f.png';
+import heroArrowIcon from '../assets/reports/0d77925c9bd1db999fd20edc21f16bf473d38309.svg';
+import sortIcon from '../assets/reports/b87adff81c24ab62c3e6279774280aac6aff67ad.svg';
+import chevronDownIcon from '../assets/reports/6e0fb4b6297e4892ce243c595c9606e9d41f5640.svg';
+
+const ReportThumbnail = ({ month, year }: { month: string; year: string }) => (
+  <div className="overflow-clip relative rounded-[12px] size-[197px] min-w-[197px] flex items-center justify-center"
+    style={{ backgroundImage: "linear-gradient(17.7869deg, rgb(231, 252, 255) 32.588%, rgb(218, 255, 230) 93.034%)" }}>
+    {/* Texture Overlay */}
+    <div className="absolute inset-0 z-0 opacity-80 pointer-events-none mix-blend-multiply">
+      <img src={reportTexture} alt="" className="w-full h-full object-cover scale-150 rotate-[-15deg] translate-y-[-20%]" />
+    </div>
+
+    <div className="relative z-10 flex flex-col items-center gap-4 w-[178px]">
+      <div className="flex flex-col gap-1 items-center leading-none text-[#0b756e] text-center uppercase">
+        <p className="font-['Inter'] font-medium text-[10px] tracking-[1px]">MACRO REPORT</p>
+        <p className="font-['Inter'] font-bold text-[20px]">Báo cáo Vĩ mô</p>
+      </div>
+
+      <div className="bg-white flex flex-col gap-1 items-center justify-center pb-2 pt-1.5 px-3 rounded-[10px] w-[92px] shadow-sm">
+        <span className="font-['Inter'] font-bold text-[43px] text-[#0b756e] leading-none">{month}</span>
+        <div className="w-8 h-[1px] bg-[#0b756e]/20" />
+        <span className="font-['Inter'] font-medium text-[13px] text-[#0b756e] tracking-[1.3px] uppercase">{year}</span>
+      </div>
+    </div>
+  </div>
+);
+
+const ReportItemRow = ({ report, index }: { report: any, index: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: index * 0.1, duration: 0.5 }}
+    className="border-b border-[#D0D5DD]/50 flex gap-8 items-center py-4 group hover:bg-white/40 transition-all rounded-3xl px-4 -mx-4 cursor-pointer"
+  >
+    <ReportThumbnail month={report.month} year={report.year} />
+
+    <div className="flex-1 flex gap-8 items-end">
+      <div className="flex-1 flex flex-col gap-2 items-start">
+        <div className="inline-flex items-center gap-1.5 bg-[#ECFDF3] px-2 py-1 rounded-full mix-blend-multiply">
+          <div className="size-2 rounded-full bg-[#0b756e]" />
+          <span className="font-['Inter'] font-medium text-[12px] text-[#0b756e]">{report.category}</span>
+        </div>
+
+        <h3 className="font-['Inter'] font-semibold text-[22px] text-[#101828] leading-[32px] group-hover:text-[#0b756e] transition-colors">
+          {report.title}
+        </h3>
+
+        <p className="font-['Roboto'] font-normal text-[16px] text-[#344054] leading-[1.4] line-clamp-2">
+          {report.summary}
+        </p>
+
+        <p className="font-['Inter'] font-normal text-[14px] text-[#667085] leading-[20px] mt-1">
+          {report.date}
+        </p>
+      </div>
+
+      <div className="flex items-center gap-2 mb-4">
+        <button className="bg-[#EBEFF5] px-4 py-2 rounded-full font-['Inter'] font-semibold text-[14px] text-[#344054] hover:bg-[#106070] hover:text-white transition-all whitespace-nowrap">
+          Xem online
+        </button>
+        <button className="bg-[#EBEFF5] p-2 rounded-full hover:bg-[#106070] hover:text-white transition-all flex items-center justify-center shrink-0">
+          <Download className="size-6" />
+        </button>
+      </div>
+    </div>
+  </motion.div>
+);
 
 export default function ReportsPage() {
-  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState('Báo cáo vĩ mô / chiến lược');
 
   const reportCategories = [
-    { name: 'Khuyến nghị đầu tư', icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M23 6L13.5 15.5L8.5 10.5L1 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M17 6H23V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    )},
-    { name: 'Báo cáo thị trường', icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M21.21 15.89A10 10 0 1 1 8 2.83" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M22 12A10 10 0 0 0 12 2v10z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    )},
-    { name: 'Báo cáo vĩ mô / chiến lược', icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3 21H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M3 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M21 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M9 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M15 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M2 7L12 2L22 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    )},
-    { name: 'Doanh nghiệp', icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    )},
-    { name: 'Kafi Livestream', icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M10 15L15 12L10 9V15Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    )},
-    { name: 'Cộng đồng đầu tư', icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="9" cy="7" r="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M23 21V19C22.9993 18.1137 22.7044 17.2522 22.1614 16.5523C21.6184 15.8524 20.8581 15.3516 20 15.13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25393 19.0078 6.11714 19.0078 7.005C19.0078 7.89286 18.7122 8.75607 18.1676 9.45768C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    )},
+    {
+      name: 'Khuyến nghị đầu tư', icon: (
+        <svg width="24" height="24" viewBox="0 0 22 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.9999 4.09961C17.1363 4.09986 18.8697 5.81835 18.8974 7.94824C18.9678 7.94525 19.0384 7.94234 19.1093 7.94434C19.9051 7.96685 20.6601 8.30516 21.207 8.88379C21.7536 9.4624 22.0478 10.2346 22.0253 11.0303C22.0028 11.8242 21.6659 12.5756 21.0898 13.1221L21.0907 13.123L16.5136 17.5C15.6005 18.5173 14.3285 19 12.9999 19H8.99992C8.61182 19 8.45721 19.1245 8.40032 19.2002C8.35868 19.2557 8.31092 19.3068 8.25871 19.3525L7.46282 20.0488L7.70696 20.293C8.09743 20.6835 8.09743 21.3165 7.70696 21.707C7.31644 22.0975 6.68342 22.0975 6.29289 21.707L0.292893 15.707C-0.0976311 15.3165 -0.0976311 14.6835 0.292893 14.293C0.683421 13.9025 1.31644 13.9025 1.70696 14.293L2.01164 14.5977L6.86223 9.92188C7.40648 9.25618 8.21858 9 8.99992 9H11.2294C11.1449 8.68083 11.0996 8.34573 11.0995 8C11.0995 5.84609 12.846 4.09961 14.9999 4.09961ZM19.0536 9.94336C18.8213 9.93679 18.5944 10.0114 18.412 10.1523L18.33 10.2227L17.7724 10.7402C17.6933 10.8202 17.611 10.8968 17.5253 10.9697L14.1308 14.123C14.0984 14.1531 14.0633 14.1791 14.0282 14.2041C13.4757 14.7127 12.754 15 11.9999 15H9.99992C9.44764 15 8.99992 14.5523 8.99992 14C8.99992 13.4477 9.44764 13 9.99992 13H11.9999C12.2651 13 12.5194 12.8946 12.707 12.707C12.8945 12.5195 12.9999 12.2652 12.9999 12C12.9999 11.7348 12.8945 11.4805 12.707 11.293C12.5194 11.1054 12.2651 11 11.9999 11H8.99992C8.61152 11 8.4571 11.1245 8.40032 11.2002C8.36829 11.2429 8.33229 11.2833 8.29387 11.3203L3.42668 16.0127L6.04485 18.6309L6.87883 17.9014C7.42292 17.2509 8.22665 17 8.99992 17H12.9999C13.8529 17 14.5634 16.6952 15.0478 16.1416L15.1083 16.0771L19.7089 11.6777L19.7128 11.6738C19.9059 11.4913 20.0188 11.2392 20.0263 10.9736C20.0338 10.708 19.9353 10.45 19.7529 10.2568C19.5705 10.064 19.319 9.95098 19.0536 9.94336ZM14.9999 6.09961C13.9506 6.09961 13.0995 6.95066 13.0995 8C13.0997 9.04916 13.9507 9.89941 14.9999 9.89941C15.4563 9.8993 15.8746 9.73792 16.2021 9.46973L16.3593 9.32324C16.6924 8.98108 16.8992 8.5153 16.8993 8C16.8993 6.95081 16.0491 6.09986 14.9999 6.09961ZM4.99992 0C7.20903 4.07808e-05 8.99992 1.79089 8.99992 4C8.99992 6.20911 7.20903 7.99996 4.99992 8C2.79079 8 0.999924 6.20914 0.999924 4C0.999924 1.79086 2.79079 0 4.99992 0ZM4.99992 2C3.89535 2 2.99992 2.89543 2.99992 4C2.99992 5.10457 3.89535 6 4.99992 6C6.10446 5.99996 6.99992 5.10454 6.99992 4C6.99992 2.89546 6.10446 2.00004 4.99992 2Z" />
+        </svg>
+      )
+    },
+    {
+      name: 'Báo cáo thị trường', icon: (
+        <svg width="24" height="24" viewBox="0 0 22 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 14V19M15 12V19M19 8V19M21 1L12.354 9.646C12.3076 9.69256 12.2524 9.72951 12.1916 9.75471C12.1309 9.77992 12.0658 9.79289 12 9.79289C11.9342 9.79289 11.8691 9.77992 11.8084 9.75471C11.7476 9.72951 11.6924 9.69256 11.646 9.646L8.354 6.354C8.26024 6.26026 8.13308 6.20761 8.0005 6.20761C7.86792 6.20761 7.74076 6.26026 7.647 6.354L1 13M3 16V19M7 12V19" />
+        </svg>
+      )
+    },
+    {
+      name: 'Báo cáo vĩ mô / chiến lược', icon: (
+        <svg width="24" height="24" viewBox="0 0 14 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 7L7 1M7 1L13 7M7 1V17" />
+        </svg>
+      )
+    },
+    {
+      name: 'Doanh nghiệp', icon: (
+        <svg width="24" height="24" viewBox="0 0 18 22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 21V14.43M9 10H9.01M9 6H9.01M11 14.43V21M12 15C11.1345 14.3509 10.0819 14 9 14C7.91815 14 6.86548 14.3509 6 15M13 10H13.01M13 6H13.01M5 10H5.01M5 6H5.01M3 1H15C16.1046 1 17 1.89543 17 3V19C17 20.1046 16.1046 21 15 21H3C1.89543 21 1 20.1046 1 19V3C1 1.89543 1.89543 1 3 1Z" />
+        </svg>
+      )
+    },
+    {
+      name: 'Kafi Livestream', icon: (
+        <svg width="24" height="24" viewBox="0 0 23 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 5.22017C12.6392 6.34131 12.9754 7.60961 12.9754 8.90017C12.9754 10.1907 12.6392 11.459 12 12.5802M15.46 3.11017C16.4591 4.87636 16.9841 6.871 16.9841 8.90017C16.9841 10.9293 16.4591 12.9240 15.46 14.6902M18.91 1.00017C20.2876 3.4048 21.0132 6.12756 21.0149 8.89884C21.0167 11.6701 20.2945 14.3938 18.92 16.8002M2 2.90017H7C7.55228 2.90017 8 3.34789 8 3.90017V13.9002C8 14.4525 7.55228 14.9002 7 14.9002H2C1.44772 14.9002 1 14.4525 1 13.9002V3.90017C1 3.34789 1.44772 2.90017 2 2.90017Z" />
+        </svg>
+      )
+    },
+    {
+      name: 'Cộng đồng đầu tư', icon: (
+        <svg width="24" height="24" viewBox="0 0 22 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17 19C17 16.8783 16.1571 14.8434 14.6569 13.3431C13.1566 11.8429 11.1217 11 9 11M9 11C6.87827 11 4.84344 11.8429 3.34315 13.3431C1.84285 14.8434 1 16.8783 1 19M9 11C11.7614 11 14 8.76142 14 6C14 3.23858 11.7614 1 9 1C6.23858 1 4 3.23858 4 6C4 8.76142 6.23858 11 9 11ZM21 18C21 14.63 19 11.5 17 10C17.6574 9.50677 18.1831 8.85909 18.5306 8.11427C18.878 7.36945 19.0365 6.55047 18.992 5.7298C18.9475 4.90913 18.7014 4.11209 18.2755 3.4092C17.8495 2.70631 17.2569 2.11926 16.55 1.7" />
+        </svg>
+      )
+    },
   ];
 
   const reports = [
@@ -60,26 +129,63 @@ export default function ReportsPage() {
       month: '12',
       year: '2025',
       category: 'Vĩ mô tháng 12/2025',
-      title: 'Báo cáo Vĩ mô & Chiến lược thị trường tháng 12/2025',
-      summary: 'Dòng vốn ngoại quay trở lại, áp lực tỷ giá hạ nhiệt là những điểm nhấn quan trọng giúp thị trường chứng khoán phục hồi mạnh mẽ trong tháng cuối năm. Kafi dự báo VN-Index sẽ tiếp tục duy trì đà tăng...',
-      date: '10/12/2025',
+      title: 'Kinh tế về đích " sát nút" ',
+      summary: 'Nền kinh tế Việt Nam xuất sắc vượt qua mục tiêu tăng trưởng đầu năm của Chính phủ, đạt tăng trưởng quý 4 đạt 8.46% YoY, lũy kế cả năm 2025 đạt 8.02%. ',
+      date: '19/12/2025',
     },
     {
       id: 2,
       month: '11',
       year: '2025',
       category: 'Vĩ mô tháng 11/2025',
-      title: 'Báo cáo Vĩ mô & Chiến lược thị trường tháng 11/2025',
-      summary: 'Thị trường đối mặt với nhiều biến số vĩ mô từ kết quả bầu cử Mỹ, tuy nhiên nội lực nền kinh tế vẫn duy trì đà tăng trưởng ổn định nhờ xuất khẩu và đầu tư công được đẩy mạnh.',
-      date: '08/11/2025',
+      title: 'Sức ép từ biến động lãi suất',
+      summary: 'Tình hình trong nước chủ yếu xoay quanh những ảnh hưởng và khắc phục sau bão lũ, Chính phủ đưa ra những đánh giá sơ bộ về mức độ ảnh hưởng tổng quát lên tăng trưởng kinh tế quý 4 giảm 0.1%...',
+      date: '21/11/2025',
     },
     {
       id: 3,
       month: '10',
       year: '2025',
       category: 'Vĩ mô tháng 10/2025',
-      title: 'Báo cáo Vĩ mô & Chiến lược thị trường tháng 10/2025',
-      summary: 'Lạm phát được kiểm soát tốt, chính sách tiền tệ nới lỏng tiếp tục là động lực chính hỗ trợ thanh khoản hệ thống ngân hàng và thị trường vốn trong giai đoạn chuyển giao quý.',
+      title: 'Tỷ giá biến động mạnh, NHNN tiếp tục bán USD kỳ hạn.',
+      summary: 'Thị trường tiền tệ tháng 9 ghi nhận những biến động đáng chú ý khi lãi suất có dấu hiệu tăng lại và tỷ giá dự báo giảm áp lực vào cuối năm, kéo theo các điều chỉnh trên thị trường lãi suất và trái phiếu.',
+      date: '21/10/2025',
+    },
+    {
+      id: 4,
+      month: '09',
+      year: '2025',
+      category: 'Vĩ mô tháng 09/2025',
+      title: 'Trời Có Chuyển Giông ? ',
+      summary: 'Chính phủ đẩy mạnh giám sát các dự án đầu tư công, chuyển đổi số, cũng như quy trình về thủ tục hành chính sau thực thi chính quyền 2 cấp. Các mục tiêu kinh tế được bảo lưu, dưới nền ...',
+      date: '21/09/2025',
+    },
+    {
+      id: 5,
+      month: '08',
+      year: '2025',
+      category: 'Vĩ mô tháng 08/2025',
+      title: 'Lãi Suất Liên Ngân Hàng Giảm Mạnh, Tỷ Giá Vẫn Chịu Áp Lực',
+      summary: 'Thị trường tiền tệ tháng 8 ghi nhận những biến động đáng chú ý khi lãi suất biến động và tỷ giá dự báo giảm áp lực vào cuối năm, kéo theo các điều chỉnh trên thị trường lãi suất và trái phiếu. ',
+      date: '21/01/2025',
+    },
+    {
+      id: 6,
+      month: '07',
+      year: '2025',
+      category: 'Vĩ mô tháng 07/2025',
+      title: 'Hội Nghị Jackson Hole Năm 2025',
+      summary: 'Hội nghị Kinh tế Jackson Hole là một sự kiện thường niên được Ngân hàng Dự trữ Liên ba Kansas City tổ chức tại Jackson Hole, Wyoming, Hoa Kỳ...',
+      date: '21/01/2025',
+    },
+    {
+      id: 7,
+      month: '06',
+      year: '2025',
+      category: 'VT tháng 08/2025',
+      title: 'Trời Có Chuyển Giông ?',
+      summary: 'Chính phủ đẩy mạnh giám sát các dự án đầu tư công, chuyển đổi số, cũng như quy trình về thủ tục hành chính sau thực thi chính quyền 2 cấp...',
+      date: '21/01/2025',
     }
   ];
 
@@ -89,60 +195,83 @@ export default function ReportsPage() {
 
       {/* Hero Section */}
       <section className="w-full px-4 lg:px-6 mt-6">
-        <div className="w-full h-[320px] relative overflow-hidden bg-gradient-to-r from-[#09977A] via-[#0AE685] to-transparent rounded-[48px] flex items-center">
-          <div className="absolute inset-0 z-0 opacity-60">
-             <div className="absolute inset-0 bg-gradient-to-r from-[#09977A] via-[#09977A]/10 to-transparent z-10" />
-             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover" alt="" />
+        <div className="w-full h-[360px] relative overflow-hidden bg-gradient-to-r from-[#0ae685] to-[#c6ffd9] rounded-[48px]">
+          {/* Skyscraper Background Image */}
+          <div className="absolute h-[495px] right-[0.49px] top-[-34px] w-[934px] pointer-events-none">
+            <img src={heroSkyscrapers} alt="" className="absolute inset-0 object-cover size-full" />
           </div>
-          
-          {/* Rotating Circular Kafi Icon */}
-          <motion.div 
-            animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute top-12 right-12 size-32 opacity-20 hidden lg:block"
-          >
-            <svg viewBox="0 0 100 100" className="w-full h-full text-white">
-              <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
-              <text className="text-[10px] font-bold uppercase tracking-[0.2em] fill-current">
-                <textPath xlinkHref="#circlePath">KAFI SECURITIES • KAFI SECURITIES • </textPath>
-              </text>
-            </svg>
-          </motion.div>
 
-          <div className="relative z-10 px-16">
-            <div className="flex items-center gap-2 text-white/50 text-[13px] font-medium mb-4">
-              <span className="hover:text-white cursor-pointer transition-colors" onClick={() => navigate('/')}>Trang chủ</span>
-              <span className="opacity-50">/</span>
-              <span className="hover:text-white cursor-pointer transition-colors">Thị trường & khuyến nghị</span>
-              <span className="opacity-50">/</span>
-              <span className="text-white">Báo cáo vĩ mô / chiến lược</span>
+          {/* Gradient Overlay / Main Background Gradient */}
+          <div
+            className="h-[360px] overflow-hidden relative shrink-0 w-full pointer-events-none"
+            style={{
+              backgroundImage: "linear-gradient(89.99deg, rgb(9, 151, 122) 11.206%, rgb(10, 230, 133) 34.368%, rgba(120, 255, 191, 0.8) 45.807%, rgba(198, 255, 217, 0) 63.347%)"
+            }}
+          >
+            {/* Secondary Blur/Overlay Effect */}
+            <div className="absolute h-[360px] left-[229px] top-1/2 -translate-y-1/2 w-[362px] blur-[50px] pointer-events-none">
+              <div className="absolute inset-0 overflow-hidden">
+                <img src={heroBlurEffect} alt="" className="absolute h-[114.72%] left-0 max-w-none top-[-8.06%] w-[374.31%]" />
+              </div>
             </div>
-            <motion.h1 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              style={{ fontFamily: "'Roboto', sans-serif" }}
-              className="text-[56px] font-bold text-white leading-tight"
-            >
-              Báo cáo vĩ mô / chiến lược
-            </motion.h1>
+          </div>
+
+          <div className="absolute left-[55.51px] top-[calc(50%-67px)] z-10 font-['Roboto'] font-bold text-white text-[56px] leading-[1.2] whitespace-nowrap uppercase">
+            <p>Báo cáo vĩ mô</p>
+            <p>/chiến lược</p>
+          </div>
+
+          {/* Arrow Graphic */}
+          <div className="absolute right-[16px] top-[17.5px] size-[98.5px] flex items-center justify-center pointer-events-none">
+            <img src={heroArrowIcon} alt="" className="size-full" />
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <main className="max-w-[1440px] mx-auto px-6 py-12">
+      <main className="max-w-[1440px] mx-auto px-6 pt-8 pb-12">
+        {/* Sticky Liquid Glass Tab Bar */}
+        <section className="sticky top-6 z-30 w-full flex justify-center px-4 lg:px-6 mb-12">
+          <div className="bg-[rgba(255,255,255,0.2)] backdrop-blur-md p-[6px] rounded-full inline-flex items-center gap-1 shadow-lg border border-white/20 transition-all duration-300">
+            {reportCategories.map((cat) => (
+              <button
+                key={cat.name}
+                onClick={() => setActiveCategory(cat.name)}
+                className={`h-[56px] px-6 rounded-[52px] flex items-center gap-2.5 transition-all duration-300 whitespace-nowrap ${activeCategory === cat.name
+                    ? 'bg-white text-[#106070] font-bold shadow-lg scale-100'
+                    : 'text-[#344054] font-medium hover:bg-white/10 hover:scale-[1.02]'
+                  }`}
+              >
+                <div className={`shrink-0 flex items-center justify-center transition-all duration-300 ${activeCategory === cat.name
+                    ? 'bg-[#106070] text-[#0AE685] size-8 rounded-full shadow-md shadow-[#106070]/20'
+                    : 'text-[#344054] size-6'
+                  }`}
+                >
+                  <div className={`transition-all duration-300 flex items-center justify-center ${activeCategory === cat.name ? 'size-4' : 'size-5'
+                    } ${cat.name === 'Báo cáo vĩ mô / chiến lược' ? 'rotate-45' : ''}`}>
+                    {cat.icon}
+                  </div>
+                </div>
+                <span className="text-[14px] tracking-tight">{cat.name}</span>
+              </button>
+            ))}
+            <div className="pl-4 pr-1">
+              <button className="bg-white size-14 rounded-full flex items-center justify-center shadow-lg border border-gray-100/50 hover:bg-gray-50 hover:scale-110 active:scale-95 transition-all shrink-0 group">
+                <Search className="size-5 text-[#344054] group-hover:text-[#106070] transition-colors" />
+              </button>
+            </div>
+          </div>
+        </section>
+
         <div className="flex gap-12">
           {/* Sidebar */}
           <aside className="w-[280px] shrink-0">
-            <div className="sticky top-12 flex flex-col gap-2">
-              <h3 className="text-[18px] font-bold mb-5 px-4 text-[#101828]">Danh mục báo cáo</h3>
-              <div className="flex flex-col gap-1.5 p-1 bg-[#F1F5F9]/50 rounded-[28px] border border-[#E2E8F0]">
-                <button className="text-left px-5 py-4 rounded-2xl bg-white text-[#00C694] font-bold shadow-[0_4px_20px_-4px_rgba(0,198,148,0.15)] border border-[#00C694]/5 transition-all flex items-center justify-between group">
+            <div className="sticky top-36 flex flex-col gap-2">
+              <div className="flex flex-col gap-1.5 p-2 bg-white rounded-[24px] border border-[#E2E8F0]">
+                <button className={`text-left px-5 py-4 rounded-[12px] font-bold transition-all flex items-center justify-between group ${activeCategory === 'Báo cáo vĩ mô / chiến lược' ? 'bg-[#00C694] text-[#101828]' : 'text-gray-500 hover:bg-gray-50'}`}>
                   Báo cáo vĩ mô
-                  <div className="size-2 rounded-full bg-[#00C694]" />
                 </button>
-                <button className="text-left px-5 py-4 rounded-2xl text-gray-500 font-bold hover:bg-white/80 hover:text-[#101828] transition-all">
+                <button className="text-left px-5 py-4 rounded-[12px] text-gray-500 hover:bg-gray-50 transition-all font-bold">
                   Báo cáo chiến lược
                 </button>
               </div>
@@ -150,128 +279,59 @@ export default function ReportsPage() {
           </aside>
 
           {/* Report List Section */}
-          <section className="flex-1">
-            {/* Category Sub-tabs */}
-            <div className="flex items-center gap-4 mb-12 overflow-x-auto pb-4 no-scrollbar">
-              {reportCategories.map((cat) => (
-                <button
-                  key={cat.name}
-                  onClick={() => setActiveCategory(cat.name)}
-                  className={`flex flex-col items-center gap-4 min-w-[150px] p-6 rounded-[32px] transition-all duration-300 ${
-                    activeCategory === cat.name 
-                    ? 'bg-white shadow-[0_24px_48px_-12px_rgba(0,198,148,0.15)] border border-[#00C694]/20 scale-105' 
-                    : 'bg-transparent border border-transparent hover:bg-white/40'
-                  }`}
-                >
-                  <div className={`size-12 rounded-2xl flex items-center justify-center transition-colors ${activeCategory === cat.name ? 'bg-[#00C694] text-white' : 'bg-white text-gray-400 border border-gray-100'}`}>
-                    {cat.icon}
-                  </div>
-                  <span className={`text-[13px] font-bold text-center leading-tight tracking-tight ${activeCategory === cat.name ? 'text-[#101828]' : 'text-gray-400'}`}>
-                    {cat.name}
-                  </span>
-                </button>
-              ))}
+          <section className="flex-1 flex flex-col gap-6">
+            {/* Section Header */}
+            <div className="flex items-center justify-between h-[64px] mb-4">
+              <h2 className="text-[36px] font-bold text-black leading-[42px] font-['Inter']">Báo cáo vĩ mô</h2>
+              {/* Sorting button */}
+              <div className="bg-white border border-[#DDE2EC] h-[48px] rounded-[32px] pl-4 pr-5 flex items-center gap-2 cursor-pointer hover:bg-gray-50 transition-all select-none group">
+                <div className="flex items-center justify-center shrink-0">
+                  <img src={sortIcon} alt="" className="w-[17px] opacity-70" />
+                </div>
+                <span className="text-[16px] text-[#121212] font-['Inter'] font-normal mx-2">Mới nhất</span>
+                <div className="flex items-center justify-center shrink-0 translate-y-[0.5px]">
+                  <img src={chevronDownIcon} alt="" className="w-[11px] opacity-60 group-hover:translate-y-0.5 transition-transform" />
+                </div>
+              </div>
             </div>
 
             {/* Reports List */}
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col">
               {reports.map((report, index) => (
-                <motion.div
-                  key={report.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.15, type: "spring", stiffness: 100 }}
-                  className="bg-white rounded-[40px] p-7 flex gap-9 shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_25px_60px_rgba(0,198,148,0.12)] transition-all duration-500 group cursor-pointer border border-transparent hover:border-[#00C694]/10"
-                >
-                  {/* Thumbnail */}
-                  <div className="size-[150px] rounded-3xl bg-gradient-to-br from-[#E7FCFF] to-[#DAFFE6] shrink-0 relative overflow-hidden flex flex-col items-center justify-center border border-white/40 shadow-sm">
-                    {/* Background Graphic Overlay */}
-                    <div className="absolute inset-0 opacity-40 pointer-events-none">
-                       <svg className="w-full h-full" viewBox="0 0 100 100" fill="none" preserveAspectRatio="none">
-                          <circle cx="100" cy="0" r="60" fill="white" fillOpacity="0.3" />
-                          <circle cx="0" cy="100" r="40" fill="#00C694" fillOpacity="0.1" />
-                       </svg>
-                    </div>
-                    
-                    <span className="text-[10px] font-bold tracking-[0.1em] text-[#00C694]/70 mb-2 uppercase">Macro Report</span>
-                    <div className="flex flex-col items-center">
-                      <span className="text-[43px] font-bold text-[#101828] leading-none mb-1">{report.month}</span>
-                      <div className="w-8 h-[1px] bg-[#101828]/10 mb-1" />
-                      <span className="text-[12px] font-bold text-[#101828]/40 tracking-[0.2em]">{report.year}</span>
-                    </div>
-                  </div>
-
-                  {/* Info Content */}
-                  <div className="flex-1 flex flex-col py-1">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="flex items-center gap-1.5 px-3 py-1 bg-[#ECFDF3] rounded-full border border-[#D1FADF]">
-                        <div className="size-1.5 rounded-full bg-[#039855]" />
-                        <span className="text-[#039855] text-[11px] font-bold uppercase tracking-[0.05em]">
-                          {report.category}
-                        </span>
-                      </div>
-                    </div>
-                    <h3 className="text-[20px] font-bold text-[#101828] mb-3 group-hover:text-[#00C694] transition-colors leading-[1.3] max-w-[90%] font-['Roboto',sans-serif]">
-                      {report.title}
-                    </h3>
-                    <p className="text-[#475467] text-[14px] leading-relaxed mb-6 line-clamp-2 max-w-[95%] font-medium">
-                      {report.summary}
-                    </p>
-                    <div className="mt-auto flex items-center justify-between border-t border-gray-50 pt-5">
-                      <div className="flex items-center gap-3 text-gray-400 text-[12px] font-medium">
-                        <Search className="size-3.5 opacity-50" />
-                        Ngày đăng: {report.date}
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <button className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#EBEFF5] text-[#344054] text-[14px] font-bold hover:bg-[#00C694] hover:text-white transition-all">
-                          Xem online
-                        </button>
-                        <button className="size-10 rounded-full bg-[#EBEFF5] flex items-center justify-center text-[#344054] hover:bg-[#00C694] hover:text-white transition-all">
-                          <Download className="size-4.5" />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
+                <ReportItemRow key={report.id} report={report} index={index} />
               ))}
             </div>
-            
-            <div className="mt-16 flex justify-center">
-               <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-14 py-5 border-[3px] border-gray-100 rounded-full text-[16px] font-black text-gray-400 hover:border-[#00C694] hover:text-[#00C694] transition-all bg-white/50"
-               >
-                  Xem thêm báo cáo
-               </motion.button>
-            </div>
+
           </section>
         </div>
       </main>
 
       {/* Subscription Section */}
       <section className="max-w-[1440px] mx-auto px-6 mb-32">
-        <div className="w-full h-[400px] rounded-[60px] bg-[#C6FFD9] relative overflow-hidden flex items-center justify-between px-24">
-          {/* Background Illustration Placeholder */}
-          <div className="absolute inset-0 z-0">
-             <div className="absolute inset-0 bg-gradient-to-r from-[#C6FFD9] via-[#C6FFD9]/40 to-transparent z-10" />
-             <img src="https://images.unsplash.com/photo-1557683311-eac922347aa1?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover opacity-30" alt="" />
+        <div className="w-full h-[400px] rounded-[48px] bg-[#C6FFD9] relative overflow-hidden flex flex-col items-center justify-center text-center px-10">
+          {/* Pattern Overlay */}
+          <div className="absolute top-0 right-0 w-[100vw] h-[120vh] pointer-events-none opacity-80">
+            <img src={subscribePattern} alt="" className="w-full h-full object-contain object-right-top" />
           </div>
 
-          <div className="flex flex-col gap-6 max-w-[550px] relative z-10">
-            <h2 className="text-[48px] font-bold text-[#101828] leading-[1.1] font-['Roboto',sans-serif]">Đăng ký nhận<br/>bản tin phân tích</h2>
-            <p className="text-[#475467] text-[18px] font-medium leading-relaxed">Nhà đầu tư có thể truy cập các tài liệu quan trọng và đăng ký nhận bản tin định kỳ từ Kafi.</p>
-          </div>
-          
-          <div className="relative w-[520px] z-10">
-            <input 
-              type="text" 
-              placeholder="Nhập địa chỉ email của bạn..." 
-              className="w-full h-20 pl-10 pr-32 rounded-full bg-black/50 text-white text-[16px] font-medium focus:outline-none focus:ring-2 focus:ring-[#00C694]/50 placeholder:text-white/40 border-none backdrop-blur-md"
-            />
-            <button className="absolute right-3 top-1/2 -translate-y-1/2 h-14 px-10 rounded-full bg-[#00C694] flex items-center justify-center text-[#101828] hover:bg-[#00B07A] transition-all font-bold shadow-lg shadow-[#00C694]/20">
-              Gửi
-            </button>
+          <div className="relative z-10 flex flex-col gap-10 items-center max-w-[987px]">
+            <div className="flex flex-col gap-4 items-center">
+              <h2 className="text-[48px] font-bold text-black leading-[56px] font-['Inter']">Đăng ký nhận báo cáo</h2>
+              <p className="text-[18px] font-normal text-black leading-[26px] max-w-[832px] font-['Inter']">
+                Nhà đầu tư có thể truy cập các tài liệu quan trọng, đăng ký nhận cập nhật định kỳ hoặc liên hệ trực tiếp với đội ngũ quan hệ cổ đông của KAFI.
+              </p>
+            </div>
+
+            <div className="bg-[rgba(16,24,40,0.5)] backdrop-blur-md rounded-full pl-6 pr-3 py-3 flex items-center gap-3 w-[540px] shadow-[0_8px_16px_rgba(0,0,0,0.12)]">
+              <input
+                type="text"
+                placeholder="Để lại email của bạn ở đây |"
+                className="flex-1 bg-transparent border-none text-[16px] text-[#f7f9fc] font-medium focus:outline-none placeholder:text-[#f7f9fc]/60 font-['Inter']"
+              />
+              <button className="size-11 rounded-full bg-[#00c694] flex items-center justify-center text-black hover:bg-[#00B07A] transition-all shrink-0">
+                <Send className="size-5" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
