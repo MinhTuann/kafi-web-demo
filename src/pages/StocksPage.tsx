@@ -366,8 +366,8 @@ export default function StocksPage() {
                   key={p}
                   onClick={() => setActiveGrowthProduct(p)}
                   className={`flex gap-[12px] items-center px-[20px] py-[16px] relative rounded-[58px] shrink-0 transition-all ${activeGrowthProduct === p
-                      ? 'bg-[#00C694] font-semibold text-[#101828] shadow-sm'
-                      : 'bg-transparent font-normal text-[#101828] hover:bg-gray-50'
+                    ? 'bg-[#00C694] font-semibold text-[#101828] shadow-sm'
+                    : 'bg-transparent font-normal text-[#101828] hover:bg-gray-50'
                     } leading-[24px] text-[16px] whitespace-nowrap`}
                 >
                   {p}
@@ -418,20 +418,11 @@ export default function StocksPage() {
 
               {/* Right Column: Visual */}
               <div className="relative p-[40px] flex items-center justify-center bg-white">
-                <div className="relative w-full h-full min-h-[400px] lg:min-h-[688px] rounded-[32px] overflow-hidden flex items-center justify-center"
-                  style={{
-                    background: "linear-gradient(180deg, #00C694 34.63%, #CCFCFF 102.6%)",
-                    boxShadow: "inset 0 0 100px rgba(187,251,169,0.7)"
-                  }}>
-                  <img
-                    src="/kafi-web-demo/assets/stock-product.png"
-                    alt="Product Interface"
-                    className="w-[85%] h-auto drop-shadow-[0_40px_80px_rgba(0,0,0,0.2)] object-contain z-10"
-                  />
-
-                  {/* Additional Design Elements from Figma */}
-                  <div className="absolute top-[40px] left-[40px] right-[40px] bottom-[40px] rounded-[32px] bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
-                </div>
+                <img
+                  src="/kafi-web-demo/assets/stock-product.png"
+                  alt="Product Interface"
+                  className="w-[85%] h-auto object-contain z-10"
+                />
               </div>
             </div>
           </section>
@@ -518,8 +509,8 @@ export default function StocksPage() {
                     key={cat}
                     onClick={() => setActiveFeeCategory(cat)}
                     className={`w-full flex items-center justify-between px-[16px] py-[10px] rounded-[12px] transition-all group ${activeFeeCategory === cat || (cat === 'Biểu phí' && activeFeeCategory === 'Biểu phí')
-                        ? 'bg-[#00c694] text-[#101828] font-semibold'
-                        : 'text-[#101828] hover:bg-gray-50 font-normal'
+                      ? 'bg-[#00c694] text-[#101828] font-semibold'
+                      : 'text-[#101828] hover:bg-gray-50 font-normal'
                       }`}
                   >
                     <span className="text-[16px] leading-[24px]">{cat}</span>
@@ -645,24 +636,13 @@ export default function StocksPage() {
                 <motion.div
                   key={promo.id}
                   className="h-[598px] rounded-[24px] overflow-hidden border border-[#DDE2EC] relative group cursor-pointer"
-                  style={{ background: promo.bg }}
                   whileHover={{ scale: 1.02 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
-                  <img src={promo.img} alt={promo.title} className="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-80" />
+                  <img src={promo.img} alt={promo.title} className="absolute inset-0 w-full h-full object-fill" />
 
                   {/* Glassmorphism Content Area */}
-                  <div className="absolute bottom-0 left-0 right-0 h-[250px] p-[24px] flex flex-col justify-end gap-[16px] backdrop-blur-[50px]"
-                    style={{
-                      background: "linear-gradient(180deg, rgba(255,255,255,0) 0.2%, #08444E 145.4%)"
-                    }}>
-                    <div className="space-y-2">
-                      <span className="inline-block px-[8px] py-[4px] bg-[#073038] text-white text-[12px] font-medium rounded-[40px]">
-                        {promo.tag}
-                      </span>
-                      <h3 className="text-[24px] font-bold leading-[32px] text-black line-clamp-2">{promo.title}</h3>
-                      <p className="text-[16px] leading-[24px] text-black/80 line-clamp-2">{promo.desc}</p>
-                    </div>
+                  <div className="absolute bottom-0 left-0 right-0 h-[250px] p-[24px] flex flex-col justify-end gap-[16px]">
                     <div className="flex items-center gap-[4px] py-[10px]">
                       <span className="text-[16px] font-semibold text-[#101828]">Khám phá ngay</span>
                       <div className="rotate-45">
@@ -791,8 +771,8 @@ export default function StocksPage() {
         <section className="px-[20px] relative w-full overflow-hidden">
           <div className="bg-[#00C694] rounded-[48px] h-[616px] flex flex-col items-center justify-center p-[48px] relative overflow-hidden">
             {/* Texture Overlay */}
-            <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay">
-              <img src={TestimonialBg} alt="" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 pointer-events-none">
+              <img src="/kafi-web-demo/assets/TestimonialBg.png" alt="" className="w-full h-full object-cover" />
             </div>
 
             <h2 className="text-white text-[48px] font-bold leading-[56px] mb-[48px] relative z-10">Khách hàng Kafi nói gì?</h2>
@@ -804,7 +784,7 @@ export default function StocksPage() {
                 {/* Decorative Gradients */}
                 <div className="absolute -bottom-20 -left-20 size-60 bg-[#00C694] blur-[60px] opacity-40 rounded-full" />
                 <div className="absolute -top-20 -right-20 size-40 bg-[#FDF299] blur-[40px] opacity-30 rounded-full" />
-                <img src={TestimonialUser} alt="Lê Hùng" className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+                <img src={TestimonialUser} alt="Lê Hùng" className="absolute inset-0 w-full h-full object-cover" />
               </div>
 
               {/* Content Column */}
