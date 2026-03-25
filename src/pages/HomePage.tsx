@@ -426,10 +426,8 @@ export default function HomePage() {
               className="flex items-center p-5 bg-[#08444e]/50 backdrop-blur-xl rounded-[32px] border border-white/20 gap-3"
             >
               {/* Bot avatar character video */}
-              <motion.div
+              <div
                 className="size-[69px] flex-shrink-0 relative z-10 rounded-full overflow-hidden border-2 border-white/30 shadow-lg"
-                animate={{ scale: [1, 1.05, 1], y: [0, -2, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
                 <video
                   src="assets/Generate_Kai_Character_Video.mp4"
@@ -439,7 +437,7 @@ export default function HomePage() {
                   playsInline
                   className="w-full h-full object-cover"
                 />
-              </motion.div>
+              </div>
 
               {/* Speech bubble */}
               <div className="flex-1">
