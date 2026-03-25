@@ -436,6 +436,13 @@ export default function HomePage() {
                   muted
                   playsInline
                   className="w-full h-full object-cover"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transform: 'scale(1.5)', // 1.5 = 150% zoom
+                    transformOrigin: 'center top' // Zooms into the middle
+                  }}
                 />
               </div>
 
