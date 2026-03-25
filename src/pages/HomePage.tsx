@@ -1,7 +1,6 @@
 import Header from '../components/Header';
 import { motion, AnimatePresence, animate } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const CountingNumber = ({ value, duration = 1.6 }: { value: number, duration?: number }) => {
   const [displayValue, setDisplayValue] = useState(0);
