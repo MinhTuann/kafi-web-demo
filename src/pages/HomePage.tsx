@@ -19,7 +19,6 @@ const CountingNumber = ({ value, duration = 1.6 }: { value: number, duration?: n
 };
 
 export default function HomePage() {
-  const navigate = useNavigate();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
