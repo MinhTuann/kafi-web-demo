@@ -425,23 +425,20 @@ export default function HomePage() {
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
               className="flex items-center p-5 bg-[#08444e]/50 backdrop-blur-xl rounded-[32px] border border-white/20 gap-3"
             >
-              {/* Bot avatar circle (3D effect) */}
+              {/* Bot avatar character video */}
               <motion.div
-                className="size-[69px] flex-shrink-0 relative z-10"
+                className="size-[69px] flex-shrink-0 relative z-10 rounded-full overflow-hidden border-2 border-white/30 shadow-lg"
                 animate={{ scale: [1, 1.05, 1], y: [0, -2, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
-                {/* Background Circle */}
-                <div className="absolute inset-0 rounded-full bg-[#16e482] border border-solid border-white shadow-lg" />
-
-                {/* Bot image popping out */}
-                <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-                  <img
-                    src="assets/bot.png"
-                    alt="Kai"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
+                <video
+                  src="assets/Generate_Kai_Character_Video.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
               </motion.div>
 
               {/* Speech bubble */}
