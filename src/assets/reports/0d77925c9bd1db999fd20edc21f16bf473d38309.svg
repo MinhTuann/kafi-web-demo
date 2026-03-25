@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 118.014 118.014" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 1321315474" filter="url(#filter0_f_87_6207)">
+<rect id="Rectangle 23985" x="10.4984" y="10.4984" width="97.0176" height="97.0176" rx="48.5088" fill="var(--fill-0, #01C27F)" fill-opacity="0.28"/>
+<path id="Union" d="M81.6496 80.0349C81.6496 82.3541 79.7683 84.2354 77.4491 84.2354C75.13 84.2352 73.25 82.354 73.25 80.0349V51.0487C73.25 50.7369 72.873 50.5808 72.6526 50.8012L38.851 84.6028C37.2111 86.2421 34.5522 86.2422 32.9124 84.6028C31.273 82.9629 31.2724 80.3034 32.9117 78.6635L66.0628 45.5124C66.2832 45.292 66.1271 44.915 65.8153 44.915L38.1308 44.9157C35.8115 44.9157 33.9316 43.0358 33.9316 40.7166C33.9317 38.3974 35.8116 36.5174 38.1308 36.5174H81.2997C81.4929 36.5174 81.6496 36.6741 81.6496 36.8674V80.0349Z" fill="var(--fill-0, #1DE382)"/>
+</g>
+<defs>
+<filter id="filter0_f_87_6207" x="-6.25387e-08" y="-6.25387e-08" width="118.014" height="118.014" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="0" result="effect1_foregroundBlur_87_6207"/>
+</filter>
+</defs>
+</svg>
