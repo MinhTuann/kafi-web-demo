@@ -7,7 +7,7 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ className = "" }) => {
   return (
-    <footer className={`bg-white text-[#101828] py-16 px-6 lg:px-[120px] font-['Inter',sans-serif] ${className}`}>
+    <footer className={`bg-white text-[#101828] py-16 px-6 lg:px-[5vw] font-['Inter',sans-serif] ${className}`}>
       <div className="max-w-[1440px] mx-auto space-y-12">
         {/* Top Section: Logo & Download */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 pb-12 border-b border-[#D0D5DD]/50">
@@ -65,7 +65,7 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
         </div>
 
         {/* Navigation Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 pt-8 pb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 pt-8 pb-12">
           {[
             {
               title: "Về Kafi",
@@ -93,7 +93,7 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
             }
           ].map((col) => (
             <div key={col.title} className="space-y-6">
-              <h5 className="font-bold text-lg text-[#101828]">{col.title}</h5>
+              <h5 className="font-bold text-base text-[#101828]">{col.title}</h5>
               <ul className="space-y-3">
                 {col.links.map((link) => (
                   <li key={link}>

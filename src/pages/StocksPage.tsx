@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Check } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -9,8 +9,9 @@ import Guide1 from '../assets/stocks/guide-1.png';
 import Guide2 from '../assets/stocks/guide-2.png';
 import Guide3 from '../assets/stocks/guide-3.png';
 import Guide4 from '../assets/stocks/guide-4.png';
-import TestimonialBg from '../assets/stocks/testimonial-bg.png';
 import TestimonialUser from '../assets/stocks/testimonial-user.png';
+import TestimonialHung from '../assets/stocks/testimonial-hung.png';
+import TestimonialMaiAnh from '../assets/stocks/testimonial-maianh.png';
 import PhoneMockup from '../assets/stocks/phone-mockup.png';
 
 const AnimatedProductIcon = ({ title }: { title: string }) => {
@@ -150,6 +151,36 @@ export default function StocksPage() {
   const [activeTab, setActiveTab] = useState('Đầu tư tăng trưởng');
   const [activeGrowthProduct, setActiveGrowthProduct] = useState('Cổ phiếu');
   const [activeFeeCategory, setActiveFeeCategory] = useState('Biểu phí');
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+  const testimonials = [
+    {
+      name: 'Lê Hùng',
+      role: 'Kỹ sư phần mềm',
+      content: '"Với Kafi, tôi đã có thể mở rộng danh mục đầu tư của mình mà không phải lo lắng về vốn. Dịch vụ tài trợ giao dịch của họ thực sự thay đổi cách tôi tiếp cận thị trường."',
+      image: TestimonialHung
+    },
+    {
+      name: 'Phạm Mai Anh',
+      role: 'Nhà kinh doanh tự do',
+      content: '"Điều tôi thích nhất ở Kafi là sự minh bạch và tốc độ giao dịch. Các gói Margin linh hoạt giúp tôi tối ưu hóa lợi nhuận trong những thời điểm thị trường biến động mạnh."',
+      image: TestimonialMaiAnh
+    },
+    {
+      name: 'Hoàng Nam',
+      role: 'Chuyên viên phân tích',
+      content: '"Công cụ phân tích kỹ thuật và hệ thống báo cáo của Kafi rất chuyên sâu. Đây là nền tảng đáng tin cậy cho cả nhà đầu tư mới và chuyên nghiệp."',
+      image: TestimonialUser // Reusing the original placeholder for this one
+    }
+  ];
+
+  const nextTestimonial = () => {
+    setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
 
   return (
     <div className="min-h-screen bg-[#F7F9FC] font-['Inter',sans-serif] text-[#101828]">
@@ -775,54 +806,75 @@ export default function StocksPage() {
               <img src="/kafi-web-demo/assets/TestimonialBg.png" alt="" className="w-full h-full object-cover" />
             </div>
 
-            <h2 className="text-white text-[48px] font-bold leading-[56px] mb-[48px] relative z-10">Khách hàng Kafi nói gì?</h2>
+            <h2 className="text-white text-[48px] font-bold leading-[56px] mb-[48px] relative z-10 text-center">Khách hàng Kafi nói gì?</h2>
 
-            <div className="bg-[#073038] border border-white/10 rounded-[32px] p-[12px] w-full max-w-[816px] flex items-stretch relative z-10 group shadow-2xl">
-              {/* Visual Column */}
-              <div className="w-[285px] h-[285px] bg-white rounded-[32px] overflow-hidden relative shrink-0">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#106070] to-[#073038]" />
-                {/* Decorative Gradients */}
-                <div className="absolute -bottom-20 -left-20 size-60 bg-[#00C694] blur-[60px] opacity-40 rounded-full" />
-                <div className="absolute -top-20 -right-20 size-40 bg-[#FDF299] blur-[40px] opacity-30 rounded-full" />
-                <img src={TestimonialUser} alt="Lê Hùng" className="absolute inset-0 w-full h-full object-cover" />
-              </div>
+            <div className="w-full max-w-[816px] relative z-10 h-[320px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeTestimonial}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="bg-[#073038] border border-white/10 rounded-[32px] p-[12px] w-full flex items-stretch group shadow-2xl absolute inset-0"
+                >
+                  {/* Visual Column */}
+                  <div className="w-[285px] h-[285px] bg-white rounded-[32px] overflow-hidden relative shrink-0">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#106070] to-[#073038]" />
+                    {/* Decorative Gradients */}
+                    <div className="absolute -bottom-20 -left-20 size-60 bg-[#00C694] blur-[60px] opacity-40 rounded-full" />
+                    <div className="absolute -top-20 -right-20 size-40 bg-[#FDF299] blur-[40px] opacity-30 rounded-full" />
+                    <img src={testimonials[activeTestimonial].image} alt={testimonials[activeTestimonial].name} className="absolute inset-0 w-full h-full object-cover" />
+                  </div>
 
-              {/* Content Column */}
-              <div className="flex-1 pl-[24px] flex flex-col justify-center gap-[16px]">
-                <div className="w-[60px] opacity-60">
-                  <svg width="60" height="42" viewBox="0 0 60 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18.6 0C8.3 0 0 8.3 0 18.6V42H22.8V18.6H9.6C9.6 13.6 13.6 9.6 18.6 9.6V0ZM55.8 0C45.5 0 37.2 8.3 37.2 18.6V42H60V18.6H46.8C46.8 13.6 50.8 9.6 55.8 9.6V0Z" fill="#00C694" fillOpacity="0.5" />
-                  </svg>
-                </div>
-                <p className="text-[18px] leading-[26px] text-white">
-                  "Với Kafi, tôi đã có thể mở rộng danh mục đầu tư của mình mà không phải lo lắng về vốn. Dịch vụ tài trợ giao dịch của họ thực sự thay đổi cách tôi tiếp cận thị trường."
-                </p>
-                <div className="space-y-1">
-                  <h4 className="text-[16px] font-semibold text-white">Lê Hùng</h4>
-                  <p className="text-[14px] text-[#00C694]">Kỹ sư phần mềm</p>
-                </div>
-                <div className="flex gap-1">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <svg key={s} width="20" height="20" viewBox="0 0 24 24" fill="#00C694">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                    </svg>
-                  ))}
-                </div>
-              </div>
+                  {/* Content Column */}
+                  <div className="flex-1 pl-[24px] flex flex-col justify-center gap-[16px]">
+                    <div className="w-[60px] opacity-60">
+                      <svg width="60" height="42" viewBox="0 0 60 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.6 0C8.3 0 0 8.3 0 18.6V42H22.8V18.6H9.6C9.6 13.6 13.6 9.6 18.6 9.6V0ZM55.8 0C45.5 0 37.2 8.3 37.2 18.6V42H60V18.6H46.8C46.8 13.6 50.8 9.6 55.8 9.6V0Z" fill="#00C694" fillOpacity="0.5" />
+                      </svg>
+                    </div>
+                    <p className="text-[18px] leading-[26px] text-white">
+                      {testimonials[activeTestimonial].content}
+                    </p>
+                    <div className="space-y-1">
+                      <h4 className="text-[16px] font-semibold text-white">{testimonials[activeTestimonial].name}</h4>
+                      <p className="text-[14px] text-[#00C694]">{testimonials[activeTestimonial].role}</p>
+                    </div>
+                    <div className="flex gap-1">
+                      {[1, 2, 3, 4, 5].map((s) => (
+                        <svg key={s} width="20" height="20" viewBox="0 0 24 24" fill="#00C694">
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
 
             {/* Navigation Controls */}
-            <div className="absolute bottom-[48px] left-[48px] right-[48px] flex items-center justify-between">
-              <div className="flex gap-[4px]">
-                {[0, 1, 2, 3].map((_, i) => (
-                  <div key={i} className={`size-[6px] rounded-full ${i === 1 ? 'bg-[#101828]' : 'bg-[#101828]/30'}`}></div>
+            <div className="absolute bottom-[48px] left-[48px] right-[48px] flex items-center justify-between z-20">
+              <div className="flex gap-[8px]">
+                {testimonials.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveTestimonial(i)}
+                    className={`size-[8px] rounded-full transition-all duration-300 ${i === activeTestimonial ? 'bg-white w-[24px]' : 'bg-white/30'}`}
+                  ></button>
                 ))}
               </div>
               <div className="flex gap-[16px]">
-                <button className="size-[44px] bg-[#EBEFF5]/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                <button
+                  onClick={prevTestimonial}
+                  className="size-[44px] bg-[#EBEFF5]/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+                >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </button>
-                <button className="size-[44px] bg-[#00C694] rounded-full flex items-center justify-center hover:bg-[#00b284] transition-colors shadow-lg">
+                <button
+                  onClick={nextTestimonial}
+                  className="size-[44px] bg-[#00C694] rounded-full flex items-center justify-center hover:bg-[#00b284] transition-colors shadow-lg"
+                >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
               </div>
