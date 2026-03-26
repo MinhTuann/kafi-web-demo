@@ -1,6 +1,6 @@
 import Header from '../components/Header';
 import { motion, AnimatePresence, animate } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 
 const CountingNumber = ({ value, duration = 1.6 }: { value: number, duration?: number }) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -56,10 +56,87 @@ export default function HomePage() {
   ];
 
   const stockTabs = [
-    { name: 'VNIndex', value: '1,696.24', change: '-12.24', percent: '-0.78%', isUp: false, vol: 1023, val: 27428, up: 245, flat: 66, down: 132 },
-    { name: 'VN30', value: '1,112.40', change: '+5.12', percent: '+0.46%', isUp: true, vol: 452, val: 12560, up: 18, flat: 5, down: 7 },
-    { name: 'HNXIndex', value: '226.78', change: '-0.45', percent: '-0.20%', isUp: false, vol: 128, val: 2150, up: 85, flat: 42, down: 112 },
-    { name: 'UPCOMIndex', value: '86.54', change: '+0.12', percent: '+0.14%', isUp: true, vol: 85, val: 1050, up: 156, flat: 98, down: 74 },
+    {
+      name: 'VNIndex',
+      value: '1,696.24',
+      change: '-12.24',
+      percent: '-0.78%',
+      isUp: false,
+      vol: 1023,
+      val: 27428,
+      up: 245,
+      flat: 66,
+      down: 132,
+      chartData: [
+        {
+          type: 'down',
+          d: "M0,70 L5,68 L10,62 L15,58 L20,64 L25,60 L30,62 L35,55 L40,58 L45,52 L50,48 L55,54 L60,50 L65,56 L70,52 L75,58 L80,50 L85,48 L90,52 L95,58 L100,50 L105,48",
+          fill: "0,70 5,68 10,62 15,58 20,64 25,60 30,62 35,55 40,58 45,52 50,48 55,54 60,50 65,56 70,52 75,58 80,50 85,48 90,52 95,58 100,50 105,48 105,75 0,75"
+        },
+        {
+          type: 'up',
+          d: "M105,48 L115,42 L125,40 L135,38 L145,35 L155,30 L165,26 L175,22 L185,18 L195,14 L205,10 L215,8 L225,18 L235,12 L245,22 L255,26 L265,30 L275,32 L285,18 L295,15 L305,10 L315,6 L325,10 L335,18 L345,30 L355,42 L365,42 L375,48 L385,48 L395,44 L405,32 L415,20 L420,14",
+          fill: "105,48 115,42 125,40 135,38 145,35 155,30 165,26 175,22 185,18 195,14 205,10 215,8 225,18 235,12 245,22 255,26 265,30 275,32 285,18 295,15 305,10 315,6 325,10 335,18 345,30 355,42 365,42 375,48 385,48 395,44 405,32 415,20 420,14 420,75 105,75"
+        }
+      ]
+    },
+    {
+      name: 'VN30',
+      value: '1,112.40',
+      change: '+5.12',
+      percent: '+0.46%',
+      isUp: true,
+      vol: 452,
+      val: 12560,
+      up: 18,
+      flat: 5,
+      down: 7,
+      chartData: [
+        {
+          type: 'up',
+          d: "M0,48 L20,42 L40,38 L60,35 L80,30 L100,26 L120,22 L140,18 L160,14 L180,10 L200,6 L220,18 L240,18 L260,14 L280,10 L300,6 L320,8 L340,10 L360,12 L380,14 L400,14 L420,0",
+          fill: "0,48 20,42 40,38 60,35 80,30 100,26 120,22 140,18 160,14 180,10 200,6 220,18 240,18 260,14 280,10 300,6 320,8 340,10 360,12 380,14 400,14 420,0 420,75 0,75"
+        }
+      ]
+    },
+    {
+      name: 'HNXIndex',
+      value: '226.78',
+      change: '-0.45',
+      percent: '-0.20%',
+      isUp: false,
+      vol: 128,
+      val: 2150,
+      up: 85,
+      flat: 42,
+      down: 112,
+      chartData: [
+        {
+          type: 'down',
+          d: "M0,50 L10,55 L20,52 L30,60 L40,52 L50,65 L60,58 L70,70 L80,62 L90,75 L100,68 L110,72 L120,64 L130,75 L140,68 L150,75 L160,67 L170,75 L180,68 L190,75 L200,67 L210,75 L220,68 L230,75 L240,67 L250,75 L260,68 L270,72 L280,64 L290,68 L300,60 L310,64 L320,56 L330,60 L340,52 L350,56 L360,48 L370,52 L380,50 L390,55 L400,48 L410,54 L420,48",
+          fill: "0,50 10,55 20,52 30,60 40,52 50,65 60,58 70,70 80,62 90,75 100,68 110,72 120,64 130,75 140,68 150,75 160,67 170,75 180,68 190,75 200,67 210,75 220,68 230,75 240,67 250,75 260,68 270,72 280,64 290,68 300,60 310,64 320,56 330,60 340,52 350,56 360,48 370,52 380,50 390,55 400,48 410,54 420,48 420,75 0,75"
+        }
+      ]
+    },
+    {
+      name: 'UPCOMIndex',
+      value: '86.54',
+      change: '+0.12',
+      percent: '+0.14%',
+      isUp: true,
+      vol: 85,
+      val: 1050,
+      up: 156,
+      flat: 98,
+      down: 74,
+      chartData: [
+        {
+          type: 'up',
+          d: "M0,48 L20,44 L40,40 L60,36 L80,32 L100,28 L120,24 L140,20 L160,16 L180,12 L200,8 L220,10 L240,12 L260,14 L280,16 L300,18 L320,20 L340,22 L360,24 L380,26 L400,28 L420,30",
+          fill: "0,48 20,44 40,40 60,36 80,32 100,28 120,24 140,20 160,16 180,12 200,8 220,10 240,12 260,14 280,16 300,18 320,20 340,22 360,24 380,26 400,28 420,30 420,75 0,75"
+        }
+      ]
+    },
   ];
 
   useEffect(() => {
@@ -96,10 +173,10 @@ export default function HomePage() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 lg:grid-cols-[1fr,420px] gap-4 lg:gap-5 flex-1 min-h-0"
+          className="grid grid-cols-12 gap-4 lg:gap-5 flex-1 min-h-0"
         >
           {/* Hero Column */}
-          <div className="flex flex-col min-h-0">
+          <div className="col-span-9 flex flex-col min-h-0">
             <motion.section
               variants={itemVariants}
               className="flex-1 rounded-[32px] overflow-hidden relative shadow-xl min-h-0"
@@ -199,15 +276,14 @@ export default function HomePage() {
           {/* Sidebar Column */}
           <motion.aside
             variants={containerVariants}
-            className="flex flex-col gap-4 min-h-0 flex-1"
+            className="flex flex-col col-span-3 gap-4 min-h-0 flex-1"
           >
             {/* Advertisement Carousel */}
             <motion.div
               variants={itemVariants}
               whileHover={{ y: -6, scale: 1.01, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              className="w-full bg-transparent rounded-[32px] relative overflow-hidden group shadow-md hover:shadow-xl transition-shadow duration-500"
-              style={{ aspectRatio: '2/1' }}
+              className="flex-none w-full aspect-[16/9] bg-transparent rounded-[32px] relative overflow-hidden group shadow-md hover:shadow-xl transition-shadow duration-500"
             >
               <AnimatePresence mode="wait">
                 <motion.div
@@ -226,18 +302,16 @@ export default function HomePage() {
                     />
 
                     {/* Primary Button */}
-                    <div className="absolute inset-0 z-10 flex flex-col justify-center px-8">
-                      <motion.button
+                    <motion.button
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
-                        className="mt-20 h-10 px-6 bg-[#1a202c] text-white rounded-full font-bold text-sm shadow-xl transition-all flex items-center gap-2 w-max group"
+                        className="absolute bottom-6 left-4 h-10 px-3 bg-[#1a202c] text-white rounded-full font-light text-sm shadow-xl transition-all flex items-center gap-2 w-max group"
                       >
                         <span>Tham gia ngay</span>
                         <div className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17" /></svg>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17" /></svg>
                         </div>
                       </motion.button>
-                    </div>
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -259,7 +333,7 @@ export default function HomePage() {
               variants={itemVariants}
               whileHover={{ scale: 1.02, x: -8, zIndex: 20 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="bg-black/60 backdrop-blur-xl rounded-[32px] p-4 shadow-2xl border border-white/5 flex flex-col gap-2 relative flex-[1_0_0%]"
+              className="bg-black/60 backdrop-blur-xl rounded-[32px] p-4 shadow-2xl border border-white/5 flex flex-col gap-2 relative flex-[1_0_0%] min-[1729px]:aspect-[16/9] min-[1729px]:flex-none"
             >
               {/* Tab nav */}
               <nav className="p-1 bg-black/20 rounded-full flex items-center gap-1">
@@ -297,57 +371,30 @@ export default function HomePage() {
                             </linearGradient>
                           </defs>
 
-                          <line x1="0" y1="36" x2="420" y2="36" stroke="rgba(255,255,255,0.15)" strokeWidth="1" strokeDasharray="4,4" />
+                          <line x1="0" y1="48" x2="420" y2="48" stroke="rgba(255,255,255,0.15)" strokeWidth="1" strokeDasharray="4,4" />
 
-                          {idx === 0 ? (
-                            <>
-                              {/* Original VNIndex dual-segment chart */}
+                          {tab.chartData.map((data, dataIdx) => (
+                            <Fragment key={dataIdx}>
                               <motion.path
-                                d="M0,56 L20,60 L35,46 L50,62 L65,50 L80,58 L100,43 L120,48"
-                                fill="none" stroke="#E53935" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round"
-                                initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1 }}
-                              />
-                              <motion.polygon
-                                points="0,56 20,60 35,46 50,62 65,50 80,58 100,43 120,48 120,75 0,75"
-                                fill={`url(#redFill-${idx})`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.3 }}
-                              />
-                              <motion.path
-                                d="M120,48 L145,36 L165,26 L185,32 L200,18 L220,23 L240,8 L260,16 L280,6 L300,13 L320,8 L340,16 L360,10 L380,6 L400,3 L420,0"
-                                fill="none" stroke="#00C48C" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round"
-                                initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.2, delay: 0.8 }}
-                              />
-                              <motion.polygon
-                                points="120,48 145,36 165,26 185,32 200,18 220,23 240,8 260,16 280,6 300,13 320,8 340,16 360,10 380,6 400,3 420,0 420,75 120,75"
-                                fill={`url(#greenFill-${idx})`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }}
-                              />
-                            </>
-                          ) : (
-                            <>
-                              {/* Mock chart paths for other tabs */}
-                              <motion.path
-                                d={tab.isUp
-                                  ? "M0,48 L50,43 L100,46 L150,33 L200,36 L250,23 L300,26 L350,13 L400,16 L420,8"
-                                  : "M0,8 L50,13 L100,10 L150,23 L200,20 L250,33 L300,30 L350,43 L400,40 L420,53"}
+                                d={data.d}
                                 fill="none"
-                                stroke={tab.isUp ? "#00C48C" : "#E53935"}
-                                strokeWidth="2"
+                                stroke={data.type === 'up' ? "#00C48C" : "#E53935"}
+                                strokeWidth="1"
                                 strokeLinejoin="round"
                                 strokeLinecap="round"
                                 initial={{ pathLength: 0 }}
                                 animate={{ pathLength: 1 }}
-                                transition={{ duration: 1.5, ease: "easeInOut" }}
+                                transition={{ duration: 1.2, delay: dataIdx * 0.8 }}
                               />
                               <motion.polygon
-                                points={tab.isUp
-                                  ? "0,48 50,43 100,46 150,33 200,36 250,23 300,26 350,13 400,16 420,8 420,75 0,75"
-                                  : "0,8 50,13 100,10 150,23 200,20 250,33 300,30 350,43 400,40 420,53 420,75 0,75"}
-                                fill={`url(#${tab.isUp ? 'greenFill' : 'redFill'}-${idx})`}
+                                points={data.fill}
+                                fill={`url(#${data.type === 'up' ? 'greenFill' : 'redFill'}-${idx})`}
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
-                                transition={{ duration: 1, delay: 0.5 }}
+                                transition={{ duration: 1, delay: dataIdx * 0.8 + 0.4 }}
                               />
-                            </>
-                          )}
+                            </Fragment>
+                          ))}
                         </svg>
 
                         <div className="absolute bottom-0 left-0 right-0 flex justify-between px-1">
@@ -423,7 +470,8 @@ export default function HomePage() {
               variants={itemVariants}
               whileHover={{ y: -6, scale: 1.01, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              className="flex items-center p-5 bg-[#08444e]/50 backdrop-blur-xl rounded-[32px] border border-white/20 gap-3"
+              className="flex items-center p-5 rounded-[32px] border border-white/20 gap-3 bg-cover bg-center relative overflow-hidden"
+              style={{ backgroundImage: "url('assets/home-kai-background.png')" }}
             >
               {/* Bot avatar character video */}
               <div
@@ -450,7 +498,7 @@ export default function HomePage() {
               <div className="flex-1">
                 <div className="bg-white/5 rounded-[24px] px-5 py-3">
                   <p className="text-white text-[14px] font-semibold leading-relaxed">
-                    Xin chào bạn! Mình là Kai, trợ lý tài chính.
+                    Xin chào bạn! Mình là Kai, trợ lý tài chính của bạn.
                   </p>
                 </div>
               </div>

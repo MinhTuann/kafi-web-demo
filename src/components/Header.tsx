@@ -101,7 +101,7 @@ const Header: React.FC = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="absolute top-full left-0 mt-4 w-[86vw] bg-white rounded-[40px] shadow-[0px_8px_46px_0px_rgba(0,0,0,0.12)] border border-white/60 p-8 z-50 flex gap-10"
+                        className="absolute top-full left-0 mt-4 w-max max-w-[90vw] bg-white rounded-[40px] shadow-[0px_8px_46px_0px_rgba(0,0,0,0.12)] border border-white/60 p-8 z-50 flex gap-10"
                       >
                         {/* Column 1: Đầu tư tăng trưởng */}
                         <div className="flex flex-col gap-4 w-[200px]">
@@ -145,7 +145,7 @@ const Header: React.FC = () => {
                           <div className="flex gap-8">
                             {/* Card 1 */}
                             <div className="flex-1 flex flex-col gap-3 group hover:scale-[1.04] hover:shadow-[0_20px_50px_rgba(0,198,148,0.20)] rounded-2xl p-2 -m-2 transition-all duration-500 ease-out cursor-pointer">
-                              <div className="h-[140px] rounded-2xl bg-gradient-to-br from-[#00c694] to-[#07756d] relative overflow-hidden flex items-center justify-center p-4">
+                              <div className="w-[15vw] aspect-[16/9] rounded-2xl bg-gradient-to-br from-[#00c694] to-[#07756d] relative overflow-hidden flex items-center justify-center p-4">
                                 <img
                                   src="assets/b9e79771ccb89cc036ab4d49b5e6a2d48890aced.png"
                                   className="absolute bottom-0 -left-[5%] scale-120 object-contain"
@@ -155,12 +155,12 @@ const Header: React.FC = () => {
                                   <img src="assets/1c663ab9879f4194549ab252d5415675f4bb6bfc.png" className="size-full object-cover" alt="Kafi X" />
                                 </div>
                               </div>
-                              <span className="text-[14px] font-semibold text-[#101828] px-1">App Kafi X</span>
+                              <span className="text-[14px] font-semibold text-[#101828] px-1 max-w-[15vw] block">App Kafi X</span>
                             </div>
 
                             {/* Card 2 */}
                             <div className="flex-1 flex flex-col gap-3 group hover:scale-[1.04] hover:shadow-[0_20px_50px_rgba(0,198,148,0.20)] rounded-2xl p-2 -m-2 transition-all duration-500 ease-out cursor-pointer text-left">
-                              <div className="h-[140px] rounded-2xl bg-gradient-to-br from-[#00c694] via-[#0ae685] to-[#c6ffd9] relative overflow-hidden p-0">
+                             <div className="w-[15vw] aspect-[16/9] rounded-2xl bg-gradient-to-br from-[#00c694] via-[#0ae685] to-[#c6ffd9] relative overflow-hidden p-0">
                                 <img
                                   src="assets/b9e79771ccb89cc036ab4d49b5e6a2d48890aced.png"
                                   className="absolute bottom-0 -left-[45%] scale-100 object-contain"
@@ -170,7 +170,7 @@ const Header: React.FC = () => {
                                   <img src="assets/0f719e2cf6935a464d665bb5a26c98510cb40ef0.png" className="size-full object-cover" alt="Web Kafi" />
                                 </div>
                               </div>
-                              <span className="text-[14px] font-semibold text-[#101828] px-1">Web Kafi X</span>
+                              <span className="text-[14px] font-semibold text-[#101828] px-1 max-w-[15vw] block">Web Kafi X</span>
                             </div>
                           </div>
                         </div>
@@ -203,10 +203,10 @@ const Header: React.FC = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="absolute top-full left-0 mt-4 w-[55vw] bg-white rounded-[40px] shadow-[0px_8px_46px_0px_rgba(0,0,0,0.12)] border border-white/60 overflow-hidden z-50 flex"
+                        className="absolute top-full left-0 mt-4 w-max max-w-[90vw] bg-[#F7F9FC] rounded-[40px] shadow-[0px_8px_46px_0px_rgba(0,0,0,0.12)] border border-white/60 overflow-hidden z-50 flex"
                       >
                         {/* Sidebar Menu */}
-                        <div className="w-[17vw] border-r border-[#F7F9FC] p-5 flex flex-col gap-1">
+                        <div className="bg-white w-[280px] border-r border-[#F7F9FC] p-5 flex flex-col gap-1">
                           {[
                             'Khuyến nghị đầu tư',
                             'Báo cáo thị trường',
@@ -222,7 +222,7 @@ const Header: React.FC = () => {
                         </div>
 
                         {/* Content Area */}
-                        <div className="flex-1 bg-[#F7F9FC] px-8 py-5 flex flex-col h-full gap-4 justify-start">
+                        <div className="flex-1 px-8 py-5 flex flex-col h-full gap-4 justify-start">
                           <div className="flex gap-4">
                             <span className="flex-1 px-3 py-2 text-[16px] text-[#667085] font-light">Điểm tâm chứng khoán</span>
                             <span className="flex-1 px-3 py-2 text-[16px] text-[#667085] font-light">Bản tin Kafi</span>
@@ -231,26 +231,26 @@ const Header: React.FC = () => {
                           <div className="flex gap-6">
                             {/* News Card 1 */}
                             <div className="flex-1 flex flex-col gap-4 group hover:scale-[1.04] hover:shadow-[0_20px_50px_rgba(0,198,148,0.20)] rounded-2xl p-2 -m-2 transition-all duration-500 ease-out cursor-pointer">
-                              <div className="aspect-[16/9] rounded-2xl overflow-hidden relative">
+                              <div className="w-[15vw] aspect-[16/9] rounded-2xl overflow-hidden relative">
                                 <img
                                   src="assets/02b38069d509285aeeaad2669c5d7d92948661a0.png"
                                   className="w-full h-full object-cover"
                                   alt=""
                                 />
                               </div>
-                              <h4 className="text-[14px] font-bold text-[#101828] leading-tight">Thị trường lên đỉnh... nhà đầu tư lên huyết áp</h4>
+                              <h4 className="text-[14px] font-bold text-[#101828] leading-tight max-w-[15vw]">Thị trường lên đỉnh... nhà đầu tư lên huyết áp</h4>
                             </div>
 
                             {/* News Card 2 */}
                             <div className="flex-1 flex flex-col gap-4 group hover:scale-[1.04] hover:shadow-[0_20px_50px_rgba(0,198,148,0.20)] rounded-2xl p-2 -m-2 transition-all duration-500 ease-out cursor-pointer">
-                              <div className="aspect-[16/9] rounded-2xl overflow-hidden relative">
+                              <div className="w-[15vw] aspect-[16/9] rounded-2xl overflow-hidden relative">
                                 <img
                                   src="assets/6ac2d4f95d69cab064362cb6809d4a38ff609678.png"
                                   className="w-full h-full object-cover"
                                   alt=""
                                 />
                               </div>
-                              <h4 className="text-[14px] font-bold text-[#101828] leading-tight">Kafi vinh dự nhận giải thưởng "Thương hiệu Mạnh – Tăng trưởng Ấn tượng 2025"</h4>
+                              <h4 className="text-[14px] font-bold text-[#101828] leading-tight max-w-[15vw]">Kafi vinh dự nhận giải thưởng "Thương hiệu Mạnh – Tăng trưởng Ấn tượng 2025"</h4>
                             </div>
                           </div>
                         </div>
@@ -280,10 +280,10 @@ const Header: React.FC = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="absolute top-full left-0 mt-4 w-[55vw] bg-white rounded-[40px] shadow-[0px_8px_46px_0px_rgba(0,0,0,0.12)] border border-white/60 overflow-hidden z-50 flex"
+                        className="absolute top-full left-0 mt-4 w-max max-w-[90vw] bg-[#F7F9FC] rounded-[40px] shadow-[0px_8px_46px_0px_rgba(0,0,0,0.12)] border border-white/60 overflow-hidden z-50 flex"
                       >
                         {/* Sidebar Menu */}
-                        <div className="w-[17vw] border-r border-[#F7F9FC] p-5 flex flex-col gap-1">
+                        <div className="bg-white w-[280px] border-r border-[#F7F9FC] p-5 flex flex-col gap-1">
                           {[
                             'Cẩm nang đầu tư',
                             'Khoá học chứng khoán',
@@ -298,7 +298,7 @@ const Header: React.FC = () => {
                         </div>
 
                         {/* Content Area */}
-                        <div className="flex-1 bg-[#F7F9FC] px-8 py-5 flex flex-col h-full gap-4 justify-start">
+                        <div className="flex-1 px-8 py-5 flex flex-col h-full gap-4 justify-start">
                           <div className="flex gap-4">
                             <span className="flex-1 px-3 py-2 text-[16px] text-[#667085] font-light">Lịch sự kiện</span>
                           </div>
@@ -306,7 +306,7 @@ const Header: React.FC = () => {
                           <div className="flex gap-6">
                             {/* Event Card 1 */}
                             <div className="flex-1 flex flex-col gap-4 group hover:scale-[1.04] hover:shadow-[0_20px_50px_rgba(0,198,148,0.20)] rounded-2xl p-2 -m-2 transition-all duration-500 ease-out cursor-pointer relative">
-                              <div className="aspect-[16/9] rounded-2xl overflow-hidden relative">
+                              <div className="w-[15vw] aspect-[16/9] rounded-2xl overflow-hidden relative">
                                 <img
                                   src="assets/2dd8f16344a87aef7872dd3d48f3e5a6973b2839.png"
                                   className="w-full h-full object-cover"
@@ -314,7 +314,7 @@ const Header: React.FC = () => {
                                 />
                               </div>
                               <div className="flex flex-col gap-1">
-                                <h4 className="text-[14px] font-bold text-[#101828] leading-tight">Tâm lý đầu tư – Yếu tố quyết định thành công dài hạn</h4>
+                                <h4 className="text-[14px] font-bold text-[#101828] leading-tight max-w-[15vw]">Tâm lý đầu tư – Yếu tố quyết định thành công dài hạn</h4>
                                 <div className="flex items-center gap-1 text-[12px] text-[#667085]">
                                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                                   <span>Thứ 6, 09 tháng 02 2026</span>
@@ -327,7 +327,7 @@ const Header: React.FC = () => {
 
                             {/* Event Card 2 */}
                             <div className="flex-1 flex flex-col gap-4 group hover:scale-[1.04] hover:shadow-[0_20px_50px_rgba(0,198,148,0.20)] rounded-2xl p-2 -m-2 transition-all duration-500 ease-out cursor-pointer relative">
-                              <div className="aspect-[16/9] rounded-2xl overflow-hidden relative">
+                              <div className="w-[15vw] aspect-[16/9] rounded-2xl overflow-hidden relative">
                                 <img
                                   src="assets/e21fa82a2b755257e4cee2eae67bb41e385b1a5d.png"
                                   className="w-full h-full object-cover"
@@ -335,7 +335,7 @@ const Header: React.FC = () => {
                                 />
                               </div>
                               <div className="flex flex-col gap-1">
-                                <h4 className="text-[14px] font-bold text-[#101828] leading-tight">Tâm lý đầu tư – Yếu tố quyết định thành công dài hạn</h4>
+                                <h4 className="text-[14px] font-bold text-[#101828] leading-tight max-w-[15vw]">Tâm lý đầu tư – Yếu tố quyết định thành công dài hạn</h4>
                                 <div className="flex items-center gap-1 text-[12px] text-[#667085]">
                                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                                   <span>Thứ 6, 09 tháng 02 2026</span>
@@ -373,10 +373,10 @@ const Header: React.FC = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="absolute top-full left-0 mt-4 w-[55vw] bg-white rounded-[40px] shadow-[0px_8px_46px_0px_rgba(0,0,0,0.12)] border border-white/60 overflow-hidden z-50 flex"
+                        className="absolute top-full left-0 mt-4 w-max max-w-[90vw] bg-[#F7F9FC] rounded-[40px] shadow-[0px_8px_46px_0px_rgba(0,0,0,0.12)] border border-white/60 overflow-hidden z-50 flex"
                       >
                         {/* Sidebar Menu */}
-                        <div className="w-[17vw] border-r border-[#F7F9FC] p-5 flex flex-col gap-1">
+                        <div className="bg-white w-[280px] border-r border-[#F7F9FC] p-5 flex flex-col gap-1">
                           {[
                             'Câu hỏi thường gặp',
                             'Biễu mẫu và chính sách',
@@ -391,7 +391,7 @@ const Header: React.FC = () => {
                         </div>
 
                         {/* Content Area */}
-                        <div className="flex-1 bg-[#F7F9FC] px-8 py-5 flex flex-col h-full gap-4 justify-start">
+                        <div className="flex-1 px-8 py-5 flex flex-col h-full gap-4 justify-start">
                           <div className="flex gap-4">
                             <span className="flex-1 px-3 py-2 text-[16px] text-[#667085] font-light">Liên hệ nhanh với Kafi</span>
                           </div>
