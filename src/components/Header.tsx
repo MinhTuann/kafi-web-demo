@@ -265,9 +265,9 @@ const Header: React.FC = () => {
                   onMouseEnter={() => setIsAcademyMenuOpen(true)}
                   onMouseLeave={() => setIsAcademyMenuOpen(false)}
                 >
-                  <div className="flex items-center cursor-pointer group py-4">
+                  <div className="flex items-center cursor-pointer group py-4" onClick={() => navigate('/academy')}>
                     <span
-                      className={`text-[14px] font-semibold transition-colors whitespace-nowrap ${isAcademyMenuOpen ? 'text-[#00C694]' : 'text-[#344054] group-hover:text-[#00C694]'}`}
+                      className={`text-[14px] font-semibold transition-colors whitespace-nowrap ${isAcademyMenuOpen || isActive('/academy') ? 'text-[#00C694]' : 'text-[#344054] group-hover:text-[#00C694]'}`}
                     >
                       Học viện
                     </span>
@@ -358,9 +358,9 @@ const Header: React.FC = () => {
                   onMouseEnter={() => setIsSupportMenuOpen(true)}
                   onMouseLeave={() => setIsSupportMenuOpen(false)}
                 >
-                  <div className="flex items-center cursor-pointer group py-4">
+                  <div className="flex items-center cursor-pointer group py-4" onClick={() => navigate('/support')}>
                     <span
-                      className={`text-[14px] font-semibold transition-colors whitespace-nowrap ${isSupportMenuOpen ? 'text-[#00C694]' : 'text-[#344054] group-hover:text-[#00C694]'}`}
+                      className={`text-[14px] font-semibold transition-colors whitespace-nowrap ${isSupportMenuOpen || isActive('/support') ? 'text-[#00C694]' : 'text-[#344054] group-hover:text-[#00C694]'}`}
                     >
                       Hỗ trợ
                     </span>
