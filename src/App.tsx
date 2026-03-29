@@ -4,6 +4,7 @@ import StocksPage from './pages/StocksPage';
 import ReportsPage from './pages/ReportsPage';
 import SupportPage from './pages/SupportPage';
 import AcademyPage from './pages/AcademyPage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/reports" element={<ReportsPage />} />
         <Route path="/academy" element={<AcademyPage />} />
         <Route path="/support" element={<SupportPage />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
     </HashRouter>
   );

@@ -1,213 +1,360 @@
-import React, { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
+import {
+  ArrowUp,
+  BookOpenText,
+  CircleHelp,
+  FileText,
+  Headphones,
+  MinusCircle,
+  PlusCircle,
+  Search,
+} from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const SupportPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('faq');
-  const [activeTopic, setActiveTopic] = useState('account');
+const heroTeamImage = '/kafi-web-demo/assets/support/hero-team.png';
+const kaiFrontImage = '/kafi-web-demo/assets/support/kai-front.png';
+const ctaPatternImage = '/kafi-web-demo/assets/support/hero-support.png';
 
-  const topics = [
-    { id: 'account', label: 'Tài khoản' },
-    { id: 'stocks', label: 'Cổ Phiếu' },
-    { id: 'bonds', label: 'Trái Phiếu' },
-    { id: 'derivatives', label: 'Phái Sinh' },
-    { id: 'covered-warrants', label: 'Chứng quyền' },
-    { id: 'trading-support', label: 'Giao dịch ký quỹ' },
-    { id: 'money-transfer', label: 'Giao dịch tiền' },
-    { id: 'fees', label: 'Biểu phí' },
-    { id: 'account-management', label: 'Quản Lý Tài Khoản' },
-  ];
+const topTabs = [
+  { id: 'faq', label: 'Câu hỏi thường gặp', icon: CircleHelp },
+  { id: 'forms', label: 'Biểu mẫu & Chính sách', icon: FileText },
+  { id: 'contact', label: 'Liên hệ', icon: Headphones },
+] as const;
 
-  const faqs = [
-    { question: 'Làm sao mở tài khoản?', answer: 'Mở tài khoản tại KAFI rất đơn giản. Bạn chỉ cần truy cập nền tảng giao dịch, điền thông tin cá nhân và xác minh danh tính. Quá trình này thường hoàn tất trong vài phút.' },
-    { question: 'Ai có thể mở tài khoản tại Kafi?', answer: 'Tổ chức, Khách hàng cá nhân trong nước đủ 18 tuổi trở lên, có đầy đủ năng lực hành vi dân sự theo quy định của pháp luật Việt Nam.' },
-    { question: 'Mất bao lâu để mở một tài khoản giao dịch thực?', answer: 'Thông thường chỉ mất vài phút sau khi hoàn tất xác thực thông tin.' },
-    { question: 'Tôi có thể mở nhiều tài khoản không?', answer: 'Mỗi khách hàng chỉ được mở một tài khoản chứng khoán tại KAFI.' },
-    { question: 'Mở tài khoản tại Kafi có mất phí không?', answer: 'Việc mở tài khoản tại Kafi hiện không thu phí.' },
-  ];
+const topicTabs = [
+  { id: 'account', label: 'Tài khoản' },
+  { id: 'stock', label: 'Cổ Phiếu' },
+  { id: 'bond', label: 'Trái Phiếu' },
+  { id: 'derivative', label: 'Phái Sinh' },
+  { id: 'warrant', label: 'Chứng quyền' },
+  { id: 'margin', label: 'Giao dịch ký quỹ' },
+  { id: 'cash', label: 'Giao dịch tiền' },
+  { id: 'fees', label: 'Biểu phí' },
+  { id: 'manage', label: 'Quản Lý Tài Khoản' },
+] as const;
 
-  const popularQuestions = [
-    { title: 'Làm thế nào để mở tài khoản chứng khoán online tại KAFI?', isOpen: true },
-    { title: 'Làm thế nào để đăng ký dịch vụ giao dịch ký quỹ tại Kafi?', isOpen: false },
-    { title: 'Biểu phí giao dịch tại KAFI được áp dụng như thế nào?', isOpen: false },
-    { title: 'Cách nạp tiền / rút tiền?', isOpen: false },
-    { title: 'Quên mật khẩu / khóa tài khoản?', isOpen: false },
-  ];
+const highlightedQuestions = [
+  'Làm thế nào để mở tài khoản chứng khoán online tại KAFI?',
+  'Làm thế nào để đăng ký dịch vụ giao dịch ký quỹ tại Kafi?',
+  'Biểu phí giao dịch tại KAFI được áp dụng như thế nào?',
+  'Cách nạp tiền / rút tiền?',
+  'Quên mật khẩu / khóa tài khoản ?',
+];
+
+const topicFaqById: Record<string, Array<{ q: string; a: string }>> = {
+  account: [
+    {
+      q: 'Làm sao mở tài khoản?',
+      a: 'Mở tài khoản tại KAFI rất đơn giản. Bạn chỉ cần truy cập nền tảng giao dịch, điền thông tin cá nhân và xác minh danh tính.',
+    },
+    {
+      q: 'Ai có thể mở tài khoản tại Kafi?',
+      a: 'Tổ chức, khách hàng cá nhân trong nước đủ 18 tuổi trở lên, có đầy đủ năng lực hành vi dân sự theo quy định của pháp luật Việt Nam.',
+    },
+    {
+      q: 'Mất bao lâu để mở một tài khoản giao dịch thực?',
+      a: 'Thông thường chỉ mất vài phút sau khi hoàn tất xác thực thông tin.',
+    },
+    {
+      q: 'Tôi có thể mở nhiều tài khoản không?',
+      a: 'Mỗi khách hàng chỉ được mở một tài khoản chứng khoán tại KAFI.',
+    },
+    {
+      q: 'Mở tài khoản tại Kafi có mất phí không?',
+      a: 'Việc mở tài khoản tại Kafi hiện không thu phí.',
+    },
+  ],
+  stock: [
+    {
+      q: 'Khung giờ giao dịch cổ phiếu là gì?',
+      a: 'Giao dịch cổ phiếu niêm yết diễn ra theo từng phiên trên HOSE, HNX và UPCOM theo quy định hiện hành của Sở giao dịch.',
+    },
+    {
+      q: 'Lệnh ATO và ATC được dùng khi nào?',
+      a: 'ATO dùng trong phiên khớp lệnh mở cửa, ATC dùng trong phiên khớp lệnh đóng cửa.',
+    },
+  ],
+  bond: [
+    {
+      q: 'Trái phiếu phù hợp với ai?',
+      a: 'Trái phiếu phù hợp với nhà đầu tư ưu tiên dòng tiền ổn định, mức biến động thấp hơn cổ phiếu.',
+    },
+    {
+      q: 'Có thể bán lại trái phiếu trước hạn không?',
+      a: 'Tùy sản phẩm và điều khoản phát hành, bạn có thể bán lại trên thị trường thứ cấp hoặc theo chương trình mua lại.',
+    },
+  ],
+  derivative: [
+    {
+      q: 'Phái sinh là gì?',
+      a: 'Phái sinh là công cụ tài chính có giá trị dựa trên tài sản cơ sở, thường dùng để phòng ngừa rủi ro hoặc giao dịch ngắn hạn.',
+    },
+    {
+      q: 'Tôi cần gì để giao dịch phái sinh?',
+      a: 'Bạn cần tài khoản phái sinh, ký quỹ ban đầu và nắm rõ cơ chế lãi/lỗ theo ngày của hợp đồng.',
+    },
+  ],
+  warrant: [
+    {
+      q: 'Chứng quyền có bảo đảm là gì?',
+      a: 'Chứng quyền là sản phẩm cho phép nhà đầu tư mua quyền, không phải nghĩa vụ, mua hoặc bán tài sản cơ sở trong tương lai.',
+    },
+    {
+      q: 'Rủi ro lớn nhất của chứng quyền là gì?',
+      a: 'Chứng quyền có thể hết hạn vô giá trị nếu biến động giá tài sản cơ sở không theo kỳ vọng.',
+    },
+  ],
+  margin: [
+    {
+      q: 'Làm thế nào để đăng ký giao dịch ký quỹ?',
+      a: 'Bạn đăng ký trực tiếp trên ứng dụng/web Kafi hoặc tại quầy, sau đó xác nhận điều khoản và hạn mức được cấp.',
+    },
+    {
+      q: 'Tỷ lệ ký quỹ được theo dõi như thế nào?',
+      a: 'Bạn có thể theo dõi real-time trên tài khoản. Hệ thống sẽ cảnh báo khi tỷ lệ về ngưỡng an toàn.',
+    },
+  ],
+  cash: [
+    {
+      q: 'Nạp tiền mất bao lâu để vào tài khoản?',
+      a: 'Thông thường tiền được ghi nhận ngay hoặc trong vài phút tùy kênh ngân hàng.',
+    },
+    {
+      q: 'Tôi có thể rút tiền ngoài giờ hành chính không?',
+      a: 'Yêu cầu rút có thể tạo 24/7, thời điểm xử lý thực tế theo quy định ngân hàng và lịch thanh toán.',
+    },
+  ],
+  fees: [
+    {
+      q: 'Biểu phí giao dịch được xem ở đâu?',
+      a: 'Bạn có thể xem tại mục Biểu phí trên website Kafi hoặc trong ứng dụng.',
+    },
+    {
+      q: 'Có phát sinh thêm phí ẩn không?',
+      a: 'Kafi minh bạch mức phí theo biểu phí công bố. Các khoản phát sinh đều được hiển thị rõ trước khi xác nhận giao dịch.',
+    },
+  ],
+  manage: [
+    {
+      q: 'Làm sao đổi số điện thoại nhận OTP?',
+      a: 'Bạn cần xác thực chủ tài khoản và cập nhật thông tin theo hướng dẫn tại ứng dụng hoặc quầy giao dịch.',
+    },
+    {
+      q: 'Tài khoản bị khóa thì xử lý thế nào?',
+      a: 'Liên hệ tổng đài/hỗ trợ trực tuyến để được xác minh và mở khóa theo quy trình bảo mật.',
+    },
+  ],
+};
+
+export default function SupportPage() {
+  const [activeTopTab, setActiveTopTab] = useState<(typeof topTabs)[number]['id']>('faq');
+  const [activeTopic, setActiveTopic] = useState<(typeof topicTabs)[number]['id']>('account');
+  const [expandedQuestion, setExpandedQuestion] = useState(0);
+
+  const topicFaq = useMemo(() => topicFaqById[activeTopic] ?? [], [activeTopic]);
 
   return (
-    <div className="bg-[#f7f9fc] min-h-screen font-['Inter',sans-serif] overflow-x-hidden">
+    <div className="min-h-screen bg-[#F3F5F8] text-[#101828] font-['Inter',sans-serif] overflow-x-hidden">
       <Header />
 
-      <main className="w-full">
-        {/* Hero Section */}
-        <section className="relative w-full max-w-[1400px] mx-auto mt-4 px-4 h-[400px]">
-          <div className="w-full h-full bg-gradient-to-r from-[#00c694] to-[#07756d] rounded-[48px] overflow-hidden relative flex items-center px-16">
-            {/* Background Illustration Placeholder */}
-            <div className="absolute right-0 top-0 w-1/2 h-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
-              <div className="w-[80%] h-[70%] bg-white/20 rounded-[32px] border border-white/30 shadow-2xl flex items-center justify-center text-white/50 italic font-bold text-2xl rotate-2">
-                HERO ASSET
-              </div>
-            </div>
+      <main className="px-4 lg:px-6 pt-4 pb-10 space-y-8">
+        <section className="max-w-[1440px] mx-auto">
+          <div className="relative overflow-hidden rounded-[34px] lg:rounded-[40px] min-h-[280px] lg:h-[360px] bg-gradient-to-r from-[#00c694] to-[#078578]">
+            <img
+              src={heroTeamImage}
+              alt="Kafi support team"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#05b78f]/95 via-[#0dbba08a] to-transparent" />
 
-            <div className="relative z-10 w-full max-w-2xl">
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-white text-5xl font-bold leading-tight mb-8"
-              >
-                Chúng tôi có thể giúp<br />bạn như thế nào?
-              </motion.h1>
-              
-              {/* Search Box Placeholder */}
-              <div className="bg-white/10 backdrop-blur-md p-2 rounded-[32px] flex items-center gap-4 border border-white/20 w-fit">
-                 <div className="bg-white text-[#101828] px-10 py-4 rounded-[24px] font-medium cursor-pointer shadow-lg">
-                    Tìm kiếm câu hỏi...
-                 </div>
-                 <div className="bg-[#0ae685] w-14 h-14 rounded-full flex items-center justify-center shadow-lg cursor-pointer">
-                    <div className="w-6 h-6 border-2 border-black rounded-full" />
-                 </div>
+            <div className="relative z-10 h-full flex flex-col justify-center px-6 lg:px-14 py-8 lg:py-0 max-w-[660px]">
+              <h1 className="text-white text-[34px] leading-[1.2] lg:text-[52px] font-bold">
+                Chúng tôi có thể giúp
+                <br />
+                bạn như thế nào?
+              </h1>
+
+              <div className="mt-7 flex items-center gap-2 w-full max-w-[540px] bg-white/18 backdrop-blur-md border border-white/35 p-2 rounded-[30px] shadow-[0_20px_40px_-24px_rgba(0,0,0,0.5)]">
+                <input
+                  aria-label="Tìm kiếm câu hỏi"
+                  placeholder="Tìm kiếm câu hỏi..."
+                  className="flex-1 bg-white rounded-[24px] px-5 py-3.5 text-[14px] text-[#101828] placeholder:text-[#667085] outline-none"
+                />
+                <button className="size-11 rounded-full bg-[#0AE685] text-[#073038] grid place-items-center hover:brightness-95 transition">
+                  <Search size={20} />
+                </button>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Sub-header Navigation Tabs */}
-        <section className="flex justify-center mt-[-30px] relative z-20">
-          <div className="bg-white border border-gray-100 p-2 rounded-[40px] shadow-2xl flex items-center gap-1 backdrop-blur-xl">
-            {[
-              { id: 'faq', label: 'Câu hỏi thường gặp', icon: true },
-              { id: 'docs', label: 'Biểu mẫu & Chính sách', icon: false },
-              { id: 'contact', label: 'Liên Hệ', icon: false },
-            ].map((tab) => (
-              <div 
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-8 py-3 rounded-[32px] cursor-pointer transition-all flex items-center gap-2 ${activeTab === tab.id ? 'bg-[#f7f9fc] text-[#101828] font-bold shadow-sm' : 'text-[#667085] hover:bg-gray-50'}`}
-              >
-                {tab.icon && <div className="w-5 h-5 bg-[#073038] rounded-full flex items-center justify-center"><div className="w-2 h-2 bg-[#0ae685] rounded-sm rotate-45" /></div>}
-                <span className="text-sm">{tab.label}</span>
-              </div>
-            ))}
-            <div className="w-12 h-12 flex items-center justify-center text-gray-400 cursor-pointer hover:bg-gray-50 rounded-full transition-colors">
-               <div className="w-5 h-5 border-2 border-current rounded-full" />
-            </div>
+        <section className="max-w-[900px] mx-auto -mt-14 relative z-20 px-2 lg:px-0">
+          <div className="rounded-full p-1.5 bg-white/70 border border-white/80 backdrop-blur-xl shadow-[0_20px_48px_-30px_rgba(0,0,0,0.35)] flex items-center gap-1.5 overflow-x-auto">
+            {topTabs.map((tab) => {
+              const Icon = tab.icon;
+              const active = activeTopTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTopTab(tab.id)}
+                  className={`h-11 px-4 rounded-full whitespace-nowrap text-[13px] font-semibold transition flex items-center gap-2 ${
+                    active
+                      ? 'bg-white text-[#106070] shadow'
+                      : 'text-[#667085] hover:bg-white/65'
+                  }`}
+                >
+                  <Icon size={16} />
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
+            <button className="ml-auto size-10 rounded-full bg-white grid place-items-center text-[#667085]">
+              <Search size={18} />
+            </button>
           </div>
         </section>
 
-        {/* Popular Questions Section */}
-        <section className="max-w-[1400px] mx-auto px-4 py-20 flex gap-8">
-          {/* Character Illustration Placeholder */}
-          <div className="w-[450px] aspect-[4/5] bg-gradient-to-b from-[#0ae685] to-[#c6ffd9] rounded-[48px] relative overflow-hidden flex flex-col items-center justify-end p-8">
-             <div className="absolute inset-0 bg-white/10 mix-blend-overlay opacity-30" />
-             <div className="w-64 h-80 bg-white/40 backdrop-blur-md rounded-full shadow-2xl border border-white/50 mb-4 flex items-center justify-center text-[#073038] font-black text-6xl">
-                KAI
-             </div>
-             <div className="bg-[#101820] text-white p-6 rounded-[24px] shadow-2xl border border-white/10 w-full">
-                <p className="text-sm font-medium opacity-70 mb-1">Xin chào tôi là Kai!</p>
-                <p className="font-bold">Tôi có thể giúp gì cho bạn?</p>
-             </div>
-          </div>
+        <section className="max-w-[1440px] mx-auto grid grid-cols-1 xl:grid-cols-[420px_minmax(0,1fr)] gap-5">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            className="relative rounded-[28px] bg-gradient-to-b from-[#00c694] to-[#c8f6ff] p-6 min-h-[520px] overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_0%,rgba(255,255,255,0.36),transparent_55%)]" />
+            <div className="relative z-10 h-full flex flex-col justify-between">
+              <div className="self-end max-w-[220px] bg-[#073038] text-white rounded-[16px] px-4 py-2.5 shadow">
+                <p className="text-[11px] leading-[1.35]">Xin chào tôi là Kai</p>
+                <p className="text-[12px] font-semibold">Tôi có thể giúp gì cho bạn?</p>
+              </div>
 
-          {/* Featured FAQ List */}
-          <div className="flex-1 bg-white rounded-[48px] p-12 border border-gray-100 shadow-sm self-center">
-             <h2 className="text-4xl font-bold text-[#101828] mb-10">Câu hỏi nổi bật</h2>
-             <div className="flex flex-col gap-2">
-                {popularQuestions.map((q, i) => (
-                  <div key={i} className={`p-6 rounded-[24px] transition-all border ${q.isOpen ? 'bg-[#f7f9fc] border-[#0ae685]/30' : 'bg-transparent border-transparent hover:bg-gray-50'}`}>
-                    <div className="flex justify-between items-center cursor-pointer">
-                      <h3 className={`text-lg font-semibold ${q.isOpen ? 'text-[#101828]' : 'text-[#344054]'}`}>{q.title}</h3>
-                      <div className={`w-8 h-8 rounded-full border flex items-center justify-center ${q.isOpen ? 'border-[#0ae685] text-[#0ae685]' : 'border-gray-300 text-gray-400'}`}>
-                        {q.isOpen ? '-' : '+'}
-                      </div>
+              <div className="h-[360px] mx-auto mt-3">
+                <img src={kaiFrontImage} alt="Kai mascot" className="h-full w-auto object-contain" />
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            className="bg-white rounded-[28px] border border-[#E8ECF1] p-5 lg:p-7"
+          >
+            <h2 className="text-[34px] lg:text-[40px] leading-[1.15] font-bold text-[#101828]">Câu hỏi nổi bật</h2>
+            <div className="mt-4 divide-y divide-[#ECF0F4]">
+              {highlightedQuestions.map((question, idx) => {
+                const opened = idx === expandedQuestion;
+                return (
+                  <button
+                    key={question}
+                    onClick={() => setExpandedQuestion(opened ? -1 : idx)}
+                    className="w-full text-left py-4 flex items-start justify-between gap-3"
+                  >
+                    <div>
+                      <p className="text-[16px] font-semibold text-[#101828]">{question}</p>
+                      {opened && (
+                        <p className="text-[14px] text-[#667085] mt-2 max-w-[760px]">
+                          Bạn có thể mở tài khoản trực tiếp thông qua app/Web KAFI. Quy trình eKYC nhanh,
+                          an toàn và chỉ mất vài phút để hoàn thành.
+                        </p>
+                      )}
                     </div>
-                    {q.isOpen && (
-                      <motion.div 
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        className="mt-4 text-[#667085] leading-relaxed"
-                      >
-                         <p>Bạn có thể mở tài khoản trực tiếp trên ứng dụng Kafi X hoặc website MyKafi. Chỉ mất 3-5 phút để hoàn tất quy trình eKYC một cách nhanh chóng.</p>
-                         <button className="text-[#0ae685] font-bold mt-2 hover:underline">Xem thêm</button>
-                      </motion.div>
+                    {opened ? (
+                      <MinusCircle size={18} className="text-[#00C694] mt-0.5 shrink-0" />
+                    ) : (
+                      <PlusCircle size={18} className="text-[#98A2B3] mt-0.5 shrink-0" />
                     )}
-                  </div>
-                ))}
-             </div>
+                  </button>
+                );
+              })}
+            </div>
+          </motion.div>
+        </section>
+
+        <section className="max-w-[1440px] mx-auto bg-white rounded-[28px] border border-[#E8ECF1] p-5 lg:p-7">
+          <h3 className="text-[30px] lg:text-[38px] leading-[1.2] font-bold text-[#101828]">Câu hỏi theo chủ đề</h3>
+
+          <div className="mt-6 grid grid-cols-1 lg:grid-cols-[240px_minmax(0,1fr)] gap-4 lg:gap-6">
+            <aside className="bg-[#F6F8FB] rounded-[16px] p-2.5 h-fit">
+              {topicTabs.map((topic) => {
+                const active = activeTopic === topic.id;
+                return (
+                  <button
+                    key={topic.id}
+                    onClick={() => setActiveTopic(topic.id)}
+                    className={`w-full rounded-[12px] px-3.5 py-3 text-[13px] text-left transition flex items-center justify-between ${
+                      active
+                        ? 'bg-[#00C694] text-[#073038] font-semibold shadow'
+                        : 'text-[#344054] hover:bg-white'
+                    }`}
+                  >
+                    <span>{topic.label}</span>
+                    {active && <span className="size-2 rounded-full bg-[#073038]" />}
+                  </button>
+                );
+              })}
+            </aside>
+
+            <div className="rounded-[16px] border border-[#E9EEF4] overflow-hidden">
+              {topicFaq.map((item, index) => (
+                <article
+                  key={`${item.q}-${index}`}
+                  className="p-4 lg:p-5 border-b border-[#ECF0F4] last:border-b-0"
+                >
+                  <h4 className="text-[16px] font-semibold text-[#101828]">
+                    {index + 1}. {item.q}
+                  </h4>
+                  <p className="text-[14px] text-[#667085] mt-2 leading-[1.55]">{item.a}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* FAQ by Topic Section */}
-        <section className="bg-[#f7f9fc] py-20 px-4">
-           <div className="max-w-[1400px] mx-auto">
-              <h2 className="text-4xl font-bold text-[#101828] mb-12">Câu hỏi theo chủ đề</h2>
-              
-              <div className="flex gap-8">
-                 {/* Topic Sidebar */}
-                 <div className="w-[300px] bg-white rounded-[32px] p-4 shadow-sm h-fit">
-                    {topics.map((t) => (
-                       <div 
-                         key={t.id}
-                         onClick={() => setActiveTopic(t.id)}
-                         className={`px-6 py-4 rounded-[20px] cursor-pointer transition-all flex justify-between items-center ${activeTopic === t.id ? 'bg-[#00c694] text-white font-bold shadow-lg shadow-[#00c694]/20' : 'text-[#667085] hover:bg-gray-50'}`}
-                       >
-                          <span>{t.label}</span>
-                          {activeTopic === t.id && <div className="w-2 h-2 bg-white rounded-sm rotate-45" />}
-                       </div>
-                    ))}
-                 </div>
-
-                 {/* Questions List */}
-                 <div className="flex-1 bg-white rounded-[32px] p-12 shadow-sm">
-                    <div className="flex flex-col">
-                       {faqs.map((faq, i) => (
-                         <div key={i} className="py-8 border-b border-gray-100 last:border-0">
-                            <h4 className="text-xl font-bold text-[#101828] mb-4">{i + 1}. {faq.question}</h4>
-                            <p className="text-[#667085] leading-relaxed max-w-3xl ml-6">
-                               {faq.answer}
-                            </p>
-                         </div>
-                       ))}
-                    </div>
-                 </div>
-              </div>
-           </div>
-        </section>
-
-        {/* Contact CTA Section */}
-        <section className="max-w-[1400px] mx-auto px-4 pb-20">
-           <div className="w-full h-[320px] bg-[#073038] rounded-[48px] relative overflow-hidden flex flex-col items-center justify-center text-center p-12">
-              <div className="absolute inset-0 bg-[#00c694]/10" />
-              {/* Pattern Placeholder */}
-              <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
-              
-              <div className="relative z-10">
-                 <h2 className="text-white text-4xl font-bold mb-4">Không tìm thấy câu trả lời?</h2>
-                 <p className="text-white/60 text-lg mb-8 max-w-2xl">Đội hỗ trợ khách hàng của KAFI luôn sẵn sàng trả lời mọi câu hỏi của bạn</p>
-                 <motion.button 
-                   whileHover={{ scale: 1.05 }}
-                   whileTap={{ scale: 0.95 }}
-                   className="bg-[#101820] text-white px-10 py-5 rounded-[40px] font-bold text-lg shadow-2xl border border-white/10 hover:bg-black transition-colors"
-                 >
-                    Liên hệ bộ phận hỗ trợ
-                 </motion.button>
-              </div>
-           </div>
+        <section className="max-w-[1440px] mx-auto">
+          <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-r from-[#00c694] to-[#06ad86] p-8 lg:p-12">
+            <img
+              src={ctaPatternImage}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover opacity-35 mix-blend-screen"
+            />
+            <div className="relative z-10 text-center max-w-[680px] mx-auto">
+              <h3 className="text-[#101828] text-[34px] lg:text-[48px] leading-[1.1] font-bold">
+                Không tìm thấy câu trả lời?
+              </h3>
+              <p className="mt-3 text-[#073038] text-[15px] lg:text-[16px]">
+                Đội hỗ trợ khách hàng của KAFI luôn sẵn sàng trả lời mọi câu hỏi của bạn.
+              </p>
+              <button className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#101828] text-white px-5 py-3 text-[14px] font-semibold hover:bg-black transition">
+                Liên hệ bộ phận hỗ trợ
+                <ArrowUp size={14} className="rotate-45" />
+              </button>
+            </div>
+          </div>
         </section>
       </main>
 
-      <Footer />
+      <Footer className="pt-12" />
 
-      {/* Floating Shortcuts Sidebar Placeholder */}
-      <div className="fixed right-6 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-40 bg-white/20 backdrop-blur-lg p-2 rounded-[24px] border border-white/30 shadow-2xl">
-         {[0,1,2,3,4].map(i => (
-           <div key={i} className="w-12 h-12 rounded-[16px] bg-white shadow-lg flex items-center justify-center text-[#667085] cursor-pointer hover:bg-[#0ae685] hover:text-[#073038] transition-all">
-              <div className="w-5 h-5 bg-current rounded-sm opacity-50" />
-           </div>
-         ))}
+      <div className="hidden xl:flex fixed right-0 top-1/2 -translate-y-1/2 z-40 flex-col gap-2 p-2.5 bg-white/55 border border-white backdrop-blur-xl rounded-l-[18px] shadow-[0_16px_40px_-26px_rgba(0,0,0,0.5)]">
+        <button className="size-10 rounded-[10px] bg-white text-[#073038] grid place-items-center shadow-sm">
+          <BookOpenText size={18} />
+        </button>
+        <button className="size-10 rounded-[10px] bg-white text-[#073038] grid place-items-center shadow-sm">
+          <FileText size={18} />
+        </button>
+        <button className="size-10 rounded-[10px] bg-gradient-to-r from-[#00C694] to-[#07756D] text-white grid place-items-center shadow-sm">
+          <Headphones size={18} />
+        </button>
+        <button className="size-10 rounded-[10px] bg-gradient-to-r from-[#00C694] to-[#07756D] text-white grid place-items-center shadow-sm">
+          <CircleHelp size={18} />
+        </button>
+        <button className="size-10 rounded-[10px] bg-white text-[#073038] grid place-items-center shadow-sm">
+          <ArrowUp size={16} />
+        </button>
       </div>
     </div>
   );
-};
-
-export default SupportPage;
+}

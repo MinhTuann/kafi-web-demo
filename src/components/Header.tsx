@@ -36,7 +36,12 @@ const Header: React.FC = () => {
             </div>
 
             <div className="hidden lg:flex items-center gap-6">
-              <span className={`text-[14px] leading-5 font-semibold transition-opacity cursor-pointer ${isHome ? 'text-[#101828]' : 'text-white'} hover:opacity-80`}>Về Kafi</span>
+              <span
+                onClick={() => navigate('/about')}
+                className={`text-[14px] leading-5 font-semibold transition-opacity cursor-pointer ${isHome ? 'text-[#101828]' : 'text-white'} hover:opacity-80`}
+              >
+                Về Kafi
+              </span>
               <span className={`text-[14px] leading-5 font-semibold transition-opacity cursor-pointer ${isHome ? 'text-[#101828]' : 'text-white'} hover:opacity-80`}>Quan hệ cổ đông</span>
               <span className={`text-[14px] leading-5 font-semibold transition-opacity cursor-pointer ${isHome ? 'text-[#101828]' : 'text-white'} hover:opacity-80`}>Cơ hội sự nghiệp</span>
 
