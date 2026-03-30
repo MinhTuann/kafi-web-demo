@@ -17,7 +17,7 @@ const IconArrowRightCorner: React.FC<{ className?: string }> = ({ className }) =
 
 const AcademyPage: React.FC = () => {
   return (
-    <div className="bg-[#f7f9fc] content-stretch flex flex-col items-center relative w-full min-h-screen font-sans">
+    <div className="min-h-screen bg-[#f7f9fc] flex flex-col items-center relative w-full font-sans">
       <Header />
 
       {/* Hero Section */}
@@ -25,8 +25,8 @@ const AcademyPage: React.FC = () => {
         <TopBanner
           title="Học viện Kafi"
           background={
-            <div className="absolute h-full right-0 w-[65%]">
-              <img src={academyTopBanner} alt="" className="absolute inset-0 object-fill" />
+            <div className="absolute h-full right-0 w-[65%] bg-red-500">
+              <img src={academyTopBanner} alt="" className="absolute -right-10 object-fill" />
             </div>
           }
         />

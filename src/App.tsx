@@ -5,6 +5,7 @@ import ReportsPage from './pages/ReportsPage';
 import SupportPage from './pages/SupportPage';
 import AcademyPage from './pages/AcademyPage';
 import AboutPage from './pages/AboutPage';
+import ShareholderPage from './pages/ShareholderPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/academy" element={<AcademyPage />} />
         <Route path="/support" element={<SupportPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/shareholder" element={<ShareholderPage />} />
       </Routes>
     </HashRouter>
   );

@@ -42,7 +42,12 @@ const Header: React.FC = () => {
               >
                 Về Kafi
               </span>
-              <span className={`text-[14px] leading-5 font-semibold transition-opacity cursor-pointer ${isHome ? 'text-[#101828]' : 'text-white'} hover:opacity-80`}>Quan hệ cổ đông</span>
+              <span
+                onClick={() => navigate('/shareholder')}
+                className={`text-[14px] leading-5 font-semibold transition-opacity cursor-pointer ${isHome ? 'text-[#101828]' : 'text-white'} hover:opacity-80`}
+              >
+                Quan hệ cổ đông
+              </span>
               <span className={`text-[14px] leading-5 font-semibold transition-opacity cursor-pointer ${isHome ? 'text-[#101828]' : 'text-white'} hover:opacity-80`}>Cơ hội sự nghiệp</span>
 
               {/* Language Switcher */}
