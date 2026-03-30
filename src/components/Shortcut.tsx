@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { motion } from "framer-motion";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface ShortcutItem {
   /** Route path to navigate to */
@@ -22,55 +22,93 @@ interface ShortcutProps {
 // ── Default navigation items ─────────────────────────────────────────────────
 const defaultItems: ShortcutItem[] = [
   {
-    to: '/',
-    label: 'Danh mục',
-    icon: <img src="/kafi-web-demo/assets/shortcut/top_menu.svg" alt="" className="size-5 text-[#667085]" />,
+    to: "/",
+    label: "Danh mục",
+    icon: (
+      <img
+        src="/kafi-web-demo/assets/shortcut/top_menu.svg"
+        alt=""
+        className="size-5 text-[#667085]"
+      />
+    ),
   },
   {
-    to: '/reports',
-    label: 'Báo cáo',
-    icon: <img src="/kafi-web-demo/assets/shortcut/item_2.png" alt="" className="size-9 rounded-xl" />,
+    to: "/reports",
+    label: "Báo cáo",
+    icon: (
+      <img
+        src="/kafi-web-demo/assets/shortcut/item_2.png"
+        alt=""
+        className="size-9 rounded-xl"
+      />
+    ),
   },
   {
-    to: '/stocks',
-    label: 'Khám phá',
-    icon: <img src="/kafi-web-demo/assets/shortcut/item_3.png" alt="" className="size-9 rounded-xl" />,
+    to: "/stocks",
+    label: "Khám phá",
+    icon: (
+      <img
+        src="/kafi-web-demo/assets/shortcut/item_3.png"
+        alt=""
+        className="size-9 rounded-xl"
+      />
+    ),
   },
   {
-    to: '/stocks',
-    label: 'Cổ phiếu',
+    to: "/stocks",
+    label: "Cổ phiếu",
     accent: true,
-    icon: <img src="/kafi-web-demo/assets/shortcut/item_4.svg" alt="" className="size-6" />,
+    icon: (
+      <img
+        src="/kafi-web-demo/assets/shortcut/item_4.svg"
+        alt=""
+        className="size-6"
+      />
+    ),
   },
   {
-    to: '/academy',
-    label: 'Học viện',
+    to: "/academy",
+    label: "Học viện",
     accent: true,
-    icon: <img src="/kafi-web-demo/assets/shortcut/item_5.svg" alt="" className="size-6" />,
+    icon: (
+      <img
+        src="/kafi-web-demo/assets/shortcut/item_5.svg"
+        alt=""
+        className="size-6"
+      />
+    ),
   },
   {
-    to: '/support',
-    label: 'Hỗ trợ',
+    to: "/support",
+    label: "Hỗ trợ",
     accent: true,
-    icon: <img src="/kafi-web-demo/assets/shortcut/item_6.svg" alt="" className="size-6" />,
+    icon: (
+      <img
+        src="/kafi-web-demo/assets/shortcut/item_6.svg"
+        alt=""
+        className="size-6"
+      />
+    ),
   },
 ];
 
 // ── Divider line ────────────────────────────────────────────────────────────
-const Divider = () => (
-  <div className="w-full h-px bg-white/60 shrink-0" />
-);
+const Divider = () => <div className="w-full h-px bg-white/60 shrink-0" />;
 
 // ── Scroll-to-top button ────────────────────────────────────────────────────
 const ScrollTopButton = () => (
   <motion.button
     whileHover={{ scale: 1.15, x: -3 }}
     whileTap={{ scale: 0.9 }}
-    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     className="size-9 flex items-center justify-center self-center transition-colors cursor-pointer"
     aria-label="Cuộn lên đầu trang"
   >
-    <img src="/kafi-web-demo/assets/shortcut/arrow_up.svg" alt="" className="size-5 text-[#667085]" />
+    <img
+      src="/kafi-web-demo/assets/shortcut/arrow_up.svg"
+      alt=""
+      className="size-5 text-[#667085]"
+    />
   </motion.button>
 );
 
@@ -84,21 +122,26 @@ export default function Shortcut({ items, className }: ShortcutProps) {
     <div
       className={
         className ||
-        'fixed right-0 top-1/2 -translate-y-1/2 z-50 hidden xl:flex'
+        "fixed right-0 top-1/2 -translate-y-1/2 z-50 hidden xl:flex"
       }
     >
       <motion.div
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="bg-[rgba(255,255,255,0.40)] backdrop-blur-xl border border-white border-r-0 p-1 rounded-l-[20px] flex flex-col gap-1 shadow-[0_16px_40px_-26px_rgba(0,0,0,0.5)] w-[44px] items-center"
       >
         {navItems.map((item, idx) => {
-          const isActive = location.pathname === item.to || location.pathname.startsWith(item.to + '/');
+          const isActive =
+            location.pathname === item.to ||
+            location.pathname.startsWith(item.to + "/");
           const isAccent = item.accent || isActive;
 
           return (
-            <div key={item.to} className="flex flex-col gap-1 w-full items-center">
+            <div
+              key={item.to}
+              className="flex flex-col gap-1 w-full items-center"
+            >
               {/* Divider before every item except the first */}
               {idx > 0 && <Divider />}
 
@@ -111,8 +154,8 @@ export default function Shortcut({ items, className }: ShortcutProps) {
                   aria-label={item.label}
                   className={`size-9 rounded-xl flex items-center justify-center cursor-pointer transition-shadow hover:shadow-xl ${
                     isAccent
-                      ? 'bg-gradient-to-br from-[#00c694] to-[#07756d] text-white shadow-md shadow-[#00c694]/30'
-                      : ''
+                      ? "bg-gradient-to-br from-[#00c694] to-[#07756d] text-white shadow-md shadow-[#00c694]/30"
+                      : ""
                   }`}
                 >
                   {item.icon}

@@ -1,11 +1,11 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import StocksPage from './pages/StocksPage';
-import ReportsPage from './pages/ReportsPage';
-import SupportPage from './pages/SupportPage';
-import AcademyPage from './pages/AcademyPage';
-import AboutPage from './pages/AboutPage';
-import ShareholderPage from './pages/ShareholderPage';
+import { HashRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import StocksPage from "./pages/StocksPage";
+import ReportsPage from "./pages/ReportsPage";
+import SupportPage from "./pages/SupportPage";
+import AcademyPage from "./pages/AcademyPage";
+import AboutPage from "./pages/AboutPage";
+import ShareholderPage from "./pages/ShareholderPage";
 
 function App() {
   return (
