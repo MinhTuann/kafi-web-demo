@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Check } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Shortcut from '../components/Shortcut';
 
 // Asset Imports
 // Asset paths
@@ -961,6 +962,7 @@ export default function StocksPage() {
       </main>
 
       <Footer />
+      <Shortcut />
     </div>
   );
 }

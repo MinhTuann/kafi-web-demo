@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowUp,
-  BookOpenText,
   CircleHelp,
   FileText,
   Headphones,
@@ -13,6 +12,7 @@ import {
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import TopBanner from '../components/TopBanner';
+import Shortcut from '../components/Shortcut';
 
 const heroTeamImage = '/kafi-web-demo/assets/support/hero-team.png';
 const kaiFrontImage = '/kafi-web-demo/assets/support/kai-front.png';
@@ -319,23 +319,7 @@ export default function SupportPage() {
 
       <Footer className="pt-12" />
 
-      <div className="hidden xl:flex fixed right-0 top-1/2 -translate-y-1/2 z-40 flex-col gap-2 p-2.5 bg-white/55 border border-white backdrop-blur-xl rounded-l-[18px] shadow-[0_16px_40px_-26px_rgba(0,0,0,0.5)]">
-        <button className="size-10 rounded-[10px] bg-white text-[#073038] grid place-items-center shadow-sm">
-          <BookOpenText size={18} />
-        </button>
-        <button className="size-10 rounded-[10px] bg-white text-[#073038] grid place-items-center shadow-sm">
-          <FileText size={18} />
-        </button>
-        <button className="size-10 rounded-[10px] bg-gradient-to-r from-[#00C694] to-[#07756D] text-white grid place-items-center shadow-sm">
-          <Headphones size={18} />
-        </button>
-        <button className="size-10 rounded-[10px] bg-gradient-to-r from-[#00C694] to-[#07756D] text-white grid place-items-center shadow-sm">
-          <CircleHelp size={18} />
-        </button>
-        <button className="size-10 rounded-[10px] bg-white text-[#073038] grid place-items-center shadow-sm">
-          <ArrowUp size={16} />
-        </button>
-      </div>
+      <Shortcut />
     </div>
   );
 }

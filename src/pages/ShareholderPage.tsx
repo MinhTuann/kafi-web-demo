@@ -4,6 +4,7 @@ import { Download, ChevronDown, ChevronUp } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import TopBanner from '../components/TopBanner';
+import Shortcut from '../components/Shortcut';
 
 const shareholderBanner = '/kafi-web-demo/assets/share-holder-banner.png';
 const sectionInfoBg = '/kafi-web-demo/assets/section-info-bg.png';
@@ -296,29 +297,7 @@ const ShareholderPage: React.FC = () => {
       <Footer />
 
       {/* Right Sidebar (Sticky Shortcuts) */}
-      <div className="fixed right-0 top-1/2 -translate-y-1/2 bg-white/40 backdrop-blur-xl border border-white p-3 rounded-l-[20px] flex flex-col gap-2 shadow-2xl z-50 border-r-0 w-[64px]">
-        {/* Placeholder icons */}
-        {[0, 1, 2, 3, 4].map((i) => (
-          <motion.div
-            key={i}
-            whileHover={{ scale: 1.15, x: -5 }}
-            className={`size-10 rounded-xl flex items-center justify-center ${
-              i === 2
-                ? 'bg-gradient-to-br from-[#00c694] to-[#07756d]'
-                : 'bg-white shadow-md border border-gray-100'
-            } cursor-pointer transition-shadow hover:shadow-xl`}
-          >
-            {i === 2 ? (
-              <div className="size-4 bg-white rounded-sm rotate-45" />
-            ) : (
-              <div className="size-5 bg-[#ebeff5] rounded-md" />
-            )}
-          </motion.div>
-        ))}
-        <div className="size-8 bg-[#073038] rounded-full flex items-center justify-center self-center mt-2 cursor-pointer shadow-lg hover:bg-black transition-colors">
-          <div className="size-2 bg-[#0ae685] rounded-full animate-pulse" />
-        </div>
-      </div>
+      <Shortcut />
     </div>
   );
 };

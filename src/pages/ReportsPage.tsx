@@ -4,6 +4,7 @@ import { Search, Download, Send } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import TopBanner from '../components/TopBanner';
+import Shortcut from '../components/Shortcut';
 const reportTexture = '/kafi-web-demo/assets/reports/b9e79771ccb89cc036ab4d49b5e6a2d48890aced.png';
 const subscribePattern = '/kafi-web-demo/assets/reports/section-info-bg.png';
 const heroSkyscrapers = '/kafi-web-demo/assets/reports/hero-sky-scrapers.png';
@@ -313,6 +314,7 @@ export default function ReportsPage() {
       </section>
 
       <Footer />
+      <Shortcut />
     </div>
   );
 }
