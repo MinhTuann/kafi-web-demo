@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import TopBanner from '../components/TopBanner';
 const reportTexture = '/kafi-web-demo/assets/reports/b9e79771ccb89cc036ab4d49b5e6a2d48890aced.png';
-const subscribePattern = '/kafi-web-demo/assets/reports/8d95901a10d85f892705f9ddfc72fd73c1017c54.png';
+const subscribePattern = '/kafi-web-demo/assets/reports/section-info-bg.png';
 const heroSkyscrapers = '/kafi-web-demo/assets/reports/hero-sky-scrapers.png';
 const sortIcon = '/kafi-web-demo/assets/reports/b87adff81c24ab62c3e6279774280aac6aff67ad.svg';
 const chevronDownIcon = '/kafi-web-demo/assets/reports/6e0fb4b6297e4892ce243c595c9606e9d41f5640.svg';
@@ -194,8 +194,8 @@ export default function ReportsPage() {
 
       {/* Hero Section */}
       <section className="w-full px-4 lg:px-6 mt-6">
-        <TopBanner 
-          title="Báo cáo vĩ mô /chiến lược"
+        <TopBanner
+          title="Báo cáo vĩ mô/chiến lược"
           background={
             <div className="absolute h-full right-0 w-[65%]">
               <img src={heroSkyscrapers} alt="" className="absolute inset-0 object-fill" />
@@ -214,13 +214,13 @@ export default function ReportsPage() {
                 key={cat.name}
                 onClick={() => setActiveCategory(cat.name)}
                 className={`h-[56px] px-6 rounded-[52px] flex items-center gap-2.5 transition-all duration-300 whitespace-nowrap ${activeCategory === cat.name
-                    ? 'bg-white text-[#106070] font-bold shadow-lg scale-100'
-                    : 'text-[#344054] font-medium hover:bg-white/10 hover:scale-[1.02]'
+                  ? 'bg-white text-[#106070] font-bold shadow-lg scale-100'
+                  : 'text-[#344054] font-medium hover:bg-white/10 hover:scale-[1.02]'
                   }`}
               >
                 <div className={`shrink-0 flex items-center justify-center transition-all duration-300 ${activeCategory === cat.name
-                    ? 'bg-[#106070] text-[#0AE685] size-8 rounded-full shadow-md shadow-[#106070]/20'
-                    : 'text-[#344054] size-6'
+                  ? 'bg-[#106070] text-[#0AE685] size-8 rounded-full shadow-md shadow-[#106070]/20'
+                  : 'text-[#344054] size-6'
                   }`}
                 >
                   <div className={`transition-all duration-300 flex items-center justify-center ${activeCategory === cat.name ? 'size-4' : 'size-5'

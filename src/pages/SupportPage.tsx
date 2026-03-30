@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import TopBanner from '../components/TopBanner';
 
 const heroTeamImage = '/kafi-web-demo/assets/support/hero-team.png';
 const kaiFrontImage = '/kafi-web-demo/assets/support/kai-front.png';
@@ -159,37 +160,19 @@ export default function SupportPage() {
     <div className="min-h-screen bg-[#F3F5F8] text-[#101828] font-['Inter',sans-serif] overflow-x-hidden">
       <Header />
 
-      <main className="px-4 lg:px-6 pt-4 pb-10 space-y-8">
-        <section className="max-w-[1440px] mx-auto">
-          <div className="relative overflow-hidden rounded-[34px] lg:rounded-[40px] min-h-[280px] lg:h-[360px] bg-gradient-to-r from-[#00c694] to-[#078578]">
-            <img
-              src={heroTeamImage}
-              alt="Kafi support team"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#05b78f]/95 via-[#0dbba08a] to-transparent" />
-
-            <div className="relative z-10 h-full flex flex-col justify-center px-6 lg:px-14 py-8 lg:py-0 max-w-[660px]">
-              <h1 className="text-white text-[34px] leading-[1.2] lg:text-[52px] font-bold">
-                Chúng tôi có thể giúp
-                <br />
-                bạn như thế nào?
-              </h1>
-
-              <div className="mt-7 flex items-center gap-2 w-full max-w-[540px] bg-white/18 backdrop-blur-md border border-white/35 p-2 rounded-[30px] shadow-[0_20px_40px_-24px_rgba(0,0,0,0.5)]">
-                <input
-                  aria-label="Tìm kiếm câu hỏi"
-                  placeholder="Tìm kiếm câu hỏi..."
-                  className="flex-1 bg-white rounded-[24px] px-5 py-3.5 text-[14px] text-[#101828] placeholder:text-[#667085] outline-none"
-                />
-                <button className="size-11 rounded-full bg-[#0AE685] text-[#073038] grid place-items-center hover:brightness-95 transition">
-                  <Search size={20} />
-                </button>
-              </div>
+      {/* Top banner */}
+      <section className="w-full px-4 lg:px-6 mt-6">
+        <TopBanner
+          title="Chúng tôi có thể giúp bạn như thế nào?"
+          background={
+            <div className="absolute h-full w-full">
+              <img src={heroTeamImage} alt="" className="absolute inset-0 object-fill" />
             </div>
-          </div>
-        </section>
+          }
+        />
+      </section>
 
+      <main className="px-4 lg:px-6 pt-4 pb-10 space-y-8">
         <section className="max-w-[900px] mx-auto -mt-14 relative z-20 px-2 lg:px-0">
           <div className="rounded-full p-1.5 bg-white/70 border border-white/80 backdrop-blur-xl shadow-[0_20px_48px_-30px_rgba(0,0,0,0.35)] flex items-center gap-1.5 overflow-x-auto">
             {topTabs.map((tab) => {
@@ -199,11 +182,10 @@ export default function SupportPage() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTopTab(tab.id)}
-                  className={`h-11 px-4 rounded-full whitespace-nowrap text-[13px] font-semibold transition flex items-center gap-2 ${
-                    active
-                      ? 'bg-white text-[#106070] shadow'
-                      : 'text-[#667085] hover:bg-white/65'
-                  }`}
+                  className={`h-11 px-4 rounded-full whitespace-nowrap text-[13px] font-semibold transition flex items-center gap-2 ${active
+                    ? 'bg-white text-[#106070] shadow'
+                    : 'text-[#667085] hover:bg-white/65'
+                    }`}
                 >
                   <Icon size={16} />
                   <span>{tab.label}</span>
@@ -284,11 +266,10 @@ export default function SupportPage() {
                   <button
                     key={topic.id}
                     onClick={() => setActiveTopic(topic.id)}
-                    className={`w-full rounded-[12px] px-3.5 py-3 text-[13px] text-left transition flex items-center justify-between ${
-                      active
-                        ? 'bg-[#00C694] text-[#073038] font-semibold shadow'
-                        : 'text-[#344054] hover:bg-white'
-                    }`}
+                    className={`w-full rounded-[12px] px-3.5 py-3 text-[13px] text-left transition flex items-center justify-between ${active
+                      ? 'bg-[#00C694] text-[#073038] font-semibold shadow'
+                      : 'text-[#344054] hover:bg-white'
+                      }`}
                   >
                     <span>{topic.label}</span>
                     {active && <span className="size-2 rounded-full bg-[#073038]" />}

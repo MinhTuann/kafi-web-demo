@@ -5,8 +5,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import TopBanner from '../components/TopBanner';
 
-const shareholderBanner = '/kafi-web-demo/assets/5e2df864b75c47b32759f56d4aa36822284b2f9e.png';
-const sectionInfoBg = '/kafi-web-demo/assets/8d95901a10d85f892705f9ddfc72fd73c1017c54.png';
+const shareholderBanner = '/kafi-web-demo/assets/share-holder-banner.png';
+const sectionInfoBg = '/kafi-web-demo/assets/section-info-bg.png';
 
 // ─── Types ────────────────────────────────────────────
 interface ReportItem {
@@ -193,12 +193,12 @@ const ShareholderPage: React.FC = () => {
       <Header />
 
       {/* Hero Banner */}
-      <section className="w-full px-4 lg:px-5 mt-2">
+      <section className="w-full px-4 lg:px-6 mt-6">
         <TopBanner
           title="Quan hệ cổ đông"
           background={
-            <div className="absolute h-full right-0 w-[65%]">
-              <img src={shareholderBanner} alt="" className="absolute inset-0 object-fill" />
+            <div className="absolute h-full right-0 w-[68%]">
+              <img src={shareholderBanner} alt="" className="absolute h-full w-full object-fill" />
             </div>
           }
         />

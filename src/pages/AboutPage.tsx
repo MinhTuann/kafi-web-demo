@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import TopBanner from '../components/TopBanner';
 
 const ASSET_BASE = '/kafi-web-demo/assets/about';
 
@@ -85,29 +86,26 @@ export default function AboutPage() {
     <div className="min-h-screen bg-[#F2F4F7] text-[#101828] font-['Inter',sans-serif] overflow-x-hidden">
       <Header />
 
-      <main className="px-4 lg:px-6 pb-10 space-y-8">
-        <section className="max-w-[1440px] mx-auto mt-2">
-          <div className="relative h-[360px] overflow-hidden rounded-[40px] bg-gradient-to-r from-[#00c694] to-[#07756d]">
-            <img src={heroImage} alt="Kafi team" className="absolute right-0 top-0 h-full w-[82%] object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#00c694] via-[#00c694ee] to-transparent" />
-            <div className="absolute left-8 lg:left-14 top-1/2 -translate-y-1/2 z-10 max-w-[520px]">
-              <h1 className="text-white text-[42px] lg:text-[56px] font-bold leading-[1.2]">
-                Cùng bạn xây dựng
-                <br />
-                tương lai tài chính
-              </h1>
+      {/* Top banner */}
+      <section className="w-full px-4 lg:px-6 mt-6">
+        <TopBanner
+          title="Cùng bạn xây dựng tương lai tài chính"
+          background={
+            <div className="absolute h-full right-0 w-full">
+              <img src={heroImage} alt="Kafi team" className="absolute inset-0 object-contain" />
             </div>
-          </div>
-        </section>
+          }
+        />
+      </section>
 
+      <main className="px-4 lg:px-6 pb-10 space-y-8">
         <section className="max-w-[880px] mx-auto -mt-14 relative z-20">
           <div className="bg-white/75 backdrop-blur-md border border-white rounded-full p-2 shadow-sm flex items-center gap-2 overflow-auto">
             {['Về Kafi', 'Lịch sử phát triển', 'Giải thưởng', 'Đội ngũ lãnh đạo', 'Giấy phép'].map((item, idx) => (
               <button
                 key={item}
-                className={`whitespace-nowrap px-4 py-2.5 rounded-full text-[14px] transition ${
-                  idx === 0 ? 'bg-[#073038] text-[#F7F9FC] font-semibold' : 'text-[#344054] hover:bg-white'
-                }`}
+                className={`whitespace-nowrap px-4 py-2.5 rounded-full text-[14px] transition ${idx === 0 ? 'bg-[#073038] text-[#F7F9FC] font-semibold' : 'text-[#344054] hover:bg-white'
+                  }`}
               >
                 {item}
               </button>
@@ -271,9 +269,8 @@ export default function AboutPage() {
                 <button
                   key={tab}
                   onClick={() => setActiveLeadershipTab(tab)}
-                  className={`px-6 py-3 rounded-full text-[24px] ${
-                    activeLeadershipTab === tab ? 'bg-[#00C694] font-semibold' : 'text-[#344054]'
-                  }`}
+                  className={`px-6 py-3 rounded-full text-[24px] ${activeLeadershipTab === tab ? 'bg-[#00C694] font-semibold' : 'text-[#344054]'
+                    }`}
                 >
                   {tab}
                 </button>
@@ -314,9 +311,8 @@ export default function AboutPage() {
                   <button
                     key={year}
                     onClick={() => setActiveYear(year)}
-                    className={`px-5 py-2.5 rounded-full text-[22px] ${
-                      activeYear === year ? 'bg-[#073038] text-[#F7F9FC] font-semibold' : 'text-[#101828]'
-                    }`}
+                    className={`px-5 py-2.5 rounded-full text-[22px] ${activeYear === year ? 'bg-[#073038] text-[#F7F9FC] font-semibold' : 'text-[#101828]'
+                      }`}
                   >
                     {year}
                   </button>
@@ -329,9 +325,8 @@ export default function AboutPage() {
                   return (
                     <div
                       key={`${row.title}-${idx}`}
-                      className={`rounded-[16px] border-l-[6px] ${
-                        opened ? 'border-[#00C694] bg-[linear-gradient(247deg,rgba(196,255,166,0.1),rgba(0,198,148,0.2))]' : 'border-[#E8EDF3] bg-white'
-                      } p-6`}
+                      className={`rounded-[16px] border-l-[6px] ${opened ? 'border-[#00C694] bg-[linear-gradient(247deg,rgba(196,255,166,0.1),rgba(0,198,148,0.2))]' : 'border-[#E8EDF3] bg-white'
+                        } p-6`}
                     >
                       <button
                         onClick={() => setOpenedFaq(opened ? -1 : idx)}
