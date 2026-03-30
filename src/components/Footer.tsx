@@ -37,7 +37,7 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <img
-                      src="/kafi-web-demo/assets/0b72739864a5ed8d999ce11faeb0e2a6902b1deb.svg"
+                      src="/kafi-web-demo/assets/footer-email.svg"
                       alt=""
                       className="size-4"
                     />
