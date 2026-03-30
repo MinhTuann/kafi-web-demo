@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
-import LogoBlack from '../assets/stocks/logo-black.png';
+const LogoBlack = '/kafi-web-demo/assets/stocks/logo-black.png';
 
 const Header: React.FC = () => {
   const navigate = useNavigate();

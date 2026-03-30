@@ -3,13 +3,12 @@ import { useState } from 'react';
 import { Search, Download, Send } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import reportTexture from '../assets/reports/b9e79771ccb89cc036ab4d49b5e6a2d48890aced.png';
-import subscribePattern from '../assets/reports/8d95901a10d85f892705f9ddfc72fd73c1017c54.png';
-import heroSkyscrapers from '../assets/reports/d08f675aa5405c1092d72262a13ff09628e6a757.png';
-import heroBlurEffect from '../assets/reports/81a0b752cadba01f448eaaa14eab70764807c31f.png';
-import heroArrowIcon from '../assets/reports/0d77925c9bd1db999fd20edc21f16bf473d38309.svg';
-import sortIcon from '../assets/reports/b87adff81c24ab62c3e6279774280aac6aff67ad.svg';
-import chevronDownIcon from '../assets/reports/6e0fb4b6297e4892ce243c595c9606e9d41f5640.svg';
+import TopBanner from '../components/TopBanner';
+const reportTexture = '/kafi-web-demo/assets/reports/b9e79771ccb89cc036ab4d49b5e6a2d48890aced.png';
+const subscribePattern = '/kafi-web-demo/assets/reports/8d95901a10d85f892705f9ddfc72fd73c1017c54.png';
+const heroSkyscrapers = '/kafi-web-demo/assets/reports/hero-sky-scrapers.png';
+const sortIcon = '/kafi-web-demo/assets/reports/b87adff81c24ab62c3e6279774280aac6aff67ad.svg';
+const chevronDownIcon = '/kafi-web-demo/assets/reports/6e0fb4b6297e4892ce243c595c9606e9d41f5640.svg';
 
 const ReportThumbnail = ({ month, year }: { month: string; year: string }) => (
   <div className="overflow-clip relative rounded-[12px] size-[197px] min-w-[197px] flex items-center justify-center"
@@ -195,37 +194,14 @@ export default function ReportsPage() {
 
       {/* Hero Section */}
       <section className="w-full px-4 lg:px-6 mt-6">
-        <div className="w-full h-[360px] relative overflow-hidden bg-gradient-to-r from-[#0ae685] to-[#c6ffd9] rounded-[48px]">
-          {/* Skyscraper Background Image */}
-          <div className="absolute h-[495px] right-[0.49px] top-[-34px] w-[934px] pointer-events-none">
-            <img src={heroSkyscrapers} alt="" className="absolute inset-0 object-cover size-full" />
-          </div>
-
-          {/* Gradient Overlay / Main Background Gradient */}
-          <div
-            className="h-[360px] overflow-hidden relative shrink-0 w-full pointer-events-none"
-            style={{
-              backgroundImage: "linear-gradient(89.99deg, rgb(9, 151, 122) 11.206%, rgb(10, 230, 133) 34.368%, rgba(120, 255, 191, 0.8) 45.807%, rgba(198, 255, 217, 0) 63.347%)"
-            }}
-          >
-            {/* Secondary Blur/Overlay Effect */}
-            <div className="absolute h-[360px] left-[229px] top-1/2 -translate-y-1/2 w-[362px] blur-[50px] pointer-events-none">
-              <div className="absolute inset-0 overflow-hidden">
-                <img src={heroBlurEffect} alt="" className="absolute h-[114.72%] left-0 max-w-none top-[-8.06%] w-[374.31%]" />
-              </div>
+        <TopBanner 
+          title="Báo cáo vĩ mô /chiến lược"
+          background={
+            <div className="absolute h-full right-0 w-[65%]">
+              <img src={heroSkyscrapers} alt="" className="absolute inset-0 object-fill" />
             </div>
-          </div>
-
-          <div className="absolute left-[55.51px] top-[calc(50%-67px)] z-10 font-['Roboto'] font-bold text-white text-[56px] leading-[1.2] whitespace-nowrap uppercase">
-            <p>Báo cáo vĩ mô</p>
-            <p>/chiến lược</p>
-          </div>
-
-          {/* Arrow Graphic */}
-          <div className="absolute right-[16px] top-[17.5px] size-[98.5px] flex items-center justify-center pointer-events-none">
-            <img src={heroArrowIcon} alt="" className="size-full" />
-          </div>
-        </div>
+          }
+        />
       </section>
 
       {/* Main Content */}

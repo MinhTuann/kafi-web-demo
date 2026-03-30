@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoBlack from '../assets/stocks/logo-black.png';
+const LogoBlack = '/kafi-web-demo/assets/stocks/logo-black.png';
 
 interface FooterProps {
   className?: string;

@@ -5,14 +5,15 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 // Asset Imports
-import Guide1 from '../assets/stocks/guide-1.png';
-import Guide2 from '../assets/stocks/guide-2.png';
-import Guide3 from '../assets/stocks/guide-3.png';
-import Guide4 from '../assets/stocks/guide-4.png';
-import TestimonialUser from '../assets/stocks/testimonial-user.png';
-import TestimonialHung from '../assets/stocks/testimonial-hung.png';
-import TestimonialMaiAnh from '../assets/stocks/testimonial-maianh.png';
-import PhoneMockup from '../assets/stocks/phone-mockup.png';
+// Asset paths
+const Guide1 = '/kafi-web-demo/assets/stocks/guide-1.png';
+const Guide2 = '/kafi-web-demo/assets/stocks/guide-2.png';
+const Guide3 = '/kafi-web-demo/assets/stocks/guide-3.png';
+const Guide4 = '/kafi-web-demo/assets/stocks/guide-4.png';
+const TestimonialUser = '/kafi-web-demo/assets/stocks/testimonial-user.png';
+const TestimonialHung = '/kafi-web-demo/assets/stocks/testimonial-hung.png';
+const TestimonialMaiAnh = '/kafi-web-demo/assets/stocks/testimonial-maianh.png';
+const PhoneMockup = '/kafi-web-demo/assets/stocks/phone-mockup.png';
 
 const AnimatedProductIcon = ({ title }: { title: string }) => {
   const isCổPhiếu = title === 'Cổ phiếu';

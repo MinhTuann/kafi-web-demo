@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import TopBanner from '../components/TopBanner';
+const academyTopBanner = '/kafi-web-demo/assets/academy-top-banner.png';
 
 // Local components derived from Figma output
 const IconArrowRightCorner: React.FC<{ className?: string }> = ({ className }) => (
@@ -12,43 +14,25 @@ const IconArrowRightCorner: React.FC<{ className?: string }> = ({ className }) =
   </div>
 );
 
-const IconButton: React.FC<{ className?: string; size?: "Large" | "Small"; type?: "Default" | "Primary" }> = ({ className, size = "Small", type = "Default" }) => {
-  const isDefaultAndSmall = type === "Default" && size === "Small";
-  return (
-    <div className={className || `content-stretch flex items-center justify-center overflow-clip p-[8px] relative rounded-[36px] ${isDefaultAndSmall ? 'bg-[#ebeff5] size-[36px]' : 'bg-[#0ae685] size-[44px]'}`}>
-       <div className="size-5 bg-current opacity-20 rounded-sm" />
-    </div>
-  );
-};
 
 const AcademyPage: React.FC = () => {
   return (
     <div className="bg-[#f7f9fc] content-stretch flex flex-col items-center relative w-full min-h-screen font-sans">
       <Header />
 
+      {/* Hero Section */}
+      <section className="w-full px-4 lg:px-6 mt-6">
+        <TopBanner
+          title="Học viện Kafi"
+          background={
+            <div className="absolute h-full right-0 w-[65%]">
+              <img src={academyTopBanner} alt="" className="absolute inset-0 object-fill" />
+            </div>
+          }
+        />
+      </section>
+
       <main className="w-full flex flex-col items-center gap-0">
-        {/* Banner header section */}
-        <div className="bg-gradient-to-r content-stretch flex flex-col from-[#0ae685] h-[360px] items-start overflow-clip relative rounded-[48px] shrink-0 to-[#c6ffd9] w-[1400px] mt-2 mb-4" data-name="Banner header">
-          {/* Placeholder for Layer/Image */}
-          <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none" />
-          
-          <div className="absolute h-full right-0 top-0 w-1/2 bg-white/10 backdrop-blur-sm flex items-center justify-center">
-             <div className="w-[80%] h-[70%] bg-gradient-to-br from-white/30 to-transparent rounded-[32px] border border-white/40 shadow-2xl flex items-center justify-center text-white font-bold italic rotate-2 opacity-60">
-                ILLUSTRATION ASSET
-             </div>
-          </div>
-
-          <div className="h-full w-full flex items-center pl-[60px] relative z-20">
-             <motion.h1 
-               initial={{ opacity: 0, x: -30 }}
-               animate={{ opacity: 1, x: 0 }}
-               className="font-bold leading-[1.2] text-white text-[56px] whitespace-nowrap"
-             >
-               Học viện Kafi
-             </motion.h1>
-          </div>
-        </div>
-
         {/* Sub header navigation */}
         <div className="content-stretch flex flex-col items-start py-[12px] relative shrink-0" data-name="Sub header">
           <div className="bg-[rgba(255,255,255,0.2)] border border-white/40 backdrop-blur-md content-stretch flex items-center p-[6px] relative rounded-[33px] shrink-0 shadow-sm" data-name="Navigation">
@@ -118,12 +102,12 @@ const AcademyPage: React.FC = () => {
           {/* Featured Full Width Card */}
           <div className="content-stretch flex gap-[10px] h-[428px] items-start overflow-clip px-[60px] py-[40px] relative rounded-[48px] shrink-0 w-full group shadow-xl shadow-[#00c694]/5 border border-white/40" style={{ backgroundImage: "linear-gradient(63.2373deg, rgb(198, 255, 217) 49.961%, rgb(187, 251, 169) 72.376%, rgba(1, 194, 127, 0.5) 94.791%)" }}>
             <div className="content-stretch flex flex-col items-start pt-[64px] px-[64px] relative shrink-0 w-1/2 h-full">
-               {/* Complex Placeholder Box Decoration */}
-               <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0">
-                  <div className="col-1 h-[260px] ml-[45px] mt-0 relative rounded-[26px] row-1 w-[388px] bg-white/20 border border-white/60 backdrop-blur-md shadow-2xl" />
-                  <div className="col-1 h-[288px] ml-[24px] mt-[32px] relative rounded-[24px] row-1 w-[432px] bg-white/40 border border-white/80 backdrop-blur-lg shadow-xl" />
-                  <div className="col-1 h-[300px] ml-0 mt-[64px] relative rounded-t-[24px] row-1 shadow-2xl w-[480px] bg-[#dbe8df]/80 border-t border-white" />
-               </div>
+              {/* Complex Placeholder Box Decoration */}
+              <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0">
+                <div className="col-1 h-[260px] ml-[45px] mt-0 relative rounded-[26px] row-1 w-[388px] bg-white/20 border border-white/60 backdrop-blur-md shadow-2xl" />
+                <div className="col-1 h-[288px] ml-[24px] mt-[32px] relative rounded-[24px] row-1 w-[432px] bg-white/40 border border-white/80 backdrop-blur-lg shadow-xl" />
+                <div className="col-1 h-[300px] ml-0 mt-[64px] relative rounded-t-[24px] row-1 shadow-2xl w-[480px] bg-[#dbe8df]/80 border-t border-white" />
+              </div>
             </div>
             <div className="content-stretch flex flex-col gap-[24px] h-full items-start justify-center relative shrink-0 w-1/2 z-10">
               <div className="content-stretch flex flex-col gap-[2px] items-start leading-[0] not-italic relative shrink-0 text-[#101828] w-full">
@@ -137,14 +121,14 @@ const AcademyPage: React.FC = () => {
               <div className="flex flex-col font-normal justify-center leading-[0] min-w-full not-italic relative shrink-0 text-[18px] text-[#101828] w-[min-content] opacity-80">
                 <p className="leading-[26px]">Bắt đầu với các kiến thức cốt lõi dành cho nhà đầu tư mới.</p>
               </div>
-              <motion.button 
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-[#101820] content-stretch flex gap-[6px] h-[44px] items-center justify-center px-[16px] py-[10px] relative rounded-[32px] shrink-0 text-white shadow-lg shadow-black/20"
               >
                 <span className="font-medium leading-[20px] text-[16px]">Bắt đầu</span>
                 <div className="size-5 bg-[#0ae685] rounded-full flex items-center justify-center">
-                   <div className="size-2 bg-black rounded-sm rotate-45" />
+                  <div className="size-2 bg-black rounded-sm rotate-45" />
                 </div>
               </motion.button>
             </div>
@@ -157,15 +141,15 @@ const AcademyPage: React.FC = () => {
               { title: 'Các loại lệnh giao dịch cơ bản', tag: 'Cơ bản', color: 'from-[#00c694] to-[#07756d]' },
               { title: 'Phân tích cơ bản doanh nghiệp', tag: 'Trung cấp', color: 'from-[#de704f] to-[#ed7858]' }
             ].map((item, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 whileHover={{ y: -8 }}
                 className="bg-white content-stretch flex flex-col flex-1 gap-[4px] items-start p-[16px] relative rounded-[20px] shadow-sm hover:shadow-2xl transition-all duration-300 cursor-pointer border border-transparent hover:border-[#00c694]/20"
               >
                 <div className="aspect-[16/9] relative rounded-[12px] shrink-0 w-full bg-[#f2f4f7] mb-4 overflow-hidden">
-                   <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-transparent flex items-center justify-center text-gray-400 italic font-medium px-4 text-center">
-                     Thumb Placeholder
-                   </div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-transparent flex items-center justify-center text-gray-400 italic font-medium px-4 text-center">
+                    Thumb Placeholder
+                  </div>
                 </div>
                 <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full">
                   <p className="font-semibold leading-[26px] text-[#101828] text-[18px] w-full line-clamp-2 min-h-[52px]">
@@ -176,97 +160,97 @@ const AcademyPage: React.FC = () => {
                   </div>
                 </div>
                 <div className={`absolute top-6 right-6 bg-gradient-to-r ${item.color} rounded-[12px] px-3 py-1 shadow-sm`}>
-                   <p className="font-medium text-white text-[12px] uppercase">{item.tag}</p>
+                  <p className="font-medium text-white text-[12px] uppercase">{item.tag}</p>
                 </div>
               </motion.div>
             ))}
           </div>
 
           <div className="content-stretch flex gap-[24px] items-start justify-center relative shrink-0 w-full pt-4" data-name="div.grid">
-             {[
-               { title: 'Phân tích kỹ thuật cho nhà đầu tư cá nhân', tag: 'Cơ bản', color: 'from-[#00c694] to-[#07756d]' },
-               { title: 'Tâm lý đầu tư và kỷ luật giao dịch', tag: 'Cơ bản', color: 'from-[#00c694] to-[#07756d]' },
-               { title: 'Phân tích cơ bản doanh nghiệp', tag: 'Trung cấp', color: 'from-[#de704f] to-[#ed7858]' }
-             ].map((item, i) => (
-               <motion.div 
-                 key={i}
-                 whileHover={{ y: -8 }}
-                 className="bg-white content-stretch flex flex-col flex-1 gap-[4px] items-start p-[16px] relative rounded-[20px] shadow-sm hover:shadow-2xl transition-all duration-300 cursor-pointer border border-transparent hover:border-[#00c694]/20"
-               >
-                 <div className="aspect-[16/9] relative rounded-[12px] shrink-0 w-full bg-[#f2f4f7] mb-4 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-transparent flex items-center justify-center text-gray-400 italic font-medium px-4 text-center">
-                      Thumb Placeholder
-                    </div>
-                 </div>
-                 <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full">
-                   <p className="font-semibold leading-[26px] text-[#101828] text-[18px] w-full line-clamp-2 min-h-[52px]">
-                     {item.title}
-                   </p>
-                   <div className="content-stretch flex h-[28px] items-center relative rounded-[8px] shrink-0 w-full mt-2">
-                     <p className="font-medium leading-[16px] text-[#667085] text-[12px]">30/01/2026</p>
-                   </div>
-                 </div>
-                 <div className={`absolute top-6 right-6 bg-gradient-to-r ${item.color} rounded-[12px] px-3 py-1 shadow-sm`}>
-                    <p className="font-medium text-white text-[12px] uppercase">{item.tag}</p>
-                 </div>
-               </motion.div>
-             ))}
+            {[
+              { title: 'Phân tích kỹ thuật cho nhà đầu tư cá nhân', tag: 'Cơ bản', color: 'from-[#00c694] to-[#07756d]' },
+              { title: 'Tâm lý đầu tư và kỷ luật giao dịch', tag: 'Cơ bản', color: 'from-[#00c694] to-[#07756d]' },
+              { title: 'Phân tích cơ bản doanh nghiệp', tag: 'Trung cấp', color: 'from-[#de704f] to-[#ed7858]' }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -8 }}
+                className="bg-white content-stretch flex flex-col flex-1 gap-[4px] items-start p-[16px] relative rounded-[20px] shadow-sm hover:shadow-2xl transition-all duration-300 cursor-pointer border border-transparent hover:border-[#00c694]/20"
+              >
+                <div className="aspect-[16/9] relative rounded-[12px] shrink-0 w-full bg-[#f2f4f7] mb-4 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-transparent flex items-center justify-center text-gray-400 italic font-medium px-4 text-center">
+                    Thumb Placeholder
+                  </div>
+                </div>
+                <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full">
+                  <p className="font-semibold leading-[26px] text-[#101828] text-[18px] w-full line-clamp-2 min-h-[52px]">
+                    {item.title}
+                  </p>
+                  <div className="content-stretch flex h-[28px] items-center relative rounded-[8px] shrink-0 w-full mt-2">
+                    <p className="font-medium leading-[16px] text-[#667085] text-[12px]">30/01/2026</p>
+                  </div>
+                </div>
+                <div className={`absolute top-6 right-6 bg-gradient-to-r ${item.color} rounded-[12px] px-3 py-1 shadow-sm`}>
+                  <p className="font-medium text-white text-[12px] uppercase">{item.tag}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
 
         {/* Instruction Section */}
         <div className="content-stretch flex flex-col gap-[48px] items-center overflow-clip px-[80px] py-[80px] relative shrink-0 w-full max-w-[1440px]">
-           <div className="content-stretch flex gap-[56px] items-end justify-between relative shrink-0 w-full">
-              <div className="content-stretch flex flex-col gap-[12px] items-start justify-center leading-[0] not-italic relative shrink-0">
-                 <h2 className="font-bold text-[48px] leading-[56px] text-[#101828]">Hướng dẫn giao dịch</h2>
-                 <p className="font-normal text-[18px] leading-[26px] text-[#667085]">Giao dịch dễ dàng chỉ với vài bước đơn giản</p>
+          <div className="content-stretch flex gap-[56px] items-end justify-between relative shrink-0 w-full">
+            <div className="content-stretch flex flex-col gap-[12px] items-start justify-center leading-[0] not-italic relative shrink-0">
+              <h2 className="font-bold text-[48px] leading-[56px] text-[#101828]">Hướng dẫn giao dịch</h2>
+              <p className="font-normal text-[18px] leading-[26px] text-[#667085]">Giao dịch dễ dàng chỉ với vài bước đơn giản</p>
+            </div>
+            <button className="bg-[#101820] content-stretch flex gap-[6px] h-[44px] items-center justify-center px-[16px] py-[10px] relative rounded-[32px] shrink-0 text-white hover:bg-[#073038] transition-colors shadow-lg shadow-black/10">
+              <span className="font-medium leading-[20px] text-[16px]">Xem tất cả</span>
+              <div className="size-5 bg-[#0ae685] rounded-full flex items-center justify-center">
+                <div className="size-2 bg-black rounded-sm rotate-45" />
               </div>
-              <button className="bg-[#101820] content-stretch flex gap-[6px] h-[44px] items-center justify-center px-[16px] py-[10px] relative rounded-[32px] shrink-0 text-white hover:bg-[#073038] transition-colors shadow-lg shadow-black/10">
-                 <span className="font-medium leading-[20px] text-[16px]">Xem tất cả</span>
-                 <div className="size-5 bg-[#0ae685] rounded-full flex items-center justify-center">
-                    <div className="size-2 bg-black rounded-sm rotate-45" />
-                 </div>
-              </button>
-           </div>
+            </button>
+          </div>
 
-           <div className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full">
-              {[
-                { title: 'Đăng ký sử dụng dịch vụ tài trợ giao dịch', desc: 'Hướng dẫn đăng ký sử dụng dịch vụ tài trợ giao dịch tại Kafi, bao gồm các bước đăng ký, xác thực thông tin...' },
-                { title: 'Ký kết hợp đồng và kích hoạt hạn mức', desc: 'Hướng dẫn ký hợp đồng và kích hoạt hạn mức tài trợ giao dịch tại Kafi, bao gồm các bước xác nhận điều khoản...' },
-                { title: 'Theo dõi tỷ lệ ký quỹ và trạng thái tài khoản', desc: 'Hướng dẫn theo dõi tỷ lệ ký quỹ và trạng thái tài khoản tại Kafi, bao gồm các thông tin về hạn mức, dư nợ...' },
-                { title: 'Tải và cài đặt ứng dụng Kafi X', desc: 'Hướng dẫn tải và cài đặt ứng dụng Kafi X cho nhà đầu tư chuyên nghiệp...' }
-              ].map((guide, i) => (
-                <div key={i} className="bg-white border border-[#dde2ec] border-solid content-stretch flex-1 flex flex-col items-center justify-end overflow-clip relative rounded-[24px] shadow-sm hover:shadow-2xl transition-all duration-500 group cursor-pointer hover:border-[#00c694]/20 min-h-[420px]">
-                   <div className="aspect-[16/9] relative shrink-0 w-full bg-[#f2f4f7] overflow-hidden border-b border-gray-100">
-                      <div className="absolute inset-0 bg-gradient-to-tr from-gray-200 to-transparent flex items-center justify-center text-gray-300 italic text-sm">
-                         Guide Asset
-                      </div>
-                   </div>
-                   <div className="backdrop-blur-[50px] content-stretch flex flex-col flex-1 gap-[16px] items-start justify-between p-[20px] relative w-full bg-white/10 group-hover:bg-white/20 transition-colors">
-                      <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
-                         <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
-                            <div className="bg-[#f7f9fc] content-stretch flex items-start px-[8px] py-[4px] relative rounded-[40px] shrink-0">
-                               <p className="font-medium text-[#121212] text-[12px] leading-[16px]">Hướng dẫn</p>
-                            </div>
-                            <span className="font-medium text-[#9aa5bd] text-[12px] leading-[16px]">5 min read</span>
-                         </div>
-                         <h4 className="font-semibold leading-[26px] text-black text-[18px] w-full line-clamp-2 min-h-[52px]">
-                           {guide.title}
-                         </h4>
-                         <p className="font-normal leading-[24px] text-[#667085] text-[15px] line-clamp-2 opacity-80">
-                           {guide.desc}
-                         </p>
-                      </div>
-                      <div className="content-stretch flex gap-[4px] items-center py-[10px] relative rounded-[36px] mt-auto">
-                         <span className="font-semibold leading-[24px] text-[#101828] text-[16px] group-hover:text-[#00c694] transition-colors">Xem hướng dẫn</span>
-                         <div className="size-5 bg-black/10 rounded-full group-hover:bg-[#00c694]/20 flex items-center justify-center transition-colors">
-                            <div className="size-2 bg-current rounded-sm rotate-45" />
-                         </div>
-                      </div>
-                   </div>
+          <div className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full">
+            {[
+              { title: 'Đăng ký sử dụng dịch vụ tài trợ giao dịch', desc: 'Hướng dẫn đăng ký sử dụng dịch vụ tài trợ giao dịch tại Kafi, bao gồm các bước đăng ký, xác thực thông tin...' },
+              { title: 'Ký kết hợp đồng và kích hoạt hạn mức', desc: 'Hướng dẫn ký hợp đồng và kích hoạt hạn mức tài trợ giao dịch tại Kafi, bao gồm các bước xác nhận điều khoản...' },
+              { title: 'Theo dõi tỷ lệ ký quỹ và trạng thái tài khoản', desc: 'Hướng dẫn theo dõi tỷ lệ ký quỹ và trạng thái tài khoản tại Kafi, bao gồm các thông tin về hạn mức, dư nợ...' },
+              { title: 'Tải và cài đặt ứng dụng Kafi X', desc: 'Hướng dẫn tải và cài đặt ứng dụng Kafi X cho nhà đầu tư chuyên nghiệp...' }
+            ].map((guide, i) => (
+              <div key={i} className="bg-white border border-[#dde2ec] border-solid content-stretch flex-1 flex flex-col items-center justify-end overflow-clip relative rounded-[24px] shadow-sm hover:shadow-2xl transition-all duration-500 group cursor-pointer hover:border-[#00c694]/20 min-h-[420px]">
+                <div className="aspect-[16/9] relative shrink-0 w-full bg-[#f2f4f7] overflow-hidden border-b border-gray-100">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-gray-200 to-transparent flex items-center justify-center text-gray-300 italic text-sm">
+                    Guide Asset
+                  </div>
                 </div>
-              ))}
-           </div>
+                <div className="backdrop-blur-[50px] content-stretch flex flex-col flex-1 gap-[16px] items-start justify-between p-[20px] relative w-full bg-white/10 group-hover:bg-white/20 transition-colors">
+                  <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
+                    <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
+                      <div className="bg-[#f7f9fc] content-stretch flex items-start px-[8px] py-[4px] relative rounded-[40px] shrink-0">
+                        <p className="font-medium text-[#121212] text-[12px] leading-[16px]">Hướng dẫn</p>
+                      </div>
+                      <span className="font-medium text-[#9aa5bd] text-[12px] leading-[16px]">5 min read</span>
+                    </div>
+                    <h4 className="font-semibold leading-[26px] text-black text-[18px] w-full line-clamp-2 min-h-[52px]">
+                      {guide.title}
+                    </h4>
+                    <p className="font-normal leading-[24px] text-[#667085] text-[15px] line-clamp-2 opacity-80">
+                      {guide.desc}
+                    </p>
+                  </div>
+                  <div className="content-stretch flex gap-[4px] items-center py-[10px] relative rounded-[36px] mt-auto">
+                    <span className="font-semibold leading-[24px] text-[#101828] text-[16px] group-hover:text-[#00c694] transition-colors">Xem hướng dẫn</span>
+                    <div className="size-5 bg-black/10 rounded-full group-hover:bg-[#00c694]/20 flex items-center justify-center transition-colors">
+                      <div className="size-2 bg-current rounded-sm rotate-45" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </main>
 
@@ -274,18 +258,18 @@ const AcademyPage: React.FC = () => {
 
       {/* Shortcuts Sidebar (Sticky) */}
       <div className="fixed right-0 top-1/2 -translate-y-1/2 bg-white/40 backdrop-blur-xl border border-white p-3 rounded-l-[24px] flex flex-col gap-4 shadow-2xl z-50 border-r-0">
-         {[0,1,2,3,4].map(i => (
-           <motion.div 
-             key={i} 
-             whileHover={{ scale: 1.15, x: -5 }}
-             className={`size-12 rounded-xl flex items-center justify-center ${i === 2 ? 'bg-gradient-to-br from-[#00c694] to-[#07756d]' : 'bg-white shadow-lg border border-gray-100'} cursor-pointer transition-shadow hover:shadow-xl`}
-           >
-              {i === 2 ? <div className="size-5 bg-white rounded-sm rotate-45" /> : <div className="size-6 bg-[#ebeff5] rounded-md" />}
-           </motion.div>
-         ))}
-         <div className="size-8 bg-[#073038] rounded-full flex items-center justify-center self-center mt-2 cursor-pointer shadow-lg hover:bg-black transition-colors">
-            <div className="size-2 bg-[#0ae685] rounded-full animate-pulse" />
-         </div>
+        {[0, 1, 2, 3, 4].map(i => (
+          <motion.div
+            key={i}
+            whileHover={{ scale: 1.15, x: -5 }}
+            className={`size-12 rounded-xl flex items-center justify-center ${i === 2 ? 'bg-gradient-to-br from-[#00c694] to-[#07756d]' : 'bg-white shadow-lg border border-gray-100'} cursor-pointer transition-shadow hover:shadow-xl`}
+          >
+            {i === 2 ? <div className="size-5 bg-white rounded-sm rotate-45" /> : <div className="size-6 bg-[#ebeff5] rounded-md" />}
+          </motion.div>
+        ))}
+        <div className="size-8 bg-[#073038] rounded-full flex items-center justify-center self-center mt-2 cursor-pointer shadow-lg hover:bg-black transition-colors">
+          <div className="size-2 bg-[#0ae685] rounded-full animate-pulse" />
+        </div>
       </div>
     </div>
   );
