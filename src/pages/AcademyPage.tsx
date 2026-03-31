@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Send } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import TopBanner from "../components/TopBanner";
@@ -11,6 +11,7 @@ const Guide1 = "/kafi-web-demo/assets/stocks/guide-1.png";
 const Guide2 = "/kafi-web-demo/assets/stocks/guide-2.png";
 const Guide3 = "/kafi-web-demo/assets/stocks/guide-3.png";
 const Guide4 = "/kafi-web-demo/assets/stocks/guide-4.png";
+const subscribePattern = "/kafi-web-demo/assets/reports/section-info-bg.png";
 
 // Figma-sourced card thumbnail images
 const imgCard1 = "/kafi-web-demo/assets/084c193af1428e3fb080c1b6fb3e9179c648eb90.png";
@@ -92,7 +93,7 @@ const AcademyPage: React.FC = () => {
         <section className="space-y-8">
           {/* Sub header navigation — StocksPage style */}
           <section className="sticky top-0 z-20 w-full flex justify-center">
-            <div className="bg-[rgba(255,255,255,0.2)] backdrop-blur-md p-[6px] rounded-full inline-flex items-center gap-1 shadow-lg border border-white/20">
+            <div className="bg-[rgba(255,255,255,0.2)] backdrop-blur-md p-1.5 rounded-full inline-flex items-center gap-1 shadow-lg border border-white/20">
               {ACADEMY_TABS.map((tab) => (
                 <button
                   key={tab.id}
@@ -417,7 +418,7 @@ const AcademyPage: React.FC = () => {
         </section>
 
         {/* Guides Section */}
-        <section className="space-y-12 px-[80px] py-[80px] relative w-full overflow-hidden max-w-[1440px]">
+        <section className="space-y-12 px-[80px] relative w-full overflow-hidden mt-6">
           <div className="flex flex-col lg:flex-row items-end justify-between gap-6 w-full">
             <div className="space-y-3">
               <h2 className="text-[48px] font-bold leading-[56px] text-[#101828]">
@@ -507,6 +508,44 @@ const AcademyPage: React.FC = () => {
                   </div>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Subscription Section */}
+        <section className="w-full px-4 lg:px-6 mt-6">
+          <div className="w-full h-[400px] rounded-[48px] bg-[#C6FFD9] relative overflow-hidden flex flex-col items-center justify-center text-center px-10">
+            {/* Pattern Overlay */}
+            <div className="absolute top-0 right-0 w-[100vw] h-[120vh] pointer-events-none opacity-80">
+              <img
+                src={subscribePattern}
+                alt=""
+                className="w-full h-full object-contain object-right-top"
+              />
+            </div>
+
+            <div className="relative z-10 flex flex-col gap-10 items-center max-w-[987px]">
+              <div className="flex flex-col gap-4 items-center">
+                <h2 className="text-[48px] font-bold text-black leading-[56px] font-['Inter']">
+                  Đăng ký nhận báo cáo
+                </h2>
+                <p className="text-[18px] font-normal text-black leading-[26px] max-w-[832px] font-['Inter']">
+                  Nhà đầu tư có thể truy cập các tài liệu quan trọng, đăng ký nhận
+                  cập nhật định kỳ hoặc liên hệ trực tiếp với đội ngũ quan hệ cổ
+                  đông của KAFI.
+                </p>
+              </div>
+
+              <div className="bg-[rgba(16,24,40,0.5)] backdrop-blur-md rounded-full pl-6 pr-3 py-3 flex items-center gap-3 w-[540px] shadow-[0_8px_16px_rgba(0,0,0,0.12)]">
+                <input
+                  type="text"
+                  placeholder="Để lại email của bạn ở đây |"
+                  className="flex-1 bg-transparent border-none text-[16px] text-[#f7f9fc] font-medium focus:outline-none placeholder:text-[#f7f9fc]/60 font-['Inter']"
+                />
+                <button className="size-11 rounded-full bg-[#00c694] flex items-center justify-center text-black hover:bg-[#00B07A] transition-all shrink-0">
+                  <Send className="size-5" />
+                </button>
+              </div>
             </div>
           </div>
         </section>
