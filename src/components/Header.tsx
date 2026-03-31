@@ -15,7 +15,7 @@ const Header: React.FC = () => {
   const isHome = location.pathname === "/";
 
   return (
-    <header className="w-full z-30 relative bg-transparent">
+    <header className="w-full z-100 relative bg-transparent">
       {/* Top Row: Sub-navigation */}
       <div className={`${isHome ? "bg-transparent" : "bg-[#073038]"} w-full`}>
         <div className="px-4 lg:px-6">
