@@ -304,7 +304,7 @@ export default function ReportsPage() {
       {/* Main Content */}
       <main className="relative w-full px-4 lg:px-6 py-6 space-y-24">
         {/* Sticky Liquid Glass Tab Bar */}
-        <section className="sticky top-6 z-30 w-full flex justify-center px-4 lg:px-6 mb-12">
+        <section className="sticky top-28 z-30 w-full flex justify-center px-4 lg:px-6 py-4">
           <div className="bg-[rgba(255,255,255,0.2)] backdrop-blur-md p-[6px] rounded-full inline-flex items-center gap-1 shadow-lg border border-white/20 transition-all duration-300">
             {reportCategories.map((cat) => (
               <button
@@ -345,7 +345,7 @@ export default function ReportsPage() {
         <div className="flex gap-12">
           {/* Sidebar */}
           <aside className="w-[280px] shrink-0">
-            <div className="sticky top-36 flex flex-col gap-2">
+            <div className="sticky top-56 flex flex-col gap-2">
               <div className="flex flex-col gap-1.5 p-2 bg-white rounded-[24px] border border-[#E2E8F0]">
                 <ActionButton
                   title="Báo cáo vĩ mô"

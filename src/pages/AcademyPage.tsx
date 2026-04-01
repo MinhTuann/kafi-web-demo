@@ -92,7 +92,7 @@ const AcademyPage: React.FC = () => {
         {/* Product Tab Selection Group */}
         <section className="space-y-8">
           {/* Sub header navigation — StocksPage style */}
-          <section className="sticky top-0 z-20 w-full flex justify-center">
+          <section className="sticky top-28 z-20 w-full flex justify-center py-4">
             <div className="bg-[rgba(255,255,255,0.2)] backdrop-blur-md p-1.5 rounded-full inline-flex items-center gap-1 shadow-lg border border-white/20">
               {ACADEMY_TABS.map((tab) => (
                 <button

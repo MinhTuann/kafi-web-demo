@@ -239,7 +239,7 @@ const ShareholderPage: React.FC = () => {
       <section className="w-full bg-white rounded-[48px] p-10 lg:p-[5vw] mt-0">
         <div className="w-full flex flex-col lg:flex-row gap-6 items-start">
           {/* ── Sidebar ── */}
-          <aside className="w-[302px] shrink-0 sticky top-[100px]">
+          <aside className="w-[302px] shrink-0 sticky top-32">
             <div className="border border-[#f0f0f0] rounded-[24px] p-3">
               <nav className="flex flex-col gap-2">
                 {sidebarCategories.map((cat) => (

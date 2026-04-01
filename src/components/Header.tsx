@@ -7,6 +7,7 @@ import ActionButton from "./ActionButton";
 const Header: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
   const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
   const [isMarketMenuOpen, setIsMarketMenuOpen] = useState(false);
   const [isAcademyMenuOpen, setIsAcademyMenuOpen] = useState(false);
@@ -16,7 +17,9 @@ const Header: React.FC = () => {
   const isHome = location.pathname === "/";
 
   return (
-    <header className="w-full z-100 relative bg-transparent">
+    <header
+      className="w-full z-[100] sticky top-0 bg-transparent"
+    >
       {/* Top Row: Sub-navigation */}
       <div className={`${isHome ? "bg-transparent" : "bg-[#073038]"} w-full`}>
         <div className="px-4 lg:px-6">
@@ -99,7 +102,7 @@ const Header: React.FC = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-white rounded-[150px] shadow-[0_8px_40px_-12px_rgba(0,0,0,0.08)] border border-white/60"
+          className="bg-[rgba(255,255,255,0.2)] backdrop-blur-md rounded-[150px] shadow-lg border border-white/20"
         >
           <div className="pl-6 pr-2 py-2 flex justify-between items-center">
             <div className="flex items-center">

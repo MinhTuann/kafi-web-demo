@@ -410,7 +410,7 @@ export default function StocksPage() {
         {/* Product Tab Selection Group */}
         <section className="space-y-8">
           {/* Product Tab Navigation */}
-          <section className="sticky top-0 z-20 w-full flex justify-center">
+          <section className="sticky top-28 z-20 w-full flex justify-center py-4">
             <div className="bg-[rgba(255,255,255,0.2)] backdrop-blur-md p-[6px] rounded-full inline-flex items-center gap-1 shadow-lg border border-white/20">
               {[
                 {
