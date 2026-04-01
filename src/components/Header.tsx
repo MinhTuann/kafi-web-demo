@@ -102,7 +102,7 @@ const Header: React.FC = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-[rgba(255,255,255,0.2)] backdrop-blur-md rounded-[150px] shadow-lg border border-white/20"
+          className={`${isHome ? "bg-white" : "bg-[rgba(255,255,255,0.2)] backdrop-blur-md"} rounded-[150px] shadow-lg border border-white/20`}
         >
           <div className="pl-6 pr-2 py-2 flex justify-between items-center">
             <div className="flex items-center">
@@ -950,7 +950,7 @@ const Header: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="size-12 rounded-full bg-gray-50 flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
+              <div className="size-12 rounded-full bg-[#EBEFF5] flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
                 <svg
                   width="24"
                   height="24"
@@ -969,7 +969,7 @@ const Header: React.FC = () => {
                 </svg>
               </div>
 
-              <div className="h-12 px-8 bg-gray-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
+              <div className="bg-[#EBEFF5] h-12 px-8 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
                 <span className="text-gray-700 text-[15px] font-light">
                   Đăng nhập
                 </span>
