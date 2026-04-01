@@ -23,7 +23,7 @@ interface ShortcutProps {
 const defaultItems: ShortcutItem[] = [
   {
     to: "/",
-    label: "Danh mục",
+    label: "Mở rộng",
     icon: (
       <img
         src="/kafi-web-demo/assets/shortcut/top_menu.svg"
@@ -34,7 +34,7 @@ const defaultItems: ShortcutItem[] = [
   },
   {
     to: "/reports",
-    label: "Báo cáo",
+    label: "Bảng giá",
     icon: (
       <img
         src="/kafi-web-demo/assets/shortcut/item_2.png"
@@ -45,7 +45,7 @@ const defaultItems: ShortcutItem[] = [
   },
   {
     to: "/stocks",
-    label: "Khám phá",
+    label: "Kafi X App",
     icon: (
       <img
         src="/kafi-web-demo/assets/shortcut/item_3.png"
@@ -56,7 +56,7 @@ const defaultItems: ShortcutItem[] = [
   },
   {
     to: "/stocks",
-    label: "Cổ phiếu",
+    label: "Phân tích",
     accent: true,
     icon: (
       <img
@@ -68,7 +68,7 @@ const defaultItems: ShortcutItem[] = [
   },
   {
     to: "/academy",
-    label: "Học viện",
+    label: "Lịch livestream",
     accent: true,
     icon: (
       <img
