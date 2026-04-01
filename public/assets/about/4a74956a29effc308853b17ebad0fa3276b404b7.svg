@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 316 157" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 1597880453">
+<path id="Polygon 40" opacity="0.3" d="M67.8936 12.0205C73.7514 6.16295 83.2487 6.16297 89.1065 12.0205L144.98 67.8936C150.837 73.7514 150.837 83.2487 144.98 89.1065L89.1065 144.98C83.2487 150.837 73.7514 150.837 67.8936 144.98L12.0205 89.1064C6.16298 83.2486 6.163 73.7514 12.0206 67.8936L67.8936 12.0205Z" stroke="url(#paint0_linear_164_6629)" stroke-width="2"/>
+<path id="Polygon 41" opacity="0.3" d="M226.894 12.0205C232.751 6.16295 242.249 6.16297 248.107 12.0205L303.98 67.8936C309.837 73.7514 309.837 83.2487 303.98 89.1065L248.106 144.98C242.249 150.837 232.751 150.837 226.894 144.98L171.021 89.1064C165.163 83.2486 165.163 73.7514 171.021 67.8936L226.894 12.0205Z" stroke="url(#paint1_linear_164_6629)" stroke-width="2"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_164_6629" x1="124.727" y1="30.8104" x2="124.727" y2="86.8386" gradientUnits="userSpaceOnUse">
+<stop stop-color="#01C27F"/>
+<stop offset="1" stop-color="#01C27F" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear_164_6629" x1="283.727" y1="30.8104" x2="283.727" y2="86.8386" gradientUnits="userSpaceOnUse">
+<stop stop-color="#01C27F"/>
+<stop offset="1" stop-color="#01C27F" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
