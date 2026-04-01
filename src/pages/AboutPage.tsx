@@ -5,7 +5,6 @@ import {
   Briefcase,
   ChevronDown,
   ChevronUp,
-  CircleDollarSign,
   Database,
   FileCheck,
   HandHeart,
@@ -73,7 +72,6 @@ const awardExcellent = `${ASSET_BASE}/awards-excellent.png`;
 const staffCertSphere = `${ASSET_BASE}/staff-cert-sphere.png`;
 const staffCertPerson = `${ASSET_BASE}/staff-cert-person.png`;
 const ctaBgPattern = `${ASSET_BASE}/cta-bg-pattern.png`;
-const ctaObject = `${ASSET_BASE}/cta-object.png`;
 
 const leaderCards = [
   {
