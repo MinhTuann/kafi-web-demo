@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
               <div className="flex items-start gap-2">
                 <div className="mt-1 translate-y-[2px]">
                   <img
-                    src="/kafi-web-demo/assets/9cab69f98d64e5d5ef3c48bb9bb3e12e5f4117fe.svg"
+                    src="/kafi-web-demo/assets/footer-location.svg"
                     alt=""
                     className="size-4"
                   />
@@ -48,7 +48,7 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <img
-                      src="/kafi-web-demo/assets/9f68a6d31f62b970d636dc58467e9a9e08cfd902.svg"
+                      src="/kafi-web-demo/assets/footer-phone.svg"
                       alt=""
                       className="size-4"
                     />
@@ -208,27 +208,27 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
               {[
                 {
                   name: "Facebook",
-                  icon: "/kafi-web-demo/assets/9b3c1cf16b738b5a943a7c8bf9eec6529a6e6b9f.svg",
+                  icon: "/kafi-web-demo/assets/social-facebook.svg",
                 },
                 {
                   name: "Linkedin",
-                  icon: "/kafi-web-demo/assets/66e51ab29b74700f50ee25b0a9feab05347414a8.svg",
+                  icon: "/kafi-web-demo/assets/social-linkedin.svg",
                 },
                 {
                   name: "Zalo",
-                  icon: "/kafi-web-demo/assets/96d2d2928d4d986d99ca2a7d6e29f0ca8aa9bff9.svg",
+                  icon: "/kafi-web-demo/assets/social-zalo.svg",
                 },
                 {
                   name: "Youtube",
-                  icon: "/kafi-web-demo/assets/470c3ad78243b1492f9ee9e819a9268ce50614a0.svg",
+                  icon: "/kafi-web-demo/assets/social-youtube.svg",
                 },
                 {
                   name: "TikTok",
-                  icon: "/kafi-web-demo/assets/91416ada6a030eb26a1cb6f922ab06cb3bb89ac9.svg",
+                  icon: "/kafi-web-demo/assets/social-tiktok.svg",
                 },
                 {
                   name: "Instagram",
-                  icon: "/kafi-web-demo/assets/5504080f34435f79a3c49fafd262c71d57fe4e19.svg",
+                  icon: "/kafi-web-demo/assets/social-instagram.svg",
                 },
               ].map((social) => (
                 <a
