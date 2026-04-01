@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
 const LogoBlack = "/kafi-web-demo/assets/stocks/logo-black.png";
+import ActionButton from "./ActionButton";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
@@ -125,11 +126,10 @@ const Header: React.FC = () => {
                 >
                   <div className="flex items-center cursor-pointer group py-4">
                     <span
-                      className={`text-[14px] font-semibold transition-colors whitespace-nowrap ${
-                        isProductsMenuOpen || isActive("/stocks")
-                          ? "text-[#00C694]"
-                          : "text-[#344054] group-hover:text-[#00C694]"
-                      }`}
+                      className={`text-[14px] font-semibold transition-colors whitespace-nowrap ${isProductsMenuOpen || isActive("/stocks")
+                        ? "text-[#00C694]"
+                        : "text-[#344054] group-hover:text-[#00C694]"
+                        }`}
                       onClick={() => navigate("/stocks")}
                     >
                       Sản phẩm & dịch vụ
@@ -265,11 +265,10 @@ const Header: React.FC = () => {
                 >
                   <div className="flex items-center cursor-pointer group py-4">
                     <span
-                      className={`text-[14px] font-semibold transition-colors whitespace-nowrap ${
-                        isMarketMenuOpen || isActive("/reports")
-                          ? "text-[#00C694]"
-                          : "text-[#344054] group-hover:text-[#00C694]"
-                      }`}
+                      className={`text-[14px] font-semibold transition-colors whitespace-nowrap ${isMarketMenuOpen || isActive("/reports")
+                        ? "text-[#00C694]"
+                        : "text-[#344054] group-hover:text-[#00C694]"
+                        }`}
                       onClick={() => navigate("/reports")}
                     >
                       Thị trường & khuyến nghị
@@ -974,29 +973,7 @@ const Header: React.FC = () => {
               </div>
 
               {/* Sign Up Button */}
-              <div className="h-11 pl-4 pr-2.5 bg-[#00C694] hover:bg-[#00B07A] rounded-[32px] flex items-center gap-1.5 transition-all cursor-pointer shadow-lg shadow-[#00C694]/20 group">
-                <span className="text-[#101828] text-[16px] font-light leading-[20px]">
-                  Mở tài khoản
-                </span>
-                <div className="size-5 bg-[#073038] rounded-full flex items-center justify-center transition-colors">
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 12 15"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="rotate-45"
-                  >
-                    <path
-                      d="M0.833333 5.83333L5.83332 0.833333M5.83332 0.833333L10.8333 5.83333M5.83332 0.833333V14.1667"
-                      stroke="#0AE685"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-              </div>
+              <ActionButton title="Mở tài khoản" onClick={() => { }} />
             </div>
           </div>
         </motion.nav>

@@ -4,6 +4,7 @@ import { ArrowUpRight, Check } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Shortcut from "../components/Shortcut";
+import ActionButton from "../components/ActionButton";
 
 // Asset Imports
 // Asset paths
@@ -609,7 +610,7 @@ export default function StocksPage() {
             </div>
 
             {/* Product Discovery Tab Bar */}
-            <div className="sticky top-6 z-30 bg-[rgba(255,255,255,0.2)] backdrop-blur-md flex gap-[12px] items-center p-[8px] rounded-full shrink-0 border border-white/20 shadow-lg transition-all duration-300">
+            <div className="bg-[rgba(255,255,255,0.2)] backdrop-blur-md flex gap-[12px] items-center p-[8px] rounded-full shrink-0 border border-white/20 shadow-lg transition-all duration-300">
               {[
                 "Cổ phiếu",
                 "Phái sinh",
@@ -683,7 +684,7 @@ export default function StocksPage() {
                 <img
                   src="/kafi-web-demo/assets/stock-product.png"
                   alt="Product Interface"
-                  className="w-[85%] h-auto object-contain z-10"
+                  className="w-full h-auto object-contain z-10"
                 />
               </div>
             </div>
@@ -1343,30 +1344,23 @@ export default function StocksPage() {
                   Bắt đầu đầu tư ngay hôm nay
                 </h2>
                 <p className="text-[18px] text-[#667085] leading-[26px]">
-                  Mở tài khoản hoặc tải ứng dụng Kafi X để khám phá các cơ hội
-                  đầu tư cùng các chuyên gia hàng đầu.
+                  Mở tài khoản hoặc tải ứng dụng Kafi X để khám phá các cơ hội đầu tư.
                 </p>
               </div>
+
               <div className="flex flex-wrap gap-4">
-                <button className="h-[56px] px-[24px] bg-[#101820] text-[#F7F9FC] rounded-[32px] font-medium text-[18px] hover:bg-black transition-all flex items-center justify-center gap-[4px] group shrink-0">
-                  <span className="leading-[24px]">Mở Tài khoản Kafi X</span>
-                  <div className="size-[24px] bg-[#073038] rounded-full flex items-center justify-center relative translate-y-[0px] transition-colors group-hover:bg-[#00C694]">
-                    <div className="size-[20px] flex items-center justify-center">
-                      <ArrowUpRight className="size-[16px] text-white" />
-                    </div>
-                  </div>
-                </button>
+                <ActionButton title="Mở tài khoản ngay" onClick={() => {}} />
               </div>
             </div>
 
             {/* Visuals - Desktop Only */}
             <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-[10%] right-[8%] h-[100%] w-[16%] rounded-[24px] border-8 border-[#00C694] shadow-2xl z-20 overflow-hidden hidden lg:block">
-                <div className="absolute inset-0 bg-black/20 z-10" />
+              <div className="absolute top-[10%] right-[4%] h-[100%] w-[24%] rounded-[24px] lg:block">
+                {/* <div className="absolute inset-0 bg-black/20 z-10" /> */}
                 <img
                   src={PhoneMockup}
                   alt="Kafi App"
-                  className="w-full h-full object-cover"
+                  className="inset-0 object-cover"
                 />
               </div>
             </div>
