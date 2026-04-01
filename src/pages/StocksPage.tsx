@@ -673,7 +673,7 @@ export default function StocksPage() {
 
                 <button className="bg-[#101820] text-[#F7F9FC] h-[44px] px-[24px] rounded-[32px] flex items-center justify-center gap-[8px] font-medium hover:bg-[#073038] transition-all self-start shadow-sm">
                   Đầu tư ngay
-                  <div className="size-[24px] rounded-full bg-[#344054] flex items-center justify-center -rotate-45">
+                  <div className="size-[24px] rounded-full bg-[#344054] flex items-center justify-center -">
                     <ArrowUpRight className="size-[16px] text-white" />
                   </div>
                 </button>
@@ -841,7 +841,7 @@ export default function StocksPage() {
                           viewBox="0 0 12 12"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
-                          className="rotate-45"
+                          className=""
                         >
                           <path
                             d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5"
@@ -943,7 +943,7 @@ export default function StocksPage() {
             </div>
             <button className="h-[44px] px-[16px] py-[10px] bg-[#101820] text-[#F7F9FC] rounded-[32px] font-medium flex items-center gap-[6px] hover:bg-black/90 transition-all">
               Xem tất cả
-              <div className="size-[24px] flex items-center justify-center rotate-45">
+              <div className="size-[24px] flex items-center justify-center">
                 <ArrowUpRight className="size-[20px]" />
               </div>
             </button>
@@ -1003,7 +1003,7 @@ export default function StocksPage() {
                       <span className="text-[16px] font-semibold text-[#101828]">
                         Khám phá ngay
                       </span>
-                      <div className="rotate-45">
+                      <div className="">
                         <ArrowUpRight className="size-[20px] text-[#101828]" />
                       </div>
                     </div>
@@ -1069,7 +1069,7 @@ export default function StocksPage() {
             </div>
             <button className="h-[44px] px-[16px] py-[10px] bg-[#101820] text-[#F7F9FC] rounded-[32px] font-medium flex items-center gap-[6px] hover:bg-black/90 transition-all">
               Xem tất cả
-              <div className="size-[24px] flex items-center justify-center rotate-45">
+              <div className="size-[24px] flex items-center justify-center">
                 <ArrowUpRight className="size-[20px]" />
               </div>
             </button>
@@ -1140,7 +1140,7 @@ export default function StocksPage() {
                       <span className="text-[16px] font-semibold text-[#101828]">
                         Xem hướng dẫn
                       </span>
-                      <div className="rotate-45">
+                      <div className="">
                         <ArrowUpRight className="size-[20px] text-[#101828]" />
                       </div>
                     </div>
