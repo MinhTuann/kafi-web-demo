@@ -66,10 +66,7 @@ const Card1Background = () => (
 
 const heroImage = `${ASSET_BASE}/hero-team.png`;
 
-const numbersTeam = `${ASSET_BASE}/e7eea353fb3ac1adb3d0b55d7fee1d8dca76721b.png`;
-const numbersSkyscraper = `${ASSET_BASE}/773aa3cc14c6cab6df0724a930d3ec0fed0fb280.png`;
-const awardsPodium = `${ASSET_BASE}/awards-podium.png`;
-const awardsTrophy = `${ASSET_BASE}/awards-trophy.png`;
+const numbersTeam = `${ASSET_BASE}/numbers-team.png`;
 const awardGrowth = `${ASSET_BASE}/awards-growth.png`;
 const awardInspire = `${ASSET_BASE}/awards-inspire.png`;
 const awardExcellent = `${ASSET_BASE}/awards-excellent.png`;
@@ -210,8 +207,8 @@ const LeaderFlipCard = ({ leader }: { leader: any }) => {
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
             />
             {/* Front Decorations (Vibrant accent layers from Figma) */}
-            <div className="absolute top-[-384.27px] left-[-356.59px] w-[729.5px] h-[838.988px] rotate-[33.91deg] bg-[rgba(22,228,130,0.1)] pointer-events-none" />
-            <div className="absolute top-[21.16px] left-[-415.67px] w-[689.604px] h-[801.304px] rotate-[144.83deg] bg-gradient-to-r from-[#00c694]/10 to-[#07756d]/10 pointer-events-none" />
+            <div className="absolute top-[-384.27px] -left-[40vw] w-[729.5px] h-[838.988px] rotate-[33.91deg] bg-[rgba(22,228,130,0.3)] pointer-events-none" />
+            <div className="absolute top-[21.16px] -left-[40vw] w-[689.604px] h-[801.304px] rotate-[144.83deg] bg-[#00C694] pointer-events-none" />
           </div>
 
           <div className="absolute inset-x-0 bottom-0 p-6 pt-16 flex items-end justify-between gap-4 bg-gradient-to-t from-black/70 via-black/30 to-transparent backdrop-blur-[4px]">
@@ -316,7 +313,7 @@ export default function AboutPage() {
         />
       </section>
 
-      <main className="relative w-full px-4 lg:px-6 py-6 pb-24">
+      <main className="relative w-full px-4 lg:px-6 py-6">
         {/* Product Tab Selection Group */}
         <section className="space-y-8">
           {/* Sticky Product Tab Navigation */}
@@ -375,7 +372,7 @@ export default function AboutPage() {
           </section>
 
           {/* Vision & Mission */}
-          <section id="vision" className="w-full lg:px-[5vw] grid grid-cols-1 xl:grid-cols-[1.12fr_0.88fr] gap-6 scroll-mt-24">
+          <section id="vision" className="w-full mt-6 grid grid-cols-1 xl:grid-cols-[1.12fr_0.88fr] gap-6 scroll-mt-24">
             {/* Vision Hero Side */}
             <div className="relative rounded-[32px] overflow-hidden h-[768px] group bg-[#16E482]">
               <div className="absolute inset-0 pointer-events-none">
@@ -448,7 +445,7 @@ export default function AboutPage() {
           </section>
 
           {/* Core Values */}
-          <section id="core-values" className="w-full lg:px-[5vw] scroll-mt-24">
+          <section id="core-values" className="w-full scroll-mt-24">
             <div className="bg-white rounded-[48px] py-16 px-12 border border-[#F2F4F7]">
               <h3 className="text-center text-[48px] font-bold text-[#101828] mb-12 leading-[56px]">
                 Giá trị cốt lõi
@@ -520,7 +517,7 @@ export default function AboutPage() {
           </section>
 
           {/* Kafi through numbers */}
-          <section id="numbers" className="w-full px-[20px] lg:px-[5vw] scroll-mt-24 mb-32 flex flex-col gap-[48px] items-center">
+          <section id="numbers" className="w-full scroll-mt-24 mb-32 flex flex-col gap-[48px] items-center">
             <div className="flex flex-col gap-[32px] items-start justify-center shrink-0 w-full relative">
               <div className="flex flex-col font-bold justify-center items-center text-[48px] text-[#101828] text-center w-full">
                 <h2 className="leading-[56px] m-0">Kafi qua những con số</h2>
@@ -590,27 +587,47 @@ export default function AboutPage() {
               <div className="flex flex-1 flex-col gap-[24px] shrink-0 min-h-[568px]">
                 {/* Top Row */}
                 <div className="flex flex-col lg:flex-row flex-1 gap-[24px] items-stretch w-full shrink-0">
-                  <div className="bg-[#00c694] flex flex-col justify-end p-[24px] overflow-hidden rounded-[24px] shrink-0 w-full lg:w-[286px] min-h-[272px] relative group cursor-pointer">
-                    <div className="absolute inset-0 mix-blend-darken">
-                      <img alt="Team" className="absolute inset-0 w-full h-full object-cover pointer-events-none group-hover:scale-105 transition-transform duration-700" src={numbersTeam} />
+                  {/* Numbers Team */}
+                  <div className="bg-[#00c694] flex flex-col items-center justify-center p-[24px] overflow-hidden rounded-[24px] shrink-0 w-full lg:w-[286px] min-h-[272px] relative group cursor-pointer">
+                    {/* Background Image with Darken Blend */}
+                    <div className="absolute h-[275px] left-[-54px] top-[-3px] w-[422px] mix-blend-darken">
+                      <img alt="Team" className="absolute inset-0 w-full h-full object-cover pointer-events-none group-hover:scale-110 transition-transform duration-700" src={numbersTeam} />
                     </div>
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(8,68,78,0.9)] via-[rgba(8,68,78,0.4)] to-transparent opacity-80" />
-                    <div className="relative z-10">
-                      <p className="font-normal text-[18px] leading-[26px] text-white m-0 line-clamp-4">
+
+                    {/* Atmospheric Top-Down Gradient Overlay */}
+                    <div className="absolute top-0 left-0 w-full h-[182px] bg-gradient-to-t from-transparent to-[#08444e]/60 backdrop-blur-[12px] opacity-100" />
+
+                    {/* Content */}
+                    <div className="relative z-10 text-center px-4">
+                      <p className="font-normal text-[18px] leading-[26px] text-white m-0">
                         Những con số phản ánh niềm tin và hành trình phát triển bền vững của Kafi.
                       </p>
                     </div>
                   </div>
 
-                  <div className="bg-white flex flex-1 items-center overflow-hidden rounded-[24px] min-h-[272px] shrink-0 relative group p-10 lg:p-[40px] xl:px-[48px] xl:py-[36px]">
-                    <div className="absolute top-1/2 left-1/2 lg:left-0 -translate-y-1/2 lg:translate-y-[-50%] lg:translate-x-[20px] xl:translate-x-[40px] w-[60%] lg:w-[274px] h-[269px] opacity-20 lg:opacity-100 pointer-events-none">
-                      <img alt="Arrow" className="absolute w-full h-full object-contain group-hover:scale-110 transition-transform duration-700" src={`${ASSET_BASE}/5a45fa160a8898d124b6396ad1b529f45d22c95a.svg`} />
+                  {/* 300K+ */}
+                  <div className="bg-white flex flex-1 flex-col lg:flex-row items-center overflow-hidden rounded-[24px] min-h-[272px] shrink-0 relative group p-10 lg:p-0">
+                    {/* Arrow Overlay (Desktop: Side-by-side, Mobile: Background) */}
+                    <div className="flex-none w-[200px] h-[200px] lg:w-[274px] lg:h-[269px] relative lg:static mb-8 lg:mb-0 opacity-100 transition-all duration-700 pointer-events-none group-hover:scale-110">
+                      <img
+                        alt="Arrow"
+                        className="w-full h-full object-contain"
+                        src={`${ASSET_BASE}/numbers-arrow-gradient.png`}
+                      />
                     </div>
 
-                    <div className="flex flex-col gap-[16px] h-auto lg:h-[200px] justify-center items-start shrink-0 relative z-10 lg:ml-auto w-full lg:w-auto mt-[40px] lg:mt-0 text-center lg:text-left">
+                    <div className="flex flex-col gap-[16px] h-auto lg:h-[200px] justify-center items-center lg:items-start shrink-0 relative z-10 w-full lg:w-[242px] px-6 lg:px-0">
+                      {/* Horizontal Line Decoration (Line 133 for 300K+) */}
+                      <div className="hidden lg:block w-[274px] h-[2px] opacity-40">
+                        <img
+                          src={`${ASSET_BASE}/numbers-line-horizontal-long.svg`}
+                          alt=""
+                          className="w-full h-full"
+                        />
+                      </div>
+
                       <div className="flex flex-col gap-[16px] w-full shrink-0">
-                        <p className="font-bold leading-[1] text-[64px] xl:text-[80px] text-[#101828] m-0">
+                        <p className="font-bold leading-[1] text-[64px] xl:text-[80px] text-[#101828] m-0 lg:leading-[80px]">
                           300K+
                         </p>
                         <div className="flex flex-col gap-[8px] items-center lg:items-start shrink-0">
@@ -628,9 +645,18 @@ export default function AboutPage() {
 
                 {/* Bottom Row */}
                 <div className="flex flex-col lg:flex-row flex-1 gap-[24px] items-stretch w-full shrink-0">
-                  <div className="bg-white flex flex-col lg:flex-row gap-[32px] items-center lg:items-center justify-between overflow-hidden rounded-[24px] p-10 lg:px-[32px] shrink-0 w-full lg:w-auto xl:w-[413px] min-h-[272px] group">
-                    <div className="flex flex-col gap-[16px] items-center lg:items-start shrink-0 z-10 w-full text-center lg:text-left">
-                      <p className="font-bold leading-[1] shrink-0 text-[56px] text-[#101828] m-0">
+                  <div className="bg-white flex flex-col lg:flex-row gap-[32px] items-center lg:items-center justify-between overflow-hidden rounded-[24px] p-10 lg:p-0 px-[32px] shrink-0 w-full lg:w-auto xl:w-[413px] min-h-[272px] group relative">
+                    <div className="flex flex-col gap-[16px] items-center lg:items-start shrink-0 z-10 w-full text-center lg:text-left lg:h-[200px] justify-center lg:pl-8">
+                      {/* Horizontal Line Decoration (Line 133 for 300+) */}
+                      <div className="hidden lg:block w-[173px] h-[2px] opacity-40 mb-4">
+                        <img
+                          src={`${ASSET_BASE}/numbers-line-horizontal.svg`}
+                          alt=""
+                          className="w-full h-full"
+                        />
+                      </div>
+
+                      <p className="font-bold leading-[1] shrink-0 text-[56px] lg:text-[56px] text-[#101828] m-0">
                         300+
                       </p>
                       <div className="flex flex-col gap-[8px] items-center lg:items-start shrink-0">
@@ -642,16 +668,15 @@ export default function AboutPage() {
                         </p>
                       </div>
                     </div>
-                    <div className="h-[144px] w-[144px] relative shrink-0 -mt-8 lg:mt-0 lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:right-[-20%] xl:right-[-10%] opacity-20 lg:opacity-100 pointer-events-none group-hover:scale-110 transition-transform duration-700">
-                      <img alt="Decoration" className="absolute w-full h-full object-contain" src={`${ASSET_BASE}/87addde8427f84d51c0cf667cc134808060ba0c8.svg`} />
+                    <div className="aspect-square w-[20vw] relative shrink-0 -mt-8 lg:mt-0 lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:-right-10 xl:-right-10 opacity-20 lg:opacity-100 pointer-events-none group-hover:scale-110 transition-transform duration-700">
+                      <img alt="Decoration" className="absolute w-full h-full object-contain" src={`${ASSET_BASE}/numbers-partners-decoration.png`} />
                     </div>
                   </div>
 
-                  <div className="bg-[#08444e] flex flex-[1_0_0] items-center overflow-hidden rounded-[24px] min-h-[272px] shrink-0 relative group">
+                  <div className="bg-[#08444e] flex flex-1 items-center overflow-hidden rounded-[24px] min-h-[272px] shrink-0 relative group">
                     <div className="absolute inset-0">
-                      <img alt="Cityscape" className="absolute w-full h-full object-cover pointer-events-none group-hover:scale-105 transition-transform duration-700 mix-blend-screen opacity-80" src={numbersSkyscraper} />
+                      <img alt="Cityscape" className="absolute w-full h-full object-cover pointer-events-none group-hover:scale-105 transition-transform duration-700" src={`${ASSET_BASE}/numbers-skyscraper-highref.png`} />
                     </div>
-                    <div className="absolute inset-0 bg-[#08444E]/40" />
                   </div>
                 </div>
               </div>
@@ -659,37 +684,50 @@ export default function AboutPage() {
           </section>
 
           {/* Awards */}
-          <section id="awards" className="w-full lg:px-[5vw] py-[80px] scroll-mt-24">
+          <section id="awards" className="w-full scroll-mt-24">
             <div className="flex flex-col xl:flex-row gap-6 w-full items-stretch">
-              {/* Left Column: Featured Award Card */}
-              <div className="bg-[#00C694] rounded-[32px] p-8 lg:p-[56px] relative overflow-hidden flex flex-col justify-between min-h-[680px] xl:w-[723px] shrink-0">
+              <div className="bg-[#00C694] rounded-[32px] px-[24px] py-[56px] relative overflow-hidden flex flex-col justify-between min-h-[680px] xl:w-[723px] shrink-0 group">
                 {/* Background Decoration */}
                 <div className="absolute inset-0 pointer-events-none">
-                  {/* Podium Backdrop */}
-                  <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[120%] lg:w-[110%] opacity-100">
-                    <img alt="Podium" src={awardsPodium} className="w-full h-auto object-contain" />
+                  {/* Podium Backdrop (Node 171:8226) */}
+                  <div className="absolute h-[70vh] right-0 top-[288px] w-[40vw] opacity-100 transition-transform duration-700 group-hover:scale-105">
+                    <img
+                      alt="Podium"
+                      src={`${ASSET_BASE}/awards-podium-highref.png`}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
-                  {/* Glowing Trophy */}
-                  <div className="absolute top-[5%] left-1/2 -translate-x-1/2 w-[60%] lg:w-[70%] max-h-[600px] flex items-center justify-center opacity-100 mix-blend-normal">
-                    <img alt="Trophy" src={awardsTrophy} className="w-full h-auto object-contain drop-shadow-2xl" />
+                  {/* Glowing Trophy (Node 171:8227) */}
+                  <div className="absolute h-[70vh] right-[6vw] top-[8vh] w-[28vw] transition-transform duration-700 group-hover:translate-y-[-10px]">
+                    <img
+                      alt="Trophy"
+                      src={`${ASSET_BASE}/awards-trophy-highref.png`}
+                      className="w-full h-full object-contain drop-shadow-2xl"
+                    />
                   </div>
-                  {/* Bottom Vignette */}
-                  <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-[#08444e]/40 to-transparent backdrop-blur-[42px] pointer-events-none" />
+                  {/* Bottom Vignette Overlay (Node 171:8228) */}
+                  <div className="absolute bottom-0 left-0 w-full h-[18vh] bg-gradient-to-t from-[#08444e]/40 to-transparent backdrop-blur-[2px] pointer-events-none" />
                 </div>
 
-                {/* Content */}
-                <div className="relative z-10 max-w-[450px] flex flex-col gap-6">
-                  <p className="font-semibold text-[18px] leading-[26px] text-[#101828] m-0">
-                    Thành Tựu
-                  </p>
-                  <h3 className="font-bold text-[48px] lg:text-[56px] xl:text-[70px] leading-[1.05] text-[#101828] m-0">
-                    Giải thưởng
-                  </h3>
-                  <p className="font-normal text-[18px] lg:text-[20px] xl:text-[24px] leading-[1.4] text-[#101820] text-justify mt-2 max-w-[420px]">
+                {/* Left Column Content (Node 171:8229) */}
+                <div className="relative z-20 flex flex-col gap-[24px] items-start ml-2 lg:ml-[51px] mt-[12px] w-full max-w-[351px]">
+                  <div className="flex flex-col gap-2">
+                    <p className="font-semibold leading-[26px] text-[18px] text-[#101828] m-0">
+                      Thành Tựu
+                    </p>
+                    <h2 className="font-bold leading-[56px] text-[48px] text-[#101828] m-0">
+                      Giải thưởng
+                    </h2>
+                  </div>
+                  <p className="font-normal leading-[26px] text-[18px] text-[#101828] text-justify">
                     Những giải thưởng Kafi đạt được phản ánh nỗ lực không ngừng trong việc nâng cao chất lượng dịch vụ, minh bạch hoạt động và trải nghiệm nhà đầu tư.
                   </p>
-                  <button className="inline-flex items-center justify-center gap-2 rounded-full bg-[#101828] text-[#00C694] px-6 py-3 text-[16px] font-medium w-fit hover:scale-105 transition-transform duration-300 mt-4 h-11">
-                    Xem tất cả <ArrowUpRight size={20} className="text-[#00C694]" />
+
+                  <button className="bg-[#101828] flex items-center justify-center gap-2 px-[16px] py-[10px] rounded-[32px] transition-all hover:bg-[#1d2939] group/btn">
+                    <span className="font-medium text-[16px] leading-[20px] text-[#00c694]">Xem tất cả</span>
+                    <div className="w-6 h-6 rounded-full bg-[#101820] flex items-center justify-center">
+                      <ArrowUpRight size={14} className="text-[#00c694] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                    </div>
                   </button>
                 </div>
               </div>
@@ -715,7 +753,7 @@ export default function AboutPage() {
                 ].map((item, idx) => (
                   <div key={idx} className="bg-white rounded-[24px] px-8 xl:px-[48px] py-[24px] flex items-center gap-[32px] group hover:shadow-xl transition-all duration-500 overflow-hidden min-h-[220px]">
                     <div className="w-[102px] shrink-0 flex items-center justify-center h-full">
-                      <img alt={item.title} src={item.icon} className="w-full h-auto object-contain group-hover:scale-110 transition-transform duration-700" />
+                      <img alt={item.title} src={item.icon} className={`object-contain group-hover:scale-110 transition-transform duration-700 size-full`} />
                     </div>
                     <div className="flex flex-col gap-[14px] flex-1">
                       <div className="flex items-center justify-between w-full">
@@ -740,7 +778,7 @@ export default function AboutPage() {
         </section>
 
         {/* Kafi leadership */}
-        <section id="leadership" className="w-full py-20 lg:py-[80px] lg:px-[5vw] scroll-mt-24">
+        <section id="leadership" className="w-full py-20 lg:py-[80px] scroll-mt-24">
           <div className="flex flex-col items-center gap-[48px] lg:gap-[56px] w-full">
             {/* Leadership Header */}
             <div className="flex flex-col items-center gap-8 w-full max-w-[832px]">
@@ -758,8 +796,8 @@ export default function AboutPage() {
                     key={tab.name}
                     onClick={() => setActiveLeadershipTab(tab.name)}
                     className={`px-5 py-3 lg:px-[20px] lg:py-[16px] rounded-[58px] flex items-center gap-3 transition-all duration-300 whitespace-nowrap ${activeLeadershipTab === tab.name
-                        ? "bg-[#00C694] font-semibold text-[#101828]"
-                        : "bg-transparent font-normal text-[#101828] hover:bg-[#F9FAFB]"
+                      ? "bg-[#00C694] font-semibold text-[#101828]"
+                      : "bg-transparent font-normal text-[#101828] hover:bg-[#F9FAFB]"
                       }`}
                   >
                     {tab.icon && (
@@ -783,7 +821,7 @@ export default function AboutPage() {
         </section>
 
         {/* Đội ngũ nhân sự / Staffs */}
-        <section className="bg-white rounded-t-[48px] py-16 lg:py-[64px] px-5 lg:px-10 overflow-hidden">
+        <section className="bg-white rounded-[48px] py-16 lg:py-[64px] px-5 lg:px-10 overflow-hidden">
           <div className="max-w-[1280px] mx-auto flex flex-col gap-12 lg:gap-[80px] items-center w-full">
             <div className="max-w-[768px] w-full text-center">
               <h2 className="font-bold text-[36px] lg:text-[48px] leading-[1.15] text-[#101828] m-0">
@@ -798,19 +836,19 @@ export default function AboutPage() {
                 <div className="bg-[#F7F9FC] p-1 rounded-[32px] flex items-center self-start border border-[#F7F9FC] overflow-x-auto no-scrollbar max-w-full">
                   {certYears.map((year) => (
                     <button
-                        key={year}
-                        onClick={() => setActiveYear(year)}
-                        className={`px-4 py-3 lg:px-[16px] lg:py-[12px] rounded-[52px] flex items-center gap-1 transition-all duration-300 whitespace-nowrap ${activeYear === year
-                            ? "bg-[#073038] font-semibold text-[#F7F9FC]"
-                            : "bg-transparent font-semibold text-[#101828]"
+                      key={year}
+                      onClick={() => setActiveYear(year)}
+                      className={`px-4 py-3 lg:px-[16px] lg:py-[12px] rounded-[52px] flex items-center gap-1 transition-all duration-300 whitespace-nowrap ${activeYear === year
+                        ? "bg-[#073038] font-semibold text-[#F7F9FC]"
+                        : "bg-transparent font-semibold text-[#101828]"
                         }`}
                     >
-                        {activeYear === year && (
-                            <div className="bg-[#0AE685] rounded-full size-6 flex items-center justify-center -ml-1">
-                                <ArrowUpRight size={14} className="text-[#101828] rotate-45" />
-                            </div>
-                        )}
-                        <span className="text-[16px] leading-[1.5]">{year}</span>
+                      {activeYear === year && (
+                        <div className="bg-[#0AE685] rounded-full size-6 flex items-center justify-center -ml-1">
+                          <ArrowUpRight size={14} className="text-[#101828] rotate-45" />
+                        </div>
+                      )}
+                      <span className="text-[16px] leading-[1.5]">{year}</span>
                     </button>
                   ))}
                 </div>
@@ -825,7 +863,7 @@ export default function AboutPage() {
                         className={`rounded-bl-[4px] rounded-br-[16px] rounded-tl-[4px] rounded-tr-[16px] border-l-[6px] transition-all duration-500 overflow-hidden ${isOpened
                           ? "border-[#00C694] shadow-[0px_5px_15px_rgba(74,58,255,0.06)]"
                           : "border-[#F1F2F9] bg-white shadow-[0px_1px_4px_rgba(25,33,61,0.06)]"
-                        }`}
+                          }`}
                         style={isOpened ? {
                           backgroundImage: "linear-gradient(247.4deg, rgba(196, 255, 166, 0.1) 17.5%, rgba(0, 198, 148, 0.2) 94.6%)"
                         } : {}}
@@ -845,7 +883,7 @@ export default function AboutPage() {
                             {row.title}
                           </p>
                         </button>
-                        
+
                         <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpened ? "max-h-[200px] opacity-100 pb-8 px-8 pl-[76px]" : "max-h-0 opacity-0"}`}>
                           <div className="flex items-center justify-between gap-4 w-full">
                             <p className="font-normal text-[18px] leading-[26px] text-[#344054] m-0">
@@ -905,22 +943,22 @@ export default function AboutPage() {
 
                 {/* Bottom Content Area */}
                 <div className="absolute bottom-0 inset-x-0 h-[350px] flex flex-col justify-end">
-                   {/* Gradient Backdrop */}
-                   <div className="absolute inset-0 bg-gradient-to-t from-[#08444e] via-[#01B68C]/50 to-transparent backdrop-blur-[50px] pointer-events-none" />
-                   
-                   {/* Glass Box */}
-                   <div className="relative z-10 m-[48px] mt-0 p-[48px] py-[24px] bg-[#00c69433] border border-white/20 rounded-[24px] backdrop-blur-[10px]">
-                      <h4 className="font-bold text-[24px] leading-[32px] text-white m-0 mb-[16px]">
-                        Chứng chỉ hành nghề chứng khoán
-                      </h4>
-                      <p className="font-normal text-[18px] leading-[26px] text-white m-0 opacity-90">
-                        KAFI tự hào giới thiệu đội ngũ nhân sự chuyên môn được cấp chứng chỉ hành nghề, mang đến cho khách hàng sự yên tâm trong mỗi quyết định đầu tư. 
-                        
-                        <span className="block mt-4">
-                          Với kinh nghiệm sâu rộng và tinh thần minh bạch tuyệt đối, chúng tôi cam kết xây dựng một cộng đồng nhà đầu tư tin cậy và phát triển bền vững trên thị trường chứng khoán.
-                        </span>
-                      </p>
-                   </div>
+                  {/* Gradient Backdrop */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#08444e] via-[#01B68C]/50 to-transparent backdrop-blur-[50px] pointer-events-none" />
+
+                  {/* Glass Box */}
+                  <div className="relative z-10 m-[48px] mt-0 p-[48px] py-[24px] bg-[#00c69433] border border-white/20 rounded-[24px] backdrop-blur-[10px]">
+                    <h4 className="font-bold text-[24px] leading-[32px] text-white m-0 mb-[16px]">
+                      Chứng chỉ hành nghề chứng khoán
+                    </h4>
+                    <p className="font-normal text-[18px] leading-[26px] text-white m-0 opacity-90">
+                      KAFI tự hào giới thiệu đội ngũ nhân sự chuyên môn được cấp chứng chỉ hành nghề, mang đến cho khách hàng sự yên tâm trong mỗi quyết định đầu tư.
+
+                      <span className="block mt-4">
+                        Với kinh nghiệm sâu rộng và tinh thần minh bạch tuyệt đối, chúng tôi cam kết xây dựng một cộng đồng nhà đầu tư tin cậy và phát triển bền vững trên thị trường chứng khoán.
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -928,55 +966,13 @@ export default function AboutPage() {
         </section>
 
         {/* Explore products / CTA */}
-        <section className="bg-white px-[20px] py-[40px] overflow-hidden">
-          <div className="max-w-[1400px] mx-auto relative rounded-[48px] overflow-hidden px-[60px] py-[40px]" 
-               style={{ backgroundImage: "linear-gradient(79.8024deg, rgb(12, 96, 112) 20.11%, rgb(0, 198, 148) 94.638%)" }}>
-            
+        <section className="py-[40px]">
+          <div className="relative rounded-[48px] overflow-hidden px-[60px] py-[40px]"
+            style={{ backgroundImage: "linear-gradient(79.8024deg, rgb(12, 96, 112) 20.11%, rgb(0, 198, 148) 94.638%)" }}>
+
             {/* Background Pattern */}
             <div className="absolute inset-0 mix-blend-darken opacity-20 pointer-events-none">
               <img src={ctaBgPattern} alt="" className="w-full h-full object-cover max-w-none" />
-            </div>
-
-            {/* Floating Objects */}
-            <div className="absolute inset-0 pointer-events-none z-0">
-               {/* 162:7331 - Large blurred object (bottom left-center) */}
-               <div className="absolute left-[615px] bottom-[-22.73px] flex items-center justify-center w-[274.96px] h-[252.47px]">
-                 <div className="rotate-[60deg] flex-none">
-                   <div className="relative w-[162.333px] h-[223.769px] overflow-hidden blur-[12px]">
-                     <img 
-                       src={ctaObject} 
-                       alt="" 
-                       className="absolute max-w-none w-[472.62%] h-[228.57%] left-[-307.7%] top-[-114.29%]" 
-                     />
-                   </div>
-                 </div>
-               </div>
-               
-               {/* 162:7330 - Medium object (bottom center-right) */}
-               <div className="absolute left-[904px] bottom-[64.19px] size-[158.836px] flex items-center justify-center">
-                 <div className="rotate-[45deg] flex-none">
-                   <div className="relative w-[118.954px] h-[105.674px] overflow-hidden">
-                     <img 
-                       src={ctaObject} 
-                       alt="" 
-                       className="absolute max-w-none w-[364.85%] h-[273.8%] left-[-219.2%] top-[-16.39%]" 
-                     />
-                   </div>
-                 </div>
-               </div>
-
-               {/* 162:7329 - Small object (top-right side) */}
-               <div className="absolute left-[943.28px] bottom-[195.97px] w-[109.773px] h-[105.533px] flex items-center justify-center">
-                 <div className="rotate-[-60deg] flex-none">
-                   <div className="relative w-[73.017px] h-[84.598px] overflow-hidden">
-                     <img 
-                       src={ctaObject} 
-                       alt="" 
-                       className="absolute max-w-none w-[371.91%] h-[214%] left-[-237.49%] top-[-104.08%]" 
-                     />
-                   </div>
-                 </div>
-               </div>
             </div>
 
             {/* Main Content Area */}
@@ -1006,17 +1002,73 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Income Card (162:7320) */}
-            <div className="-translate-x-1/2 absolute left-[calc(50%+454.5px)] bottom-[156.57px] bg-white border-[6.132px] border-[rgba(242,244,245,0.8)] rounded-[18.397px] px-[18.397px] py-[12px] flex items-center justify-between gap-[24px] w-[343px] shadow-[0_12.2px_24.5px_rgba(0,0,0,0.1)] z-20 overflow-hidden">
-               <div className="flex items-center gap-[9.198px]">
-                  <div className="size-[42.926px] rounded-full bg-[#00C694] flex items-center justify-center">
-                     <CircleDollarSign size={24} className="text-[#101828]" />
+            {/* Floating Assets */}
+            <div className="hidden lg:block">
+              {/* Income Badge */}
+              <motion.div
+                className="absolute bottom-[30%] right-[10%] bg-white border-8 border-[#F2F4F5]/80 px-[18.397px] py-[12px] rounded-[18.397px] shadow-xl flex items-center justify-between gap-[9.198px] z-30 w-[343px]"
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                <div className="flex items-center gap-[9.198px]">
+                  <div className="size-[42.926px] bg-[#D1FADF] rounded-full flex items-center justify-center shrink-0">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 5V19M5 12H19"
+                        stroke="#0B756E"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
                   </div>
-                  <span className="font-bold text-[18.685px] text-black">Thu nhập</span>
-               </div>
-               <span className="font-bold text-[18.685px] text-[#0B756E]">
-                 +168,000,000 đ
-               </span>
+                  <p className="text-[18.685px] font-bold text-black whitespace-nowrap">
+                    Thu nhập
+                  </p>
+                </div>
+                <p className="text-[18.685px] font-bold text-[#0B756E] whitespace-nowrap">
+                  +168,000,000 đ
+                </p>
+              </motion.div>
+
+              {/* Coins and Graphics */}
+              <motion.img
+                src="/kafi-web-demo/assets/top-coin.png"
+                className="absolute top-[40%] right-[29%] size-24 object-contain z-40"
+                animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              <motion.img
+                src="/kafi-web-demo/assets/botton-coin.png"
+                className="absolute top-[55%] right-[30%] size-32 object-contain z-40"
+                animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
+                transition={{
+                  duration: 7,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              <motion.img
+                src="/kafi-web-demo/assets/bottom-coin-blured.png"
+                className="absolute top-[55%] right-[40%] size-52 object-contain z-40"
+                animate={{ y: [0, 15, 0], scale: [1, 1.05, 1] }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
             </div>
 
           </div>
