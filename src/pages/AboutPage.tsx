@@ -375,7 +375,7 @@ export default function AboutPage() {
           </section>
 
           {/* Vision & Mission */}
-          <section id="vision" className="max-w-[1440px] mx-auto grid grid-cols-1 xl:grid-cols-[1.12fr_0.88fr] gap-6 scroll-mt-24">
+          <section id="vision" className="w-full lg:px-[5vw] grid grid-cols-1 xl:grid-cols-[1.12fr_0.88fr] gap-6 scroll-mt-24">
             {/* Vision Hero Side */}
             <div className="relative rounded-[32px] overflow-hidden h-[768px] group bg-[#16E482]">
               <div className="absolute inset-0 pointer-events-none">
@@ -448,7 +448,7 @@ export default function AboutPage() {
           </section>
 
           {/* Core Values */}
-          <section id="core-values" className="max-w-[1440px] mx-auto px-6 lg:px-0 scroll-mt-24">
+          <section id="core-values" className="w-full lg:px-[5vw] scroll-mt-24">
             <div className="bg-white rounded-[48px] py-16 px-12 border border-[#F2F4F7]">
               <h3 className="text-center text-[48px] font-bold text-[#101828] mb-12 leading-[56px]">
                 Giá trị cốt lõi
@@ -520,7 +520,7 @@ export default function AboutPage() {
           </section>
 
           {/* Kafi through numbers */}
-          <section id="numbers" className="max-w-[1440px] px-[20px] lg:px-6 mx-auto scroll-mt-24 mb-32 flex flex-col gap-[48px] items-center">
+          <section id="numbers" className="w-full px-[20px] lg:px-[5vw] scroll-mt-24 mb-32 flex flex-col gap-[48px] items-center">
             <div className="flex flex-col gap-[32px] items-start justify-center shrink-0 w-full relative">
               <div className="flex flex-col font-bold justify-center items-center text-[48px] text-[#101828] text-center w-full">
                 <h2 className="leading-[56px] m-0">Kafi qua những con số</h2>
@@ -659,7 +659,7 @@ export default function AboutPage() {
           </section>
 
           {/* Awards */}
-          <section id="awards" className="max-w-[1440px] mx-auto px-5 lg:px-10 py-[80px] scroll-mt-24">
+          <section id="awards" className="w-full lg:px-[5vw] py-[80px] scroll-mt-24">
             <div className="flex flex-col xl:flex-row gap-6 w-full items-stretch">
               {/* Left Column: Featured Award Card */}
               <div className="bg-[#00C694] rounded-[32px] p-8 lg:p-[56px] relative overflow-hidden flex flex-col justify-between min-h-[680px] xl:w-[723px] shrink-0">
@@ -740,7 +740,7 @@ export default function AboutPage() {
         </section>
 
         {/* Kafi leadership */}
-        <section id="leadership" className="max-w-[1440px] mx-auto py-20 lg:py-[80px] px-5 lg:px-10 scroll-mt-24">
+        <section id="leadership" className="w-full py-20 lg:py-[80px] lg:px-[5vw] scroll-mt-24">
           <div className="flex flex-col items-center gap-[48px] lg:gap-[56px] w-full">
             {/* Leadership Header */}
             <div className="flex flex-col items-center gap-8 w-full max-w-[832px]">

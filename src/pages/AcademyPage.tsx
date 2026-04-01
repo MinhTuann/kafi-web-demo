@@ -137,7 +137,7 @@ const AcademyPage: React.FC = () => {
           {activeTab === "Cẩm nang đầu tư" && (
             <>
               {/* Title Section */}
-              <div className="content-stretch flex flex-col gap-[20px] items-start leading-[0] not-italic pb-[40px] pt-[24px] px-[80px] relative shrink-0 w-full max-w-[1440px]">
+              <div className="content-stretch flex flex-col gap-[20px] items-start leading-[0] not-italic pb-[40px] pt-[24px] px-[80px] relative shrink-0 w-full">
                 <div className="flex flex-col font-bold justify-center min-w-full relative shrink-0 text-[48px] text-[#101828] w-[min-content] whitespace-pre-wrap tracking-tight">
                   <p className="leading-[56px] mb-0">{`Kiến thức nền tảng `}</p>
                   <p className="leading-[56px]">cho hành trình đầu tư bền vững</p>
@@ -153,7 +153,7 @@ const AcademyPage: React.FC = () => {
 
               {/* Filter and Grid Section */}
               <div
-                className="content-stretch flex flex-col gap-[24px] items-start px-[80px] relative shrink-0 w-full max-w-[1440px]"
+                className="content-stretch flex flex-col gap-[24px] items-start px-[80px] relative shrink-0 w-full"
                 data-name="div.grid:margin"
               >
                 <div className="content-stretch flex items-start justify-between relative shrink-0 w-full">
@@ -428,10 +428,10 @@ const AcademyPage: React.FC = () => {
                 Giao dịch dễ dàng chỉ với vài bước đơn giản
               </p>
             </div>
-            <button className="h-[44px] px-[16px] py-[10px] bg-[#101820] text-[#F7F9FC] rounded-[32px] font-medium flex items-center gap-[6px] hover:bg-black/90 transition-all shadow-lg shadow-black/10">
+            <button className="h-[44px] px-[16px] py-[10px] bg-[#101820] text-[#F7F9FC] rounded-[32px] flex items-center gap-[6px] hover:bg-black/90 transition-all shadow-lg shadow-black/10">
               Xem tất cả
-              <div className="size-[24px] flex items-center justify-center rotate-45 bg-[#0ae685] rounded-full">
-                <ArrowUpRight className="size-[16px] text-black" />
+              <div className="size-[24px] flex items-center justify-center">
+                <ArrowUpRight className="size-[16px] text-white" />
               </div>
             </button>
           </div>
@@ -501,7 +501,7 @@ const AcademyPage: React.FC = () => {
                       <span className="text-[16px] font-semibold text-[#101828] group-hover:text-[#00c694] transition-colors">
                         Xem hướng dẫn
                       </span>
-                      <div className="rotate-45 size-6 flex items-center justify-center bg-black/5 rounded-full group-hover:bg-[#00c694]/20 transition-colors">
+                      <div className="size-6 flex items-center justify-center transition-colors">
                         <ArrowUpRight className="size-[16px] text-[#101828] group-hover:text-[#00c694] transition-colors" />
                       </div>
                     </div>

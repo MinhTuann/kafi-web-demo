@@ -8,12 +8,12 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ className = "" }) => {
   return (
     <footer
-      className={`bg-white text-[#101828] py-16 px-6 lg:px-[5vw] font-['Inter',sans-serif] ${className}`}
+      className={`w-full bg-white text-[#101828] py-16 px-6 lg:px-[5vw] font-['Inter',sans-serif] ${className}`}
     >
-      <div className="max-w-[1440px] mx-auto space-y-12">
+      <div className="space-y-12">
         {/* Top Section: Logo & Download */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 pb-12 border-b border-[#D0D5DD]/50">
-          <div className="space-y-8 max-w-[460px]">
+          <div className="space-y-8">
             <img src={LogoBlack} alt="Kafi" className="h-[40px] w-auto" />
             <div className="space-y-4">
               <div className="flex items-start gap-2">

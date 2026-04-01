@@ -234,8 +234,8 @@ const ShareholderPage: React.FC = () => {
       </section>
 
       {/* Main Content Area */}
-      <section className="w-full bg-white rounded-[48px] p-[80px] mt-0">
-        <div className="max-w-[1280px] mx-auto flex gap-6 items-start">
+      <section className="w-full bg-white rounded-[48px] p-10 lg:p-[5vw] mt-0">
+        <div className="w-full flex flex-col lg:flex-row gap-6 items-start">
           {/* ── Sidebar ── */}
           <aside className="w-[302px] shrink-0 sticky top-[100px]">
             <div className="border border-[#f0f0f0] rounded-[24px] p-3">
@@ -287,7 +287,7 @@ const ShareholderPage: React.FC = () => {
       </section>
 
       {/* CTA Section — "Bạn cần thêm thông tin?" */}
-      <section className="w-full max-w-[1280px] mx-auto px-6 mb-20">
+      <section className="w-full px-4 lg:px-[5vw] mb-20">
         <div className="bg-[#c6ffd9] rounded-[48px] relative overflow-hidden flex flex-col items-center justify-center text-center py-16 px-8">
           {/* Background Pattern */}
           <div className="absolute top-0 right-0 w-full h-full pointer-events-none opacity-80">

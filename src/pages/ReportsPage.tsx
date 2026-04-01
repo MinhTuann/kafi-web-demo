@@ -302,7 +302,7 @@ export default function ReportsPage() {
       </section>
 
       {/* Main Content */}
-      <main className="max-w-[1440px] mx-auto px-6 pt-8 pb-12">
+      <main className="relative w-full px-4 lg:px-6 py-6 space-y-24">
         {/* Sticky Liquid Glass Tab Bar */}
         <section className="sticky top-6 z-30 w-full flex justify-center px-4 lg:px-6 mb-12">
           <div className="bg-[rgba(255,255,255,0.2)] backdrop-blur-md p-[6px] rounded-full inline-flex items-center gap-1 shadow-lg border border-white/20 transition-all duration-300">
@@ -399,7 +399,7 @@ export default function ReportsPage() {
       </main>
 
       {/* Subscription Section */}
-      <section className="max-w-[1440px] mx-auto px-6 mb-32">
+      <section className="w-full px-4 lg:px-6 mt-6 mb-32">
         <div className="w-full h-[400px] rounded-[48px] bg-[#C6FFD9] relative overflow-hidden flex flex-col items-center justify-center text-center px-10">
           {/* Pattern Overlay */}
           <div className="absolute top-0 right-0 w-[100vw] h-[120vh] pointer-events-none opacity-80">
