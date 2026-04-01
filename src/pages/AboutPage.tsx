@@ -72,6 +72,7 @@ const awardExcellent = `${ASSET_BASE}/awards-excellent.png`;
 const staffCertSphere = `${ASSET_BASE}/staff-cert-sphere.png`;
 const staffCertPerson = `${ASSET_BASE}/staff-cert-person.png`;
 const ctaBgPattern = `${ASSET_BASE}/cta-bg-pattern.png`;
+const awardsBg = `${ASSET_BASE}/awards-background.png`;
 
 const leaderCards = [
   {
@@ -202,14 +203,14 @@ const LeaderFlipCard = ({ leader }: { leader: any }) => {
             <img
               src={leader.image}
               alt={leader.name}
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              className="absolute z-[1] w-[90%] aspect-[3/4] object-cover ml-[5%] transition-transform duration-1000 group-hover:scale-110"
             />
             {/* Front Decorations (Vibrant accent layers from Figma) */}
-            <div className="absolute top-[-384.27px] -left-[40vw] w-[729.5px] h-[838.988px] rotate-[33.91deg] bg-[rgba(22,228,130,0.3)] pointer-events-none" />
-            <div className="absolute top-[21.16px] -left-[40vw] w-[689.604px] h-[801.304px] rotate-[144.83deg] bg-[#00C694] pointer-events-none" />
+            <div className="absolute z-[0] -top-[35vh] -left-[20vw] w-[30vw] h-[100vh] rotate-[33.91deg] bg-[rgba(22,228,130,0.3)] pointer-events-none" />
+            <div className="absolute z-[2] top-[8vh] -left-[20vw] w-[30vw] h-[100vh] rotate-[144.83deg] bg-[#00C694] pointer-events-none" />
           </div>
 
-          <div className="absolute inset-x-0 bottom-0 p-6 pt-16 flex items-end justify-between gap-4 bg-gradient-to-t from-black/70 via-black/30 to-transparent backdrop-blur-[4px]">
+          <div className="z-[3] absolute inset-x-0 bottom-0 p-6 flex items-end justify-between gap-4 bg-gradient-to-t from-black/70 via-black/30 to-transparent backdrop-blur-[2px]">
             <div className="flex-1">
               <h4 className="font-bold text-[32px] leading-[1.2] text-white m-0">
                 {leader.name}
@@ -687,28 +688,15 @@ export default function AboutPage() {
               <div className="bg-[#00C694] rounded-[32px] px-[24px] py-[56px] relative overflow-hidden flex flex-col justify-between min-h-[680px] xl:w-[723px] shrink-0 group">
                 {/* Background Decoration */}
                 <div className="absolute inset-0 pointer-events-none">
-                  {/* Podium Backdrop (Node 171:8226) */}
-                  <div className="absolute h-[70vh] right-0 top-[288px] w-[40vw] opacity-100 transition-transform duration-700 group-hover:scale-105">
-                    <img
-                      alt="Podium"
-                      src={`${ASSET_BASE}/awards-podium-highref.png`}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  {/* Glowing Trophy (Node 171:8227) */}
-                  <div className="absolute h-[70vh] right-[6vw] top-[8vh] w-[28vw] transition-transform duration-700 group-hover:translate-y-[-10px]">
-                    <img
-                      alt="Trophy"
-                      src={`${ASSET_BASE}/awards-trophy-highref.png`}
-                      className="w-full h-full object-contain drop-shadow-2xl"
-                    />
-                  </div>
-                  {/* Bottom Vignette Overlay (Node 171:8228) */}
-                  <div className="absolute bottom-0 left-0 w-full h-[18vh] bg-gradient-to-t from-[#08444e]/40 to-transparent backdrop-blur-[2px] pointer-events-none" />
+                  <img
+                    alt="Awards Background"
+                    src={awardsBg}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
                 </div>
 
                 {/* Left Column Content (Node 171:8229) */}
-                <div className="relative z-20 flex flex-col gap-[24px] items-start ml-2 lg:ml-[51px] mt-[12px] w-full max-w-[351px]">
+                <div className="relative z-20 flex flex-col gap-[24px] items-start ml-2 lg:ml-4 mt-[12px] w-full max-w-[18vw]">
                   <div className="flex flex-col gap-2">
                     <p className="font-semibold leading-[26px] text-[18px] text-[#101828] m-0">
                       Thành Tựu
@@ -723,8 +711,8 @@ export default function AboutPage() {
 
                   <button className="bg-[#101828] flex items-center justify-center gap-2 px-[16px] py-[10px] rounded-[32px] transition-all hover:bg-[#1d2939] group/btn">
                     <span className="font-medium text-[16px] leading-[20px] text-[#00c694]">Xem tất cả</span>
-                    <div className="w-6 h-6 rounded-full bg-[#101820] flex items-center justify-center">
-                      <ArrowUpRight size={14} className="text-[#00c694] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                    <div className="size-6 rounded-full flex items-center justify-center">
+                      <ArrowUpRight size={16} strokeWidth={3} className="text-[#00c694] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                     </div>
                   </button>
                 </div>
@@ -750,7 +738,7 @@ export default function AboutPage() {
                   }
                 ].map((item, idx) => (
                   <div key={idx} className="bg-white rounded-[24px] px-8 xl:px-[48px] py-[24px] flex items-center gap-[32px] group hover:shadow-xl transition-all duration-500 overflow-hidden min-h-[220px]">
-                    <div className="w-[102px] shrink-0 flex items-center justify-center h-full">
+                    <div className="w-[102px] shrink-0 flex items-center justify-center h-full rounded-lg overflow-hidden">
                       <img alt={item.title} src={item.icon} className={`object-contain group-hover:scale-110 transition-transform duration-700 size-full`} />
                     </div>
                     <div className="flex flex-col gap-[14px] flex-1">
@@ -758,7 +746,7 @@ export default function AboutPage() {
                         <p className="font-semibold text-[18px] leading-[26px] text-[#101828] m-0">
                           Giải thưởng
                         </p>
-                        <ArrowUpRight size={19} className="text-[#101828] opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <ArrowUpRight size={19} className="text-[#00C694]" />
                       </div>
                       <h4 className="font-bold text-[32px] lg:text-[36px] leading-[1.15] text-[#101828] m-0">
                         {item.title}
@@ -942,10 +930,10 @@ export default function AboutPage() {
                 {/* Bottom Content Area */}
                 <div className="absolute bottom-0 inset-x-0 h-[350px] flex flex-col justify-end">
                   {/* Gradient Backdrop */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#08444e] via-[#01B68C]/50 to-transparent backdrop-blur-[50px] pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#08444e] via-[#01B68C]/50 to-transparent backdrop-blur-[2px] pointer-events-none" />
 
                   {/* Glass Box */}
-                  <div className="relative z-10 m-[48px] mt-0 p-[48px] py-[24px] bg-[#00c69433] border border-white/20 rounded-[24px] backdrop-blur-[10px]">
+                  <div className="relative z-10 p-[48px] py-[24px] bg-[#00c69433] border border-white/20 rounded-[24px] backdrop-blur-[10px]">
                     <h4 className="font-bold text-[24px] leading-[32px] text-white m-0 mb-[16px]">
                       Chứng chỉ hành nghề chứng khoán
                     </h4>
