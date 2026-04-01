@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, ChevronDown, ChevronUp } from "lucide-react";
+import { Download, ChevronDown, ChevronUp, ChevronRight } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import TopBanner from "../components/TopBanner";
@@ -79,28 +79,31 @@ const YearAccordionRow: React.FC<{ year: number; defaultOpen?: boolean }> = ({
         onClick={() => setOpen((v) => !v)}
         className="flex items-center gap-6 w-full h-[80px] group cursor-pointer hover:bg-[#f7f9fc]/50 transition-colors"
       >
-        <span className="font-bold text-[24px] leading-[32px] text-black flex-1 text-left">
+        <span className="font-bold text-[24px] leading-[32px] text-black text-left">
           {year}
         </span>
         {data && data.quarters.some((q) => q.items.length > 0) && (
-          <div className="bg-[#f2f4f5] border border-[#f2f4f5] rounded-[32px] p-1 flex items-center gap-0 mr-4">
-            {data.quarters.map((q) => (
-              <button
-                key={q.name}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setActiveQuarter(q.name);
-                  if (!open) setOpen(true);
-                }}
-                className={`px-4 py-2 rounded-[52px] text-[16px] font-semibold leading-[24px] whitespace-nowrap transition-all ${
-                  activeQuarter === q.name
-                    ? "bg-[#073038] text-[#f7f9fc]"
-                    : "text-[#101828] hover:bg-white/60"
-                }`}
-              >
-                {q.name}
-              </button>
-            ))}
+          <div className="flex items-center flex-1 gap-4">
+            <ChevronRight className="size-6 text-black/60" />
+            <div className="bg-[#f2f4f5] border border-[#f2f4f5] rounded-[32px] p-1 flex items-center gap-0 mr-4">
+              {data.quarters.map((q) => (
+                <button
+                  key={q.name}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveQuarter(q.name);
+                    if (!open) setOpen(true);
+                  }}
+                  className={`px-4 py-2 rounded-[52px] text-[16px] font-semibold leading-[24px] whitespace-nowrap transition-all ${activeQuarter === q.name
+                      ? "bg-[#073038] text-[#f7f9fc]"
+                      : "text-[#101828] hover:bg-white/60"
+                    }`}
+                >
+                  {q.name}
+                </button>
+              ))}
+            </div>
+            <div className="flex-1" />
           </div>
         )}
         <motion.div
@@ -130,11 +133,10 @@ const YearAccordionRow: React.FC<{ year: number; defaultOpen?: boolean }> = ({
               {activeItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className={`flex items-center gap-3 py-4 ${
-                    idx < activeItems.length - 1
+                  className={`flex items-center gap-3 py-4 ${idx < activeItems.length - 1
                       ? "border-b border-[#f2f4f5]"
                       : ""
-                  } group/item hover:bg-[#f7f9fc]/40 transition-colors rounded-xl px-2 -mx-2`}
+                    } group/item hover:bg-[#f7f9fc]/40 transition-colors rounded-xl px-2 -mx-2`}
                 >
                   {/* Info */}
                   <div className="flex-1 flex flex-col gap-1">
@@ -244,11 +246,10 @@ const ShareholderPage: React.FC = () => {
                   <button
                     key={cat}
                     onClick={() => setActiveSidebar(cat)}
-                    className={`text-left px-4 py-3 rounded-[12px] text-[16px] leading-[24px] transition-all ${
-                      activeSidebar === cat
+                    className={`text-left px-4 py-3 rounded-[12px] text-[16px] leading-[24px] transition-all ${activeSidebar === cat
                         ? "bg-[#00c694] font-semibold text-[#101828]"
                         : "font-normal text-[#101828] hover:bg-[#f7f9fc]"
-                    }`}
+                      }`}
                   >
                     {cat}
                   </button>
