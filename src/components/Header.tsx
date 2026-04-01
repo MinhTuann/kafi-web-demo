@@ -127,7 +127,7 @@ const Header: React.FC = () => {
                   <div className="flex items-center cursor-pointer group py-4">
                     <span
                       className={`text-[14px] font-semibold transition-colors whitespace-nowrap ${isProductsMenuOpen || isActive("/stocks")
-                        ? "text-[#00C694]"
+                        ? "text-[#106070]"
                         : "text-[#344054] group-hover:text-[#00C694]"
                         }`}
                       onClick={() => navigate("/stocks")}
@@ -266,7 +266,7 @@ const Header: React.FC = () => {
                   <div className="flex items-center cursor-pointer group py-4">
                     <span
                       className={`text-[14px] font-semibold transition-colors whitespace-nowrap ${isMarketMenuOpen || isActive("/reports")
-                        ? "text-[#00C694]"
+                        ? "text-[#106070]"
                         : "text-[#344054] group-hover:text-[#00C694]"
                         }`}
                       onClick={() => navigate("/reports")}
@@ -360,7 +360,7 @@ const Header: React.FC = () => {
                     onClick={() => navigate("/academy")}
                   >
                     <span
-                      className={`text-[14px] font-semibold transition-colors whitespace-nowrap ${isAcademyMenuOpen || isActive("/academy") ? "text-[#00C694]" : "text-[#344054] group-hover:text-[#00C694]"}`}
+                      className={`text-[14px] font-semibold transition-colors whitespace-nowrap ${isAcademyMenuOpen || isActive("/academy") ? "text-[#106070]" : "text-[#344054] group-hover:text-[#00C694]"}`}
                     >
                       Học viện
                     </span>
@@ -510,7 +510,7 @@ const Header: React.FC = () => {
                     onClick={() => navigate("/support")}
                   >
                     <span
-                      className={`text-[14px] font-semibold transition-colors whitespace-nowrap ${isSupportMenuOpen || isActive("/support") ? "text-[#00C694]" : "text-[#344054] group-hover:text-[#00C694]"}`}
+                      className={`text-[14px] font-semibold transition-colors whitespace-nowrap ${isSupportMenuOpen || isActive("/support") ? "text-[#106070]" : "text-[#344054] group-hover:text-[#00C694]"}`}
                     >
                       Hỗ trợ
                     </span>

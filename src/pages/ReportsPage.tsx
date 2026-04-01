@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import TopBanner from "../components/TopBanner";
 import Shortcut from "../components/Shortcut";
+import ActionButton from "../components/ActionButton";
 const reportTexture =
   "/kafi-web-demo/assets/reports/b9e79771ccb89cc036ab4d49b5e6a2d48890aced.png";
 const subscribePattern = "/kafi-web-demo/assets/reports/section-info-bg.png";
@@ -346,12 +347,16 @@ export default function ReportsPage() {
           <aside className="w-[280px] shrink-0">
             <div className="sticky top-36 flex flex-col gap-2">
               <div className="flex flex-col gap-1.5 p-2 bg-white rounded-[24px] border border-[#E2E8F0]">
-                <button
-                  className={`text-left px-5 py-4 rounded-[12px] font-bold transition-all flex items-center justify-between group ${activeCategory === "Báo cáo vĩ mô / chiến lược" ? "bg-[#00C694] text-[#101828]" : "text-gray-500 hover:bg-gray-50"}`}
-                >
-                  Báo cáo vĩ mô
-                </button>
-                <button className="text-left px-5 py-4 rounded-[12px] text-gray-500 hover:bg-gray-50 transition-all font-bold">
+                <ActionButton
+                  title="Báo cáo vĩ mô"
+                  onClick={() => setActiveCategory("Báo cáo vĩ mô / chiến lược")}
+                  className={`w-full !rounded-[12px] !px-5 !py-4 font-medium !justify-between ${
+                    activeCategory === "Báo cáo vĩ mô / chiến lược"
+                      ? ""
+                      : "!bg-white !text-gray-500 hover:!bg-[#073038] hover:!text-white"
+                  }`}
+                />
+                <button className="text-left px-5 py-4 rounded-[12px] text-gray-500 hover:bg-gray-50 transition-all">
                   Báo cáo chiến lược
                 </button>
               </div>
