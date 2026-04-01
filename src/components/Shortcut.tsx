@@ -162,11 +162,13 @@ export default function Shortcut({ items, className }: ShortcutProps) {
                 </motion.button>
 
                 {/* Hover tooltip */}
-                <div className="pointer-events-none absolute right-[calc(100%+8px)] top-1/2 -translate-y-1/2 whitespace-nowrap bg-[#073038] text-white text-[12px] font-medium px-3 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-lg">
-                  {item.label}
-                  {/* Triangle */}
-                  <div className="absolute right-[-5px] top-1/2 -translate-y-1/2 border-t-4 border-b-4 border-l-4 border-t-transparent border-b-transparent border-l-[#073038]" />
-                </div>
+                {item.label !== "Danh mục" && (
+                  <div className="pointer-events-none absolute right-[calc(100%+8px)] top-1/2 -translate-y-1/2 whitespace-nowrap bg-[#073038] text-white text-[12px] font-medium px-3 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-lg">
+                    {item.label}
+                    {/* Triangle */}
+                    <div className="absolute right-[-5px] top-1/2 -translate-y-1/2 border-t-4 border-b-4 border-l-4 border-t-transparent border-b-transparent border-l-[#073038]" />
+                  </div>
+                )}
               </div>
             </div>
           );
