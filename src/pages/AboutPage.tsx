@@ -798,12 +798,12 @@ export default function AboutPage() {
                       : "bg-transparent font-normal text-[#101828] hover:bg-[#F9FAFB]"
                       }`}
                   >
+                    <span className="text-[16px] leading-[1.5]">{tab.name}</span>
                     {tab.icon && (
                       <div className={`size-6 rounded-full flex items-center justify-center ${activeLeadershipTab === tab.name ? "bg-[#101828]" : "bg-[#D0D5DD]"}`}>
-                        <ArrowUpRight size={14} className={activeLeadershipTab === tab.name ? "text-[#00C694]" : "text-white"} />
+                        <ArrowUpRight size={14} strokeWidth={3} className={activeLeadershipTab === tab.name ? "text-[#00C694]" : "text-white"} />
                       </div>
                     )}
-                    <span className="text-[16px] leading-[1.5]">{tab.name}</span>
                   </button>
                 ))}
               </div>
@@ -841,12 +841,12 @@ export default function AboutPage() {
                         : "bg-transparent font-semibold text-[#101828]"
                         }`}
                     >
+                      <span className="text-[16px] leading-[1.5]">{year}</span>
                       {activeYear === year && (
-                        <div className="bg-[#0AE685] rounded-full size-6 flex items-center justify-center -ml-1">
-                          <ArrowUpRight size={14} className="text-[#101828] rotate-45" />
+                        <div className="bg-[#0AE685] rounded-full size-6 flex items-center justify-center ml-1.5">
+                          <ArrowUpRight size={14} className="text-[#101828]" strokeWidth={3} />
                         </div>
                       )}
-                      <span className="text-[16px] leading-[1.5]">{year}</span>
                     </button>
                   ))}
                 </div>

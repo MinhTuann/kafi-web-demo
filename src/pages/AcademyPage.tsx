@@ -225,7 +225,7 @@ const AcademyPage: React.FC = () => {
                       "linear-gradient(63.2373deg, rgb(198, 255, 217) 49.961%, rgb(187, 251, 169) 72.376%, rgba(1, 194, 127, 0.5) 94.791%)",
                   }}
                 >
-                  <div className="content-stretch flex flex-col items-start pt-[64px] px-[64px] relative shrink-0">
+                  <div className="absolute -bottom-10 content-stretch flex flex-col items-start relative shrink-0">
                     {/* Featured decoration image */}
                     <div className="relative w-full max-w-[480px]">
                       <img
@@ -260,7 +260,7 @@ const AcademyPage: React.FC = () => {
                         Bắt đầu
                       </span>
                       <div className="size-5 bg-[#0ae685] rounded-full flex items-center justify-center">
-                        <div className="size-2 bg-black rounded-sm rotate-45" />
+                        <ArrowUpRight className="size-4 text-[#101828]" strokeWidth={3} />
                       </div>
                     </motion.button>
                   </div>

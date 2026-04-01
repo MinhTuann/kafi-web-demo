@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import TopBanner from "../components/TopBanner";
 import Shortcut from "../components/Shortcut";
+import ActionButton from "../components/ActionButton";
 
 const shareholderBanner = "/kafi-web-demo/assets/share-holder-banner.png";
 const sectionInfoBg = "/kafi-web-demo/assets/section-info-bg.png";
@@ -243,16 +244,22 @@ const ShareholderPage: React.FC = () => {
             <div className="border border-[#f0f0f0] rounded-[24px] p-3">
               <nav className="flex flex-col gap-2">
                 {sidebarCategories.map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveSidebar(cat)}
-                    className={`text-left px-4 py-3 rounded-[12px] text-[16px] leading-[24px] transition-all ${activeSidebar === cat
-                        ? "bg-[#00c694] font-semibold text-[#101828]"
-                        : "font-normal text-[#101828] hover:bg-[#f7f9fc]"
-                      }`}
-                  >
-                    {cat}
-                  </button>
+                  activeSidebar === cat ? (
+                    <ActionButton
+                      key={cat}
+                      title={cat}
+                      onClick={() => setActiveSidebar(cat)}
+                      className="w-full !rounded-[12px] !px-4 !py-3 !text-[16px] !justify-between"
+                    />
+                  ) : (
+                    <button
+                      key={cat}
+                      onClick={() => setActiveSidebar(cat)}
+                      className="text-left px-4 py-3 rounded-[12px] text-[16px] leading-[24px] transition-all font-normal text-[#101828] hover:bg-[#f7f9fc]"
+                    >
+                      {cat}
+                    </button>
+                  )
                 ))}
               </nav>
             </div>
