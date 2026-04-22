@@ -52,14 +52,14 @@ const RecommendationTable = () => {
   return (
     <div className="flex gap-8 items-stretch">
       {/* Banner Graphic Section */}
-      <div className="w-[410px] shrink-0 bg-white rounded-[40px] flex flex-col items-center justify-center relative overflow-hidden shadow-sm border border-gray-100">
+      <div className="w-[410px] shrink-0 bg-white rounded-[40px] flex flex-col items-center justify-start pt-12 relative overflow-hidden shadow-sm border border-gray-100">
         <img 
           src="/kafi-web-demo/assets/recommendations.png" 
           alt="Recommendations Banner" 
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="relative z-10 text-center">
-          <h2 className="text-[48px] font-bold leading-[1.1] text-[#101828]">
+          <h2 className="top-12 text-[48px] font-bold leading-[1.1] text-[#101828]">
             Danh mục<br />khuyến nghị
           </h2>
         </div>
