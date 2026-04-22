@@ -1,4 +1,5 @@
-import { Search } from "lucide-react";
+import { Download } from "lucide-react";
+import ActionButton from "../ActionButton";
 
 
 interface InvestmentRecommendationsProps {
@@ -7,28 +8,28 @@ interface InvestmentRecommendationsProps {
 }
 
 const PerformanceCard = ({ title, stocks, icon }: { title: string; stocks: any[]; icon: React.ReactNode }) => (
-  <div className="bg-white rounded-[32px] p-8 flex-1 shadow-sm border border-gray-100">
-    <div className="flex items-center gap-3 mb-8">
-      <div className="size-12 rounded-full bg-[#F0FDF4] flex items-center justify-center text-[#106070]">
+  <div className="bg-white rounded-[40px] p-10 flex-1 shadow-sm border border-gray-100 flex flex-col">
+    <div className="flex flex-col gap-8 mb-10">
+      <div className="flex items-start">
         {icon}
       </div>
-      <h3 className="text-[24px] font-bold text-[#101828] leading-tight">
+      <h3 className="text-[36px] font-bold text-[#101828] leading-[1.15] max-w-[400px]">
         {title}
       </h3>
     </div>
 
-    <div className="grid grid-cols-2 gap-3">
+    <div className="grid grid-cols-2 gap-4">
       {stocks.map((stock, i) => (
         <div
           key={i}
-          className={`flex items-center justify-between px-4 py-3 rounded-xl transition-all hover:scale-[1.02] cursor-pointer ${
-            stock.type === 'positive' ? 'bg-[#00C694] text-black' : 
-            stock.type === 'warning' ? 'bg-[#FFB800] text-black' : 
+          className={`flex items-center justify-between px-6 py-6 rounded-[20px] transition-all hover:scale-[1.02] cursor-pointer ${
+            stock.type === 'positive' ? 'bg-[#00C694] text-[#101828]' : 
+            stock.type === 'warning' ? 'bg-[#FFB800] text-[#101828]' : 
             'bg-[#F25757] text-white'
           }`}
         >
-          <span className="font-bold text-[16px]">{stock.code}</span>
-          <span className="font-medium text-[14px]">{stock.value}</span>
+          <span className="font-bold text-[18px]">{stock.code}</span>
+          <span className="font-bold text-[18px]">{stock.value}</span>
         </div>
       ))}
     </div>
@@ -50,7 +51,7 @@ const RecommendationTable = () => {
   ];
 
   return (
-    <div className="flex gap-8 items-stretch">
+    <div className="flex gap-8 items-stretch px-16">
       {/* Banner Graphic Section */}
       <div className="w-[410px] shrink-0 bg-white rounded-[40px] flex flex-col items-center justify-start pt-12 relative overflow-hidden shadow-sm border border-gray-100">
         <img 
@@ -59,7 +60,7 @@ const RecommendationTable = () => {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="relative z-10 text-center">
-          <h2 className="top-12 text-[48px] font-bold leading-[1.1] text-[#101828]">
+          <h2 className="text-[48px] font-bold leading-[1.1] text-[#101828]">
             Danh mục<br />khuyến nghị
           </h2>
         </div>
@@ -184,6 +185,19 @@ const LatestReports = ({ setActiveCategory }: { setActiveCategory: (category: st
             <div className="flex flex-col gap-2">
               {menuItems.map((item) => {
                 const isActive = item === "Báo cáo vĩ mô";
+                if (isActive) {
+                  return (
+                    <ActionButton
+                      key={item}
+                      title={item}
+                      onClick={() => {
+                         if ((item as string) === "Báo cáo vĩ mô / chiến lược") setActiveCategory("Báo cáo vĩ mô / chiến lược");
+                         else setActiveCategory("Khuyến nghị đầu tư");
+                      }}
+                      className="w-full !justify-between !px-5 !py-4 !rounded-[16px] !text-[15px] font-bold"
+                    />
+                  );
+                }
                 return (
                   <button
                     key={item}
@@ -191,18 +205,9 @@ const LatestReports = ({ setActiveCategory }: { setActiveCategory: (category: st
                        if (item === "Báo cáo vĩ mô / chiến lược") setActiveCategory("Báo cáo vĩ mô / chiến lược");
                        else setActiveCategory("Khuyến nghị đầu tư");
                     }}
-                    className={`flex items-center justify-between px-5 py-4 rounded-[16px] transition-all text-[15px] group ${
-                      isActive 
-                        ? "bg-[#00C694] text-[#101828] font-bold" 
-                        : "text-gray-500 hover:bg-gray-50 font-medium"
-                    }`}
+                    className="flex items-center justify-between px-5 py-4 rounded-[16px] transition-all text-[15px] group text-gray-500 hover:bg-gray-50 font-medium"
                   >
                     <span className="truncate">{item}</span>
-                    {isActive && (
-                      <div className="size-6 rounded-full bg-[#101828] flex items-center justify-center text-white">
-                        <span className="text-[12px] font-bold">↗</span>
-                      </div>
-                    )}
                   </button>
                 );
               })}
@@ -274,8 +279,8 @@ const LatestReports = ({ setActiveCategory }: { setActiveCategory: (category: st
                   <button className="bg-[#EBEFF5] px-6 py-3 rounded-full text-[14px] font-bold text-[#344054] hover:bg-[#106070] hover:text-white transition-all whitespace-nowrap">
                     Xem online
                   </button>
-                  <button className="bg-[#EBEFF5] size-12 rounded-full text-[#344054] hover:bg-[#106070] hover:text-white transition-all flex items-center justify-center font-bold">
-                    <span className="text-[20px] leading-none">↓</span>
+                  <button className="bg-[#EBEFF5] p-2 rounded-full hover:bg-[#106070] hover:text-white transition-all flex items-center justify-center shrink-0">
+                    <Download className="size-6" />
                   </button>
                 </div>
               </div>
@@ -288,31 +293,28 @@ const LatestReports = ({ setActiveCategory }: { setActiveCategory: (category: st
 };
 
 const SupportCTA = () => (
-  <div className="w-full bg-[#C6FFD9] rounded-[48px] p-16 flex items-center justify-between relative overflow-hidden group">
-    {/* Abstract Background Shapes */}
-    <div className="absolute top-0 right-0 w-1/2 h-full opacity-50 pointer-events-none">
-       <div className="absolute top-10 right-10 size-64 bg-white/40 rounded-full blur-3xl" />
-       <div className="absolute bottom-10 right-32 size-48 bg-[#00C694]/20 rounded-full blur-2xl" />
-    </div>
+  <div className="w-full h-[440px] relative rounded-[48px] overflow-hidden flex items-center px-16">
+    <img 
+      src="/kafi-web-demo/assets/more-info.png" 
+      alt="Support Background" 
+      className="absolute inset-0 w-full h-full object-cover"
+    />
+    
+    <div className="relative z-10 max-w-[700px] space-y-8">
+      <div className="space-y-4">
+        <h2 className="text-[56px] font-bold leading-tight text-[#101828]">
+          Bạn cần thêm thông tin?
+        </h2>
+        <p className="text-[18px] text-gray-700 leading-relaxed max-w-[500px] font-medium">
+          Nếu bạn có bất kỳ thắc mắc nào, vui lòng liên hệ với đội ngũ hỗ trợ của Kafi. Chúng tôi luôn sẵn sàng trợ giúp!
+        </p>
+      </div>
 
-    <div className="relative z-10 max-w-[600px] space-y-6">
-      <h2 className="text-[48px] font-bold leading-tight text-[#101828]">
-        Bạn cần thêm thông tin?
-      </h2>
-      <p className="text-[18px] text-gray-700 leading-relaxed">
-        Nếu bạn có bất kỳ thắc mắc nào, vui lòng liên hệ với đội ngũ hỗ trợ của Kafi. Chúng tôi luôn sẵn sàng trợ giúp!
-      </p>
-      <button className="bg-[#00C694] text-black px-8 py-4 rounded-full font-bold text-[16px] flex items-center gap-2 hover:bg-[#00B07A] transition-all">
-        Liên hệ bộ phận hỗ trợ
-        <div className="size-6 rounded-full bg-black/10 flex items-center justify-center">
-           ↗
-        </div>
-      </button>
-    </div>
-
-    {/* Placeholder for the person image */}
-    <div className="relative z-10 size-[360px] bg-white/20 rounded-full backdrop-blur-sm border border-white/40 hidden lg:flex items-center justify-center">
-       <div className="text-gray-400 text-sm">Image Placeholder</div>
+      <ActionButton 
+        title="Liên hệ bộ phận hỗ trợ" 
+        onClick={() => {}} 
+        className="w-fit"
+      />
     </div>
   </div>
 );
@@ -329,7 +331,7 @@ export default function InvestmentRecommendations({
       <RecommendationTable />
 
       {/* Section 2: Performance Cards */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-16">
         <PerformanceCard 
           title="Hiệu suất danh mục tuần" 
           stocks={[
@@ -344,7 +346,7 @@ export default function InvestmentRecommendations({
             { code: "PVD", value: "+81,6%", type: "positive" },
             { code: "SBT", value: "+35,1%", type: "positive" },
           ]}
-          icon={<Search className="size-6" />}
+          icon={<img src="/kafi-web-demo/assets/weekly-performance.png" alt="Weekly Performance" className="h-[77px] object-contain" />}
         />
         <PerformanceCard 
           title="Mã được tìm kiếm nhiều nhất" 
@@ -360,7 +362,7 @@ export default function InvestmentRecommendations({
             { code: "MBB", value: "+61,6%", type: "negative" },
             { code: "VIC", value: "+61,6%", type: "warning" },
           ]}
-          icon={<Search className="size-6" />}
+          icon={<img src="/kafi-web-demo/assets/weekly-code-search.png" alt="Code Search" className="h-[77px] object-contain" />}
         />
       </div>
 

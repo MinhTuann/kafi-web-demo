@@ -98,7 +98,7 @@ export default function ReportsPage() {
       {/* Hero Section */}
       <section className="w-full px-4 lg:px-6 mt-6">
         <TopBanner
-          title="Báo cáo vĩ mô/chiến lược"
+          title="Thị trường và khuyến nghị"
           background={
             <div className="absolute h-full right-0 w-[65%]">
               <img

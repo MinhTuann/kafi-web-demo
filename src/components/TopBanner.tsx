@@ -40,7 +40,7 @@ const TopBanner: React.FC<TopBannerProps> = ({
 
       {/* Title Content */}
       <div
-        className={`absolute left-[55px] top-1/2 -translate-y-1/2 z-30 font-['Roboto'] font-bold text-white text-[56px] leading-[1.2] ${titleClassName} w-[40%]`}
+        className={`absolute left-[55px] top-1/2 -translate-y-1/2 z-30 font-['Roboto'] font-bold text-white text-[48px] leading-[1.2] ${titleClassName} w-[40%]`}
       >
         {title.split("/").map((t, i) => (
           <motion.p
