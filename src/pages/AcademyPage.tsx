@@ -19,11 +19,11 @@ const imgCard2 = "/kafi-web-demo/assets/42974844ed76ac1eeca4ffff316fa196159ea392
 const imgCard3 = "/kafi-web-demo/assets/73cb6fea9067c9731730a28e93f05cc817e16bfd.png";
 const imgCard4 = "/kafi-web-demo/assets/1575a38ab0e9d3df605a90bee64a1cc7288eb4ae.png";
 const imgCard5 = "/kafi-web-demo/assets/ae8ed9936d0f0311cde9a5cf0b69518c5c075d72.png";
-const imgCard6 = "/kafi-web-demo/assets/bea429d8648bdc8756ba8d3088239f9ec0a6637b.png";
-const imgBeginStocks = "/kafi-web-demo/assets/begin-stocks.png";
 
+const imgCard6 = "/kafi-web-demo/assets/bea429d8648bdc8756ba8d3088239f9ec0a6637b.png";
 
 const ACADEMY_TABS = [
+
   {
     id: "Cẩm nang đầu tư",
     icon: (

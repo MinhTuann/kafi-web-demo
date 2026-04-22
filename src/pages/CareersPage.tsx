@@ -4,18 +4,12 @@ import {
   ArrowUpRight,
   Briefcase,
   ChevronDown,
-  ChevronUp,
   Check,
-  Search,
-  LayoutGrid,
-  Heart,
-  Globe,
   Star,
   Building2,
   Newspaper,
   FileCheck
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import TopBanner from "../components/TopBanner";
