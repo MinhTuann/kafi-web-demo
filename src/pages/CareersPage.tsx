@@ -103,20 +103,20 @@ export default function CareersPage() {
     {
       name: "Lê Hùng",
       role: "Kỹ sư phần mềm",
-      quote: "Đội ngũ ở đây không chỉ là đồng nghiệp mà còn là bạn bè thân thiết của tôi.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400"
+      quote: "Đội ngũ ở đây không chỉ là đồng nghiệp mà còn là bạn bè thân thiết của tôi.\"",
+      image: "/kafi-web-demo/assets/staff-1.png"
     },
     {
       name: "Lê Thanh Hà",
       role: "Nhà phân tích tài chính",
-      quote: "Kafi là nơi tôi có thể phát triển kỹ năng và đóng góp vào một sứ mệnh có ý nghĩa.",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400"
+      quote: "Kafi là nơi tôi có thể phát triển kỹ năng và đóng góp vào một sứ mệnh có ý nghĩa.\"",
+      image: "/kafi-web-demo/assets/staff-2.png"
     },
     {
       name: "Trần Anh Tuấn",
       role: "Chuyên viên Tư vấn",
-      quote: "Môi trường làm việc chuyên nghiệp, năng động và luôn khuyến khích sự đổi mới sáng tạo.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400"
+      quote: "Môi trường làm việc chuyên nghiệp, năng động và luôn khuyến khích sự đổi mới sáng tạo.\"",
+      image: "/kafi-web-demo/assets/staff-3.png"
     }
   ];
 
@@ -438,7 +438,7 @@ export default function CareersPage() {
 
             {/* Testimonials Section */}
             <section id="testimonials" className="w-full mt-24 scroll-mt-32">
-              <div className="bg-[#00C694] rounded-[48px] p-12 lg:p-20 relative overflow-hidden shadow-xl min-h-[600px] flex flex-col">
+              <div className="bg-[#00C694] rounded-[48px] py-12 lg:py-20 relative overflow-hidden shadow-xl min-h-[600px] flex flex-col">
                 {/* Background Image */}
                 <div className="absolute inset-0">
                   <img 
@@ -453,11 +453,11 @@ export default function CareersPage() {
                   <h2 className="text-[40px] lg:text-[64px] font-bold text-white tracking-tight leading-tight">Nhân viên Kafi nói gì?</h2>
                 </div>
 
-                <div className="relative z-10 flex gap-8 overflow-x-auto pb-12 no-scrollbar snap-x scroll-smooth flex-1">
+                <div className="ml-12 relative z-10 flex gap-6 overflow-x-auto pb-12 no-scrollbar snap-x scroll-smooth flex-1 px-4">
                   {testimonials.map((t, i) => (
-                    <div key={i} className="min-w-[100%] lg:min-w-[700px] bg-[#073038] rounded-[48px] p-8 lg:p-12 flex flex-col md:flex-row gap-10 snap-center shadow-2xl group border border-white/5">
-                      {/* Image Container with Border */}
-                      <div className="md:w-[280px] aspect-square shrink-0 rounded-[32px] overflow-hidden border-4 border-white/10 shadow-inner">
+                    <div key={i} className="min-w-[100%] lg:min-w-[580px] bg-[#073038] rounded-[48px] p-3 flex flex-col md:flex-row gap-8 snap-center shadow-2xl group border border-white/5">
+                      {/* Image Container */}
+                      <div className="md:w-[285px] aspect-square shrink-0 rounded-[36px] overflow-hidden">
                         <img
                           src={t.image}
                           alt={t.name}
@@ -465,23 +465,29 @@ export default function CareersPage() {
                         />
                       </div>
                       
-                      <div className="flex flex-col justify-center flex-1">
-                        <div className="text-[#00C694] mb-8">
-                          <svg width="48" height="36" viewBox="0 0 84 64" fill="currentColor">
-                            <path d="M0 0H36V32H18V64H0V0ZM48 0H84V32H66V64H48V0Z" />
-                          </svg>
+                      <div className="flex flex-col justify-between py-6 pr-8">
+                        <div>
+                          <div className="text-[#00C694] mb-6">
+                            <svg width="36" height="28" viewBox="0 0 62 60" fill="none">
+                              <path d="M27.5718 59.4836H0V31.9118H13.7859V0H27.5718V59.4836Z" fill="currentColor"/>
+                              <path d="M57.5903 59.4836H30.0186V31.9118H43.8044V0H57.5903V59.4836Z" fill="currentColor"/>
+                            </svg>
+                          </div>
+                          <p className="text-white text-[18px] lg:text-[20px] leading-[28px] mb-8 font-medium tracking-tight opacity-90 italic">
+                            {t.quote}
+                          </p>
                         </div>
-                        <p className="text-white text-[18px] lg:text-[22px] leading-[32px] mb-10 font-medium tracking-tight">
-                          {t.quote}
-                        </p>
-                        <div className="mb-6">
-                          <h4 className="text-white font-bold text-[24px] mb-1">{t.name}</h4>
-                          <p className="text-[#00C694] text-[16px] font-medium">{t.role}</p>
-                        </div>
-                        <div className="flex gap-1.5">
-                          {[...Array(5)].map((_, starIdx) => (
-                            <Star key={starIdx} size={20} className="fill-[#00C694] text-[#00C694]" />
-                          ))}
+                        
+                        <div className="space-y-4">
+                          <div>
+                            <h4 className="text-white font-bold text-[20px] mb-1">{t.name}</h4>
+                            <p className="text-[#00C694] text-[15px] font-medium">{t.role}</p>
+                          </div>
+                          <div className="flex gap-1.5">
+                            {[...Array(5)].map((_, starIdx) => (
+                              <Star key={starIdx} size={18} className="fill-[#00C694] text-[#00C694]" />
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -489,7 +495,7 @@ export default function CareersPage() {
                 </div>
 
                 {/* Carousel Controls - Figma Refined (274:8027) */}
-                <div className="relative z-10 flex justify-between items-center mt-auto pt-10 px-6 lg:px-0">
+                <div className="mx-12 relative z-10 flex justify-between items-center mt-auto pt-10 px-6 lg:px-0">
                   {/* Progress Indicator (Pills) */}
                   <div className="flex gap-2 items-center">
                     {[...Array(4)].map((_, i) => (
@@ -517,73 +523,86 @@ export default function CareersPage() {
             <section id="positions" className="w-full mt-32 scroll-mt-32">
               <div className="flex flex-col lg:flex-row gap-8 items-stretch">
                 {/* Left Side: Branded Image Card */}
-                <div className="lg:w-[450px] shrink-0 rounded-[40px] overflow-hidden relative group min-h-[500px]">
+                <div className="lg:w-[650px] shrink-0 rounded-[40px] overflow-hidden relative group min-h-[768px] flex flex-col shadow-2xl">
                   <img
                     src="/kafi-web-demo/assets/recruitment.png"
                     alt="Join Kafi Team"
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    className="top-0 absolute inset-0 w-[100%] h-[80%] object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 p-8 pt-20 bg-gradient-to-t from-[#00C694] via-[#00C694]/80 to-transparent backdrop-blur-[2px]">
-                    <div className="bg-[#101828] text-white text-[12px] font-bold px-3 py-1 rounded-full inline-block mb-4">Gia nhập đội ngũ Kafi</div>
-                    <h3 className="text-[32px] lg:text-[40px] font-bold text-[#101828] mb-4">Vị trí tuyển dụng</h3>
-                    <p className="text-[#101828]/80 text-[16px] leading-[24px] mb-8 max-w-[320px]">
-                      Khám phá các vị trí đang tuyển dụng tại Kafi và lựa chọn cơ hội phù hợp với năng lực và định hướng sự nghiệp của bạn.
-                    </p>
-                    <button className="bg-[#101828] text-white font-bold px-6 py-3 rounded-full flex items-center gap-2 hover:bg-black transition-all shadow-lg">
-                      Xem tất cả vị trí <ArrowUpRight size={18} />
-                    </button>
+                  <div className="mt-auto relative z-10 p-10 bg-gradient-to-t from-[#00C694] via-[#00C694]/90 to-transparent">
+                    <div className="absolute inset-0 backdrop-blur-md bg-white/5 pointer-events-none" />
+                    <div className="relative z-10">
+                      <div className="bg-[#101828] text-white text-[12px] font-bold px-5 py-2 rounded-full inline-block mb-6 uppercase tracking-wider shadow-sm">
+                        Gia nhập đội ngũ Kafi
+                      </div>
+                      <h3 className="text-[44px] lg:text-[48px] font-bold text-[#101828] mb-6 leading-[1.1] tracking-tight">
+                        Vị trí tuyển dụng
+                      </h3>
+                      <p className="text-[#101828] text-[17px] leading-[26px] mb-10 font-medium opacity-90">
+                        Khám phá các vị trí đang tuyển dụng tại Kafi và lựa chọn cơ hội phù hợp với năng lực và định hướng sự nghiệp của bạn.
+                      </p>
+                      <button className="bg-[#101828] text-white font-bold px-10 py-4 rounded-full hover:bg-black transition-all shadow-xl w-fit text-[16px]">
+                        Xem tất cả vị trí
+                      </button>
+                    </div>
                   </div>
                 </div>
 
                 {/* Right Side: Accordion Jobs List */}
-                <div className="flex-1 flex flex-col gap-4">
-                  <h2 className="text-[32px] font-bold text-[#101828] mb-2 px-2">Vị trí nổi bật</h2>
+                <div className="flex-1 flex flex-col gap-6">
+                  <h2 className="text-[32px] lg:text-[36px] font-bold text-[#101828] mb-2 px-2">Vị trí nổi bật</h2>
                   <div className="space-y-4">
                     {positions.map((pos, i) => {
                       const isActive = openAccordion === i;
                       return (
-                        <div key={i} className={`rounded-[32px] overflow-hidden border transition-all duration-300 ${isActive ? "bg-[#F0FDF9] border-[#00C694]/30 shadow-md" : "bg-white border-[#EAECF0] hover:border-[#D0D5DD]"}`}>
+                        <div key={i} className={`rounded-[24px] lg:rounded-[32px] overflow-hidden border transition-all duration-500 ${isActive ? "bg-[#F0FDF9] border-[#00C694]/30 shadow-xl" : "bg-white border-[#EAECF0] hover:border-[#D0D5DD] shadow-sm"}`}>
                           <button
                             onClick={() => setOpenAccordion(isActive ? null : i)}
-                            className="w-full flex items-start gap-4 p-8 text-left relative"
+                            className="w-full flex items-center gap-6 p-6 lg:p-10 text-left relative group/item"
                           >
-                            {isActive && <div className="absolute left-0 top-0 bottom-0 w-2 bg-[#00C694]" />}
-                            <div className={`shrink-0 mt-1 transition-transform duration-300 ${isActive ? "rotate-0" : "-rotate-90"}`}>
-                              <ChevronDown size={24} className={isActive ? "text-[#00C694]" : "text-[#667085]"} />
+                            <div className={`absolute left-0 top-0 bottom-0 w-2 transition-colors duration-300 ${isActive ? "bg-[#00C694]" : "bg-[#EAECF0]"}`} />
+                            <div className={`shrink-0 transition-transform duration-300 ml-2 ${isActive ? "rotate-180" : "rotate-0"}`}>
+                              <ChevronDown size={24} className={isActive ? "text-[#101828]" : "text-[#667085]"} />
                             </div>
-                            <div className="flex-1">
-                              <div className="flex justify-between items-start mb-2">
-                                <h4 className={`text-[20px] font-bold transition-colors ${isActive ? "text-[#101828]" : "text-[#101828]"}`}>{pos.title}</h4>
-                                {isActive && <ArrowUpRight className="text-[#00C694]" size={28} />}
-                              </div>
-                              <p className={`text-[15px] ${isActive ? "text-[#344054]" : "text-[#667085]"}`}>
-                                {pos.type}. {pos.location}
-                              </p>
-
-                              <AnimatePresence>
-                                {isActive && (
-                                  <motion.div
-                                    initial={{ height: 0, opacity: 0 }}
-                                    animate={{ height: "auto", opacity: 1 }}
-                                    exit={{ height: 0, opacity: 0 }}
-                                    className="overflow-hidden"
-                                  >
-                                    <div className="pt-6">
-                                      <p className="text-[#475467] text-[16px] leading-[26px] mb-8">
-                                        {pos.description}
-                                      </p>
-                                      <div className="flex justify-between items-center">
-                                        <span className="text-[#667085] text-[14px]">Hạn nhận hồ sơ: <span className="font-semibold">{pos.deadline || "31/12/2025"}</span></span>
-                                        <button className="bg-white border border-[#EAECF0] text-[#101828] px-6 py-2.5 rounded-full font-bold flex items-center gap-2 hover:bg-[#F9FAFB] transition-all shadow-sm">
-                                          Ứng tuyển <div className="bg-[#00C694] rounded-full size-6 flex items-center justify-center text-[#101828]"><ArrowUpRight size={14} /></div>
-                                        </button>
-                                      </div>
-                                    </div>
-                                  </motion.div>
-                                )}
-                              </AnimatePresence>
+                            <div className="flex-1 flex justify-between items-center">
+                              <h4 className="text-[20px] lg:text-[22px] font-bold text-[#101828] transition-colors group-hover/item:text-[#00C694]">{pos.title}</h4>
+                              {isActive && <ArrowUpRight className="text-[#00C694]" size={32} />}
                             </div>
                           </button>
+
+                          <AnimatePresence>
+                            {isActive && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                                className="overflow-hidden"
+                              >
+                                <div className="px-6 lg:px-10 pb-10 pl-16 lg:pl-[88px]">
+                                  <p className="text-[#667085] text-[16px] lg:text-[18px] mb-4 font-medium">
+                                    {pos.type}. {pos.location}
+                                  </p>
+                                  <p className="text-[#475467] text-[16px] lg:text-[17px] leading-[28px] mb-10 max-w-[700px]">
+                                    {pos.description}
+                                  </p>
+                                  
+                                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-8 pt-8 border-t border-[#00C694]/10">
+                                    <div className="flex items-center gap-3">
+                                      <span className="text-[#667085] text-[15px]">Hạn nhận hồ sơ:</span>
+                                      <span className="text-[#344054] font-semibold text-[15px]">{pos.deadline || "31/12/2025"}</span>
+                                    </div>
+                                    <button className="bg-white border border-[#EAECF0] text-[#101828] px-8 py-3.5 rounded-full font-bold flex items-center gap-3 hover:bg-[#F9FAFB] transition-all shadow-md group/apply">
+                                      Ứng tuyển 
+                                      <div className="bg-[#101828] rounded-full size-8 flex items-center justify-center text-[#00C694] transition-transform group-hover/apply:translate-x-1 group-hover/apply:-translate-y-1">
+                                        <ArrowUpRight size={18} strokeWidth={3} />
+                                      </div>
+                                    </button>
+                                  </div>
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </div>
                       );
                     })}
