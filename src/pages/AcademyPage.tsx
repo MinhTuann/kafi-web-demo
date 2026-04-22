@@ -136,20 +136,50 @@ const AcademyPage: React.FC = () => {
           {/* Tab 1 Content: Cẩm nang đầu tư */}
           {activeTab === "Cẩm nang đầu tư" && (
             <>
-              {/* Title Section */}
-              <div className="content-stretch flex flex-col gap-[20px] items-start leading-[0] not-italic pb-[40px] pt-[24px] px-[80px] relative shrink-0 w-full">
-                <div className="flex flex-col font-bold justify-center min-w-full relative shrink-0 text-[48px] text-[#101828] w-[min-content] whitespace-pre-wrap tracking-tight">
-                  <p className="leading-[56px] mb-0">{`Kiến thức nền tảng `}</p>
-                  <p className="leading-[56px]">cho hành trình đầu tư bền vững</p>
-                </div>
-                <div className="flex flex-col font-normal justify-center relative shrink-0 text-[18px] text-[#667085] w-[736px]">
-                  <p className="leading-[26px]">
-                    Cẩm nang đầu tư tại KAFI giúp bạn hiểu đúng bản chất của thị
-                    trường tài chính, từng sản phẩm đầu tư và cách quản lý rủi ro
-                    trong quá trình đầu tư.
-                  </p>
-                </div>
-              </div>
+                {/* Featured Full Width Section - Figma Refined (274:16115) */}
+                <section className="bg-[#EEF2F5] mx-16 rounded-[48px] px-8 lg:px-12 pt-8 lg:pt-12 flex flex-col lg:flex-row items-stretch gap-12 lg:gap-20 overflow-hidden relative border border-white/40 shadow-sm">
+                  {/* Left Side: Featured Article Card - Positioned at bottom */}
+                  <div className="w-full lg:w-[565px] bg-white rounded-t-[40px] rounded-b-none p-4 shadow-xl shadow-[#101828]/5 shrink-0 group cursor-pointer transition-transform duration-500 hover:translate-y-[-8px] self-end">
+                    <div className="relative rounded-[28px] overflow-hidden aspect-[533/300]">
+                      <img 
+                        src="/kafi-web-demo/assets/academy-focus.png" 
+                        alt="Tâm lý thị trường" 
+                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                      />
+                      <div className="absolute top-6 left-6">
+                        <span className="bg-[#00C694] text-[#101828] text-[13px] font-bold px-4 py-1.5 rounded-full shadow-lg">Nổi bật</span>
+                      </div>
+                    </div>
+                    <div className="px-4 py-6">
+                      <h4 className="text-[22px] lg:text-[24px] font-bold text-[#101828] mb-2 leading-tight group-hover:text-[#00C694] transition-colors">
+                        Tâm lý trong các chu kỳ thị trường
+                      </h4>
+                      <p className="text-[#667085] text-[15px] font-medium">30/01/2026</p>
+                    </div>
+                  </div>
+
+                  {/* Right Side: Content & CTA - Centered vertically */}
+                  <div className="flex-1 max-w-[600px] text-center lg:text-left flex flex-col justify-center pb-12">
+                    <h2 className="text-[40px] lg:text-[56px] font-bold text-[#101828] leading-[1.1] mb-8 tracking-tight">
+                      Kiến thức nền tảng cho hành trình đầu tư bền vững
+                    </h2>
+                    <p className="text-[#475467] text-[18px] lg:text-[20px] leading-[30px] mb-12 font-medium">
+                      Cẩm nang đầu tư tại KAFI giúp bạn hiểu đúng bản chất của thị trường tài chính, từng sản phẩm đầu tư và cách quản lý rủi ro trong quá trình đầu tư.
+                    </p>
+                    <div className="flex justify-center lg:justify-start">
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="bg-[#101828] text-white h-[56px] px-8 rounded-full font-bold text-[18px] flex items-center gap-3 hover:bg-black transition-all shadow-lg group"
+                      >
+                        Bắt đầu
+                        <div className="bg-[#00C694] rounded-full size-7 flex items-center justify-center text-[#101828] transition-transform group-hover:rotate-45">
+                          <ArrowUpRight size={18} strokeWidth={3} />
+                        </div>
+                      </motion.button>
+                    </div>
+                  </div>
+                </section>
 
               {/* Filter and Grid Section */}
               <div
@@ -214,55 +244,6 @@ const AcademyPage: React.FC = () => {
                         />
                       </svg>
                     </div>
-                  </div>
-                </div>
-
-                {/* Featured Full Width Card */}
-                <div
-                  className="content-stretch flex gap-[10px] items-start overflow-clip px-[60px] py-[40px] relative rounded-[48px] shrink-0 w-full group shadow-xl shadow-[#00c694]/5 border border-white/40"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(63.2373deg, rgb(198, 255, 217) 49.961%, rgb(187, 251, 169) 72.376%, rgba(1, 194, 127, 0.5) 94.791%)",
-                  }}
-                >
-                  <div className="absolute -bottom-10 content-stretch flex flex-col items-start relative shrink-0">
-                    {/* Featured decoration image */}
-                    <div className="relative w-full max-w-[480px]">
-                      <img
-                        src={imgBeginStocks}
-                        alt="Nhập môn đầu tư"
-                        className="w-full h-auto object-contain drop-shadow-2xl"
-                      />
-                    </div>
-                  </div>
-                  <div className="content-stretch flex flex-col gap-[24px] items-start justify-center relative shrink-0 w-[541px] z-10">
-                    <div className="content-stretch flex flex-col gap-[2px] items-start leading-[0] not-italic relative shrink-0 text-[#101828] w-full">
-                      <div className="flex flex-col font-normal justify-center max-w-[832px] relative shrink-0 text-[16px] w-full">
-                        <p className="leading-[24px] uppercase tracking-wider font-normal">
-                          CƠ BẢN
-                        </p>
-                      </div>
-                      <div className="flex flex-col font-bold justify-center relative shrink-0 text-[36px] w-full">
-                        <p className="leading-[42px]">Nhập môn đầu tư chứng khoán</p>
-                      </div>
-                    </div>
-                    <div className="flex flex-col font-normal justify-center leading-[0] min-w-full not-italic relative shrink-0 text-[18px] text-[#101828] w-[min-content]">
-                      <p className="leading-[26px]">
-                        Bắt đầu với các kiến thức cốt lõi dành cho nhà đầu tư mới.
-                      </p>
-                    </div>
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="bg-[#101820] content-stretch flex gap-[6px] h-[44px] items-center justify-center px-[16px] py-[10px] relative rounded-[32px] shrink-0 text-[#f7f9fc] shadow-lg shadow-black/20"
-                    >
-                      <span className="font-medium leading-[20px] text-[16px]">
-                        Bắt đầu
-                      </span>
-                      <div className="size-5 bg-[#0ae685] rounded-full flex items-center justify-center">
-                        <ArrowUpRight className="size-4 text-[#101828]" strokeWidth={3} />
-                      </div>
-                    </motion.button>
                   </div>
                 </div>
 

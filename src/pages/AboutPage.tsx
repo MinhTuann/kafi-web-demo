@@ -301,7 +301,7 @@ export default function AboutPage() {
         <TopBanner
           title="Cùng bạn xây dựng tương lai tài chính"
           background={
-            <div className="absolute h-full right-0 w-full">
+            <div className="absolute h-full right-0 w-[68%]">
               <img
                 src={heroImage}
                 alt="Kafi team"
@@ -411,7 +411,11 @@ export default function AboutPage() {
                   <ArrowUpRight className="text-[#00C694]" strokeWidth={2.5} size={32} />
                 </div>
                 <div className="mb-6 h-[92px] w-[92px]">
-                  <VisionIcon />
+                  <img 
+                    src="/kafi-web-demo/assets/vision-icon.png" 
+                    alt="Vision" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <h3 className="text-[40px] font-bold text-[#101828] mb-4 leading-[1.2]">
                   Tầm nhìn
@@ -431,7 +435,11 @@ export default function AboutPage() {
                   <ArrowUpRight className="text-[#00C694]" strokeWidth={2.5} size={32} />
                 </div>
                 <div className="mb-6 mt-8 h-[92px] w-[92px]">
-                  <MissionIcon />
+                  <img 
+                    src="/kafi-web-demo/assets/mission-icon.png" 
+                    alt="Mission" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <h3 className="text-[40px] font-bold text-[#101828] mb-4 leading-[1.2]">
                   Sứ mệnh
@@ -465,7 +473,7 @@ export default function AboutPage() {
                     <Card1Background />
                     {/* Floating Icon */}
                     <div className="size-[78px] bg-white rounded-[14px] flex items-center justify-center">
-                      <Database className="text-[#0B756E] size-[48px]" />
+                      <Database className="text-[#00C694] size-[48px]" />
                     </div>
                   </div>
                 </div>
@@ -486,7 +494,7 @@ export default function AboutPage() {
                     </div>
                     {/* Floating Icon Hexagon */}
                     <div className="size-[78px] bg-white flex items-center justify-center" style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}>
-                      <UserRound className="text-[#00C694] size-[32px]" />
+                      <UserRound className="text-[#00C694] size-[48px]" />
                     </div>
                   </div>
                 </div>
@@ -507,7 +515,7 @@ export default function AboutPage() {
                     </div>
                     {/* Floating Icon Circle */}
                     <div className="size-[78px] rounded-full bg-white flex items-center justify-center">
-                      <HandHeart className="text-[#00C694] size-[32px]" />
+                      <HandHeart className="text-[#00C694] size-[48px]" />
                     </div>
                   </div>
                 </div>
