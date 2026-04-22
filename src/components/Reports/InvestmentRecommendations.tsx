@@ -51,19 +51,17 @@ const RecommendationTable = () => {
 
   return (
     <div className="flex gap-8 items-stretch">
-      {/* Banner Graphic Placeholder */}
-      <div className="w-[410px] shrink-0 bg-white rounded-[40px] p-12 flex flex-col items-center justify-center relative overflow-hidden shadow-sm border border-gray-100">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#E7FCFF] via-[#DAFFE6] to-white opacity-50" />
-        <div className="relative z-10 text-center space-y-4">
+      {/* Banner Graphic Section */}
+      <div className="w-[410px] shrink-0 bg-white rounded-[40px] flex flex-col items-center justify-center relative overflow-hidden shadow-sm border border-gray-100">
+        <img 
+          src="/kafi-web-demo/assets/recommendations.png" 
+          alt="Recommendations Banner" 
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="relative z-10 text-center">
           <h2 className="text-[48px] font-bold leading-[1.1] text-[#101828]">
             Danh mục<br />khuyến nghị
           </h2>
-          {/* Decorative elements placeholders */}
-          <div className="mt-12 flex flex-col gap-4">
-             <div className="bg-white/80 backdrop-blur px-4 py-2 rounded-xl shadow-sm self-end translate-x-12">+12.99% ↗</div>
-             <div className="bg-white/80 backdrop-blur px-4 py-2 rounded-xl shadow-sm self-start -translate-x-12">+12.09% ↗</div>
-             <div className="bg-[#106070] text-white px-6 py-3 rounded-2xl shadow-lg self-end translate-x-8">+16.08% ↗</div>
-          </div>
         </div>
       </div>
 

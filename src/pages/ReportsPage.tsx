@@ -11,7 +11,7 @@ const heroSkyscrapers = "/kafi-web-demo/assets/reports/hero-sky-scrapers.png";
 
 export default function ReportsPage() {
   const [activeCategory, setActiveCategory] = useState(
-    "Báo cáo vĩ mô / chiến lược",
+    "Khuyến nghị đầu tư",
   );
 
   const reportCategories = [
