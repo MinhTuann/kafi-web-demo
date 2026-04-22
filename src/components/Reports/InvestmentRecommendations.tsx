@@ -1,5 +1,5 @@
 import { Search } from "lucide-react";
-import ActionButton from "../ActionButton";
+
 
 interface InvestmentRecommendationsProps {
   activeCategory: string;
@@ -120,7 +120,7 @@ const RecommendationTable = () => {
   );
 };
 
-const LatestReports = ({ activeCategory, setActiveCategory }: InvestmentRecommendationsProps) => {
+const LatestReports = ({ setActiveCategory }: { setActiveCategory: (category: string) => void }) => {
   const reports = [
     {
       id: 1,
@@ -368,7 +368,6 @@ export default function InvestmentRecommendations({
 
       {/* Section 3: Latest Reports (with Sidebar) */}
       <LatestReports 
-        activeCategory={activeCategory} 
         setActiveCategory={setActiveCategory} 
       />
 

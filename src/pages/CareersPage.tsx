@@ -10,8 +10,7 @@ import {
   LayoutGrid,
   Heart,
   Globe,
-  Star,
-  Plus
+  Star
 } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowUpRight, Check, ChevronLeft, ChevronRight } from "lucide-react";
 import SupportingInfo from "./SupportingInfo";
 
@@ -9,18 +9,11 @@ import SupportingInfo from "./SupportingInfo";
  */
 const FinancialServices = () => {
     const [activeMarginTab, setActiveMarginTab] = useState("Margin ưu đãi");
-    const [carouselIndex, setCarouselIndex] = useState(0);
 
-    const marginPlans = [
-        { name: "Margin T5", rate: "9%", desc: "Miễn lãi 5 ngày đầu tiên cho mọi khoản vay mới." },
-        { name: "Margin T10", rate: "5%", desc: "Lãi suất ưu đãi chỉ 5% trong 10 ngày đầu." },
-        { name: "Margin Standard", rate: "12%", desc: "Lãi suất ổn định, hạn mức cao cho nhà đầu tư chuyên nghiệp." },
-        { name: "Margin-S25", rate: "9.9%", desc: "Gói vay linh hoạt cho danh mục cổ phiếu VN30." },
-        { name: "Margin-Zero", rate: "0%", desc: "Miễn hoàn toàn lãi suất margin trong thời gian ưu đãi." },
-    ];
 
-    const nextSlide = () => setCarouselIndex((prev) => (prev + 1) % marginPlans.length);
-    const prevSlide = () => setCarouselIndex((prev) => (prev - 1 + marginPlans.length) % marginPlans.length);
+
+
+
 
     return (
         <div className="space-y-24">

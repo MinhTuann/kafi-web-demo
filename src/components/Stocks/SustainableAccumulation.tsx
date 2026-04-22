@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Check, Search } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 import ActionButton from "../ActionButton";
 import SupportingInfo from "./SupportingInfo";
 

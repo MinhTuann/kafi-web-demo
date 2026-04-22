@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { ArrowUpRight, Check, Monitor, Smartphone } from "lucide-react";
+
+import { ArrowUpRight } from "lucide-react";
 
 /**
  * TradingPlatforms component for the "Nền tảng giao dịch" tab.
