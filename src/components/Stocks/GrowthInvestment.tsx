@@ -51,9 +51,9 @@ const GrowthInvestment = () => {
             ].map((item, i) => (
               <div
                 key={i}
-                className="bg-white border border-gray-100 rounded-[48px] p-8 flex flex-col justify-between group cursor-pointer hover:shadow-xl transition-all"
+                className="bg-white border border-gray-100 rounded-[48px] p-8 flex flex-col items-center justify-between group cursor-pointer hover:shadow-xl transition-all"
               >
-                <h3 className="text-[32px] font-bold text-[#101828]">
+                <h3 className="text-[24px] font-bold text-[#101828] leading-tight text-center w-full">
                   {item.title}
                 </h3>
                 <div className="flex-1 flex items-center justify-center p-4">
@@ -74,7 +74,7 @@ const GrowthInvestment = () => {
                     <AnimatedProductIcon title={item.title} />
                   </motion.div>
                 </div>
-                <button className="h-12 px-6 rounded-full bg-[#101828] text-white font-bold flex items-center gap-2 self-start">
+                <button className="h-[44px] px-6 rounded-full bg-[#101828] text-white text-[16px] font-extralight flex items-center gap-2 hover:bg-[#073038] transition-all shadow-sm">
                   Tìm hiểu thêm
                   <ArrowUpRight className="size-4" />
                 </button>

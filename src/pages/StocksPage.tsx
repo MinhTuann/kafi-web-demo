@@ -4,6 +4,9 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Shortcut from "../components/Shortcut";
 import GrowthInvestment from "../components/Stocks/GrowthInvestment";
+import SustainableAccumulation from "../components/Stocks/SustainableAccumulation";
+import FinancialServices from "../components/Stocks/FinancialServices";
+import TradingPlatforms from "../components/Stocks/TradingPlatforms";
 
 
 export default function StocksPage() {
@@ -170,11 +173,11 @@ export default function StocksPage() {
                     }`}
                 >
                   {activeTab === tab.id ? (
-                    <div className="bg-[#073038] text-white p-1.5 rounded-full shrink-0 flex items-center justify-center">
+                    <div className="bg-[#073038] text-[#0AE685] p-1.5 rounded-full shrink-0 flex items-center justify-center">
                       {tab.icon}
                     </div>
                   ) : (
-                    <div className="text-[#667085] shrink-0">{tab.icon}</div>
+                    <div className="text-[#344054] shrink-0">{tab.icon}</div>
                   )}
                   {tab.id}
                 </button>
@@ -200,6 +203,9 @@ export default function StocksPage() {
 
           {/* Product Tab Content */}
           {activeTab === "Đầu tư tăng trưởng" && <GrowthInvestment />}
+          {activeTab === "Tích lũy bền vững" && <SustainableAccumulation />}
+          {activeTab === "Dịch vụ tài chính" && <FinancialServices />}
+          {activeTab === "Nền tảng giao dịch" && <TradingPlatforms />}
         </section>
       </main>
 

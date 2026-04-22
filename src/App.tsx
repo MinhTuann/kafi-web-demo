@@ -7,6 +7,8 @@ import AcademyPage from "./pages/AcademyPage";
 import AboutPage from "./pages/AboutPage";
 import ShareholderPage from "./pages/ShareholderPage";
 
+import CareersPage from "./pages/CareersPage";
+
 function App() {
   return (
     <HashRouter>
@@ -18,6 +20,7 @@ function App() {
         <Route path="/support" element={<SupportPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/shareholder" element={<ShareholderPage />} />
+        <Route path="/careers" element={<CareersPage />} />
       </Routes>
     </HashRouter>
   );
