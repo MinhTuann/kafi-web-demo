@@ -519,7 +519,7 @@ export default function CareersPage() {
                 {/* Left Side: Branded Image Card */}
                 <div className="lg:w-[450px] shrink-0 rounded-[40px] overflow-hidden relative group min-h-[500px]">
                   <img
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
+                    src="/kafi-web-demo/assets/recruitment.png"
                     alt="Join Kafi Team"
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
