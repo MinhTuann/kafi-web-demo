@@ -105,7 +105,7 @@ const RecommendationTable = () => {
                   <td className="py-4 text-right">
                     {row.report && (
                       <button className="bg-[#EBEFF5] px-3 py-1.5 rounded-full text-[12px] font-bold text-[#344054] hover:bg-[#106070] hover:text-white transition-all">
-                        Bản báo sạch
+                        Bản báo hạch
                       </button>
                     )}
                   </td>

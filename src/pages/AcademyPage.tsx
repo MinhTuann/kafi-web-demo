@@ -77,7 +77,7 @@ const AcademyPage: React.FC = () => {
         <TopBanner
           title="Học viện Kafi"
           background={
-            <div className="absolute h-full right-0 w-[65%] bg-red-500">
+            <div className="absolute h-full right-0 w-[65%]">
               <img
                 src={academyTopBanner}
                 alt=""

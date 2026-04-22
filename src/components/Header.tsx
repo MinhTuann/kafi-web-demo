@@ -215,13 +215,13 @@ const Header: React.FC = () => {
                             <div className="flex-1 flex flex-col gap-3 group hover:scale-[1.04] hover:shadow-[0_20px_50px_rgba(0,198,148,0.20)] rounded-2xl p-2 -m-2 transition-all duration-500 ease-out cursor-pointer">
                               <div className="w-[15vw] aspect-[16/9] rounded-2xl bg-gradient-to-br from-[#00c694] to-[#07756d] relative overflow-hidden flex items-center justify-center p-4">
                                 <img
-                                  src="assets/b9e79771ccb89cc036ab4d49b5e6a2d48890aced.png"
+                                  src="/kafi-web-demo/assets/b9e79771ccb89cc036ab4d49b5e6a2d48890aced.png"
                                   className="absolute bottom-0 -left-[5%] scale-120 object-contain"
                                   alt=""
                                 />
                                 <div className="size-16 bg-white rounded-2xl border-4 border-white shadow-xl z-10 overflow-hidden relative">
                                   <img
-                                    src="assets/1c663ab9879f4194549ab252d5415675f4bb6bfc.png"
+                                    src="/kafi-web-demo/assets/1c663ab9879f4194549ab252d5415675f4bb6bfc.png"
                                     className="size-full object-cover"
                                     alt="Kafi X"
                                   />
@@ -236,13 +236,13 @@ const Header: React.FC = () => {
                             <div className="flex-1 flex flex-col gap-3 group hover:scale-[1.04] hover:shadow-[0_20px_50px_rgba(0,198,148,0.20)] rounded-2xl p-2 -m-2 transition-all duration-500 ease-out cursor-pointer text-left">
                               <div className="w-[15vw] aspect-[16/9] rounded-2xl bg-gradient-to-br from-[#00c694] via-[#0ae685] to-[#c6ffd9] relative overflow-hidden p-0">
                                 <img
-                                  src="assets/b9e79771ccb89cc036ab4d49b5e6a2d48890aced.png"
+                                  src="/kafi-web-demo/assets/b9e79771ccb89cc036ab4d49b5e6a2d48890aced.png"
                                   className="absolute bottom-0 -left-[45%] scale-100 object-contain"
                                   alt=""
                                 />
                                 <div className="absolute top-[20%] -right-[30%] w-[120%] h-[120%] rounded-tl-lg border-[3px] border-[#17181b] overflow-hidden shadow-2xl">
                                   <img
-                                    src="assets/0f719e2cf6935a464d665bb5a26c98510cb40ef0.png"
+                                    src="/kafi-web-demo/assets/0f719e2cf6935a464d665bb5a26c98510cb40ef0.png"
                                     className="size-full object-cover"
                                     alt="Web Kafi"
                                   />
@@ -322,7 +322,7 @@ const Header: React.FC = () => {
                             <div className="flex-1 flex flex-col gap-4 group hover:scale-[1.04] hover:shadow-[0_20px_50px_rgba(0,198,148,0.20)] rounded-2xl p-2 -m-2 transition-all duration-500 ease-out cursor-pointer">
                               <div className="w-[15vw] aspect-[16/9] rounded-2xl overflow-hidden relative">
                                 <img
-                                  src="assets/02b38069d509285aeeaad2669c5d7d92948661a0.png"
+                                  src="/kafi-web-demo/assets/02b38069d509285aeeaad2669c5d7d92948661a0.png"
                                   className="w-full h-full object-cover"
                                   alt=""
                                 />
@@ -336,7 +336,7 @@ const Header: React.FC = () => {
                             <div className="flex-1 flex flex-col gap-4 group hover:scale-[1.04] hover:shadow-[0_20px_50px_rgba(0,198,148,0.20)] rounded-2xl p-2 -m-2 transition-all duration-500 ease-out cursor-pointer">
                               <div className="w-[15vw] aspect-[16/9] rounded-2xl overflow-hidden relative">
                                 <img
-                                  src="assets/6ac2d4f95d69cab064362cb6809d4a38ff609678.png"
+                                  src="/kafi-web-demo/assets/6ac2d4f95d69cab064362cb6809d4a38ff609678.png"
                                   className="w-full h-full object-cover"
                                   alt=""
                                 />
@@ -407,7 +407,7 @@ const Header: React.FC = () => {
                             <div className="flex-1 flex flex-col gap-4 group hover:scale-[1.04] hover:shadow-[0_20px_50px_rgba(0,198,148,0.20)] rounded-2xl p-2 -m-2 transition-all duration-500 ease-out cursor-pointer relative">
                               <div className="w-[15vw] aspect-[16/9] rounded-2xl overflow-hidden relative">
                                 <img
-                                  src="assets/2dd8f16344a87aef7872dd3d48f3e5a6973b2839.png"
+                                  src="/kafi-web-demo/assets/2dd8f16344a87aef7872dd3d48f3e5a6973b2839.png"
                                   className="w-full h-full object-cover"
                                   alt=""
                                 />
@@ -454,7 +454,7 @@ const Header: React.FC = () => {
                             <div className="flex-1 flex flex-col gap-4 group hover:scale-[1.04] hover:shadow-[0_20px_50px_rgba(0,198,148,0.20)] rounded-2xl p-2 -m-2 transition-all duration-500 ease-out cursor-pointer relative">
                               <div className="w-[15vw] aspect-[16/9] rounded-2xl overflow-hidden relative">
                                 <img
-                                  src="assets/e21fa82a2b755257e4cee2eae67bb41e385b1a5d.png"
+                                  src="/kafi-web-demo/assets/e21fa82a2b755257e4cee2eae67bb41e385b1a5d.png"
                                   className="w-full h-full object-cover"
                                   alt=""
                                 />

@@ -307,38 +307,38 @@ export default function CareersPage() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-12 grid-rows-2 gap-6 h-[700px]">
-                {/* Large Left Image */}
+              <div className="grid grid-cols-12 grid-rows-2 gap-6 h-auto lg:h-[824px]">
+                {/* Large Left Image - Kafi Office */}
                 <div className="col-span-12 lg:col-span-4 row-span-2 rounded-[32px] overflow-hidden group shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2069"
+                    src="/kafi-web-demo/assets/large-left.png"
                     alt="Kafi Modern Office"
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
                 </div>
                 
-                {/* Top Middle Image */}
-                <div className="col-span-6 lg:col-span-4 rounded-[32px] overflow-hidden group shadow-lg">
+                {/* Top Middle Image - Modern Workspace */}
+                <div className="col-span-6 lg:col-span-4 rounded-[32px] overflow-hidden group shadow-lg h-[400px]">
                   <img
-                    src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=2070"
-                    alt="Modern Workspace Close-up"
+                    src="/kafi-web-demo/assets/top-middle.png"
+                    alt="Modern Workspace"
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
                 </div>
 
-                {/* Top Right Image */}
-                <div className="col-span-6 lg:col-span-4 rounded-[32px] overflow-hidden group shadow-lg">
+                {/* Top Right Image - Team Collaboration */}
+                <div className="col-span-6 lg:col-span-4 rounded-[32px] overflow-hidden group shadow-lg h-[400px]">
                   <img
-                    src="https://images.unsplash.com/photo-1522071823991-b1b8324a6c8a?auto=format&fit=crop&q=80&w=2070"
+                    src="/kafi-web-demo/assets/top-right.png"
                     alt="Team Collaboration"
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
                 </div>
 
-                {/* Bottom Wide Image */}
-                <div className="col-span-12 lg:col-span-8 rounded-[32px] overflow-hidden group shadow-lg">
+                {/* Bottom Wide Image - Innovation Hub */}
+                <div className="col-span-12 lg:col-span-8 rounded-[32px] overflow-hidden group shadow-lg h-[400px]">
                   <img
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=2071"
+                    src="/kafi-web-demo/assets/bottom-wide.png"
                     alt="Innovation Hub"
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
@@ -356,69 +356,76 @@ export default function CareersPage() {
               </div>
 
               <div className="grid grid-cols-12 gap-6">
-                {/* Large Left Image with Overlay */}
-                <div className="col-span-12 lg:col-span-6 row-span-2 relative rounded-[32px] overflow-hidden group shadow-xl h-[600px] lg:h-auto">
+                {/* Large Left Image - Kafi Celebration */}
+                <div className="col-span-12 lg:col-span-6 row-span-2 relative rounded-[32px] overflow-hidden group shadow-xl h-[600px] lg:h-[685px]">
                   <img
-                    src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=2070"
+                    src="/kafi-web-demo/assets/kafi-celebration.png"
                     alt="Kafi Celebration"
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
 
                 {/* Right Top Grid */}
                 <div className="col-span-12 lg:col-span-6 grid grid-cols-2 gap-6 h-[300px]">
-                  <div className="relative rounded-[32px] overflow-hidden group shadow-lg">
+                  <div className="relative rounded-[32px] overflow-hidden group shadow-lg h-[330px]">
                     <img
-                      src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=2070"
+                      src="/kafi-web-demo/assets/team-building.png"
                       alt="Team Building"
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                      <div className="flex gap-2 items-start">
-                        <div className="text-[#00C694] shrink-0 mt-1">
-                          <svg width="16" height="12" viewBox="0 0 40 32" fill="currentColor">
-                            <path d="M0 0H36V32H18V64H0V0ZM48 0H84V32H66V64H48V0Z" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-[#101828]/60 backdrop-blur-md">
+                      <div className="flex gap-4 items-center">
+                        <div className="text-[#00C694] shrink-0">
+                          <svg width="37" height="36" viewBox="0 0 62 60" fill="none">
+                            <path d="M27.5718 59.4836H0V31.9118H13.7859V0H27.5718V59.4836Z" fill="currentColor"/>
+                            <path d="M57.5903 59.4836H30.0186V31.9118H43.8044V0H57.5903V59.4836Z" fill="currentColor"/>
                           </svg>
                         </div>
-                        <p className="text-white text-[12px] font-medium">Những dấu ấn được tạo nên từ hành trình cùng nhau</p>
+                        <p className="text-white text-[14px] font-medium leading-relaxed">
+                          Những dấu ấn được tạo nên từ hành trình cùng nhau
+                        </p>
                       </div>
                     </div>
                   </div>
-                  <div className="relative rounded-[32px] overflow-hidden group shadow-lg">
+                  <div className="relative rounded-[32px] overflow-hidden group shadow-lg h-[330px]">
                     <img
-                      src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&q=80&w=1974"
+                      src="/kafi-web-demo/assets/beach-event.png"
                       alt="Beach Event"
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                      <div className="flex gap-2 items-start">
-                        <div className="text-[#00C694] shrink-0 mt-1">
-                          <svg width="16" height="12" viewBox="0 0 40 32" fill="currentColor">
-                            <path d="M0 0H36V32H18V64H0V0ZM48 0H84V32H66V64H48V0Z" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-[#101828]/60 backdrop-blur-md">
+                      <div className="flex gap-4 items-center">
+                        <div className="text-[#00C694] shrink-0">
+                          <svg width="37" height="36" viewBox="0 0 62 60" fill="none">
+                            <path d="M27.5718 59.4836H0V31.9118H13.7859V0H27.5718V59.4836Z" fill="currentColor"/>
+                            <path d="M57.5903 59.4836H30.0186V31.9118H43.8044V0H57.5903V59.4836Z" fill="currentColor"/>
                           </svg>
                         </div>
-                        <p className="text-white text-[12px] font-medium">Các hoạt động gắn kết nội bộ & đào tạo</p>
+                        <p className="text-white text-[14px] font-medium leading-relaxed">
+                          Các hoạt động gắn kết nội bộ & đào tạo
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Right Middle Image */}
-                <div className="col-span-12 lg:col-span-6 relative rounded-[32px] overflow-hidden group shadow-lg h-[280px]">
+                <div className="col-span-12 lg:col-span-6 relative rounded-[32px] overflow-hidden group shadow-lg h-[330px]">
                   <img
-                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=2084"
-                    alt="TEAM Silhouettes"
+                    src="/kafi-web-demo/assets/right-middle.png"
+                    alt="TEAM Activities"
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                    <div className="flex gap-3 items-start">
-                      <div className="text-[#00C694] shrink-0 mt-1">
-                        <svg width="24" height="18" viewBox="0 0 40 32" fill="currentColor">
-                          <path d="M0 0H36V32H18V64H0V0ZM48 0H84V32H66V64H48V0Z" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-[#101828]/60 backdrop-blur-md">
+                    <div className="flex gap-4 items-center">
+                      <div className="text-[#00C694] shrink-0">
+                        <svg width="37" height="36" viewBox="0 0 62 60" fill="none">
+                          <path d="M27.5718 59.4836H0V31.9118H13.7859V0H27.5718V59.4836Z" fill="currentColor"/>
+                          <path d="M57.5903 59.4836H30.0186V31.9118H43.8044V0H57.5903V59.4836Z" fill="currentColor"/>
                         </svg>
                       </div>
-                      <p className="text-white text-[15px] font-medium max-w-[500px]">
+                      <p className="text-white text-[15px] font-medium leading-relaxed">
                         Chúng tôi là đội ngũ Kafi, nơi năng lực được ghi nhận và tạo ra các giá trị gắn kết, phát triển sự nghiệp.
                       </p>
                     </div>
@@ -428,7 +435,7 @@ export default function CareersPage() {
                 {/* Large Bottom Image */}
                 <div className="col-span-12 rounded-[32px] overflow-hidden group shadow-lg h-[400px] lg:h-[500px]">
                   <img
-                    src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=2070"
+                    src="/kafi-web-demo/assets/big-team.png"
                     alt="Big Team Group"
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   />

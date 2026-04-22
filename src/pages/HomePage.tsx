@@ -53,11 +53,11 @@ export default function HomePage() {
   const adSlides = [
     {
       id: "lixi",
-      image: "assets/ads-banner1.png",
+      image: "/kafi-web-demo/assets/ads-banner1.png",
     },
     {
       id: "partner",
-      image: "assets/ads-banner2.png",
+      image: "/kafi-web-demo/assets/ads-banner2.png",
     },
   ];
 
@@ -164,7 +164,7 @@ export default function HomePage() {
       {/* Full-screen background video */}
       <video
         className="fixed inset-0 w-full h-full object-cover z-0 pointer-events-none"
-        src="assets/video.mp4"
+        src="/kafi-web-demo/assets/video.mp4"
         autoPlay
         loop
         muted
@@ -648,13 +648,13 @@ export default function HomePage() {
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
               className="flex items-center p-5 rounded-[32px] border border-white/20 gap-3 bg-cover bg-center relative overflow-hidden"
               style={{
-                backgroundImage: "url('assets/home-kai-background.png')",
+                backgroundImage: "url('/kafi-web-demo/assets/home-kai-background.png')",
               }}
             >
               {/* Bot avatar character video */}
               <div className="size-[69px] flex-shrink-0 relative z-10 rounded-full overflow-hidden border-2 border-white/30 shadow-lg">
                 <video
-                  src="assets/Generate_Kai_Character_Video.mp4"
+                  src="/kafi-web-demo/assets/Generate_Kai_Character_Video.mp4"
                   autoPlay
                   loop
                   muted

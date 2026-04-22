@@ -17,14 +17,14 @@ const GrowthInvestment = () => {
             {/* Background Blurs */}
             <div className="absolute top-0 right-0 w-1/3 h-1/3">
               <img
-                src="assets/stocks-top-logo-blur.png"
+                src="/kafi-web-demo/assets/stocks-top-logo-blur.png"
                 alt=""
                 className="w-full h-full object-contain"
               />
             </div>
             <div className="absolute bottom-0 left-0 w-2/3 h-2/3">
               <img
-                src="assets/stocks-background-abstract.png"
+                src="/kafi-web-demo/assets/stocks-background-abstract.png"
                 alt=""
                 className="w-full h-full object-contain"
               />

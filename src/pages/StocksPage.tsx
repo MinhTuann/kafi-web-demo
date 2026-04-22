@@ -22,7 +22,7 @@ export default function StocksPage() {
           {/* Background Blurred Elements */}
           <div className="absolute inset-0 z-0">
             <img
-              src="assets/stocks-banner-section-background.png"
+              src="/kafi-web-demo/assets/stocks-banner-section-background.png"
               alt="Banner Background"
               className="w-full h-full object-cover"
             />
@@ -51,7 +51,7 @@ export default function StocksPage() {
                 className="absolute right-[20%] top-[15%] -translate-y-1/2 size-[280px] flex items-center justify-center p-0"
               >
                 <img
-                  src="assets/central-arrow.png"
+                  src="/kafi-web-demo/assets/central-arrow.png"
                   alt="Arrow Graphic"
                   className="size-full object-contain relative z-20 drop-shadow-[0_0_30px_rgba(255,255,255,0.4)]"
                 />
@@ -60,7 +60,7 @@ export default function StocksPage() {
               {/* Floating Coins - Arranged like Figma */}
               {/* Top coin */}
               <motion.img
-                src="assets/top-coin.png"
+                src="/kafi-web-demo/assets/top-coin.png"
                 initial={{ opacity: 0, y: 20, rotate: 10 }}
                 animate={{ opacity: 1, y: 0, rotate: 0 }}
                 transition={{ delay: 0.6, duration: 1 }}
@@ -68,7 +68,7 @@ export default function StocksPage() {
               />
               {/* Far right coin */}
               <motion.img
-                src="assets/right-coin.png"
+                src="/kafi-web-demo/assets/right-coin.png"
                 initial={{ opacity: 0, x: 20, rotate: -20 }}
                 animate={{ opacity: 1, x: 0, rotate: 15 }}
                 transition={{ delay: 0.7, duration: 1 }}
@@ -76,7 +76,7 @@ export default function StocksPage() {
               />
               {/* Bottom coin */}
               <motion.img
-                src="assets/botton-coin.png"
+                src="/kafi-web-demo/assets/botton-coin.png"
                 initial={{ opacity: 0, y: -20, rotate: -10 }}
                 animate={{ opacity: 1, y: 0, rotate: -5 }}
                 transition={{ delay: 0.8, duration: 1 }}
